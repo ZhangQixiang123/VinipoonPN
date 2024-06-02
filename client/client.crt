@@ -1,0 +1,136 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+        Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=fzjjs, CN=fzjjs/name=fzjjs/emailAddress=mail@host.domain
+        Validity
+            Not Before: May 31 15:58:07 2024 GMT
+            Not After : May 29 15:58:07 2034 GMT
+        Subject: C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=fzjjs, CN=client/name=fzjjs/emailAddress=mail@host.domain
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (4096 bit)
+                Modulus:
+                    00:cd:1c:31:53:f9:88:63:ba:d7:d4:5e:88:a9:a5:
+                    68:0e:e2:ff:c1:35:97:92:99:28:75:7a:56:38:78:
+                    ee:40:24:66:e4:72:87:dc:f3:2a:98:a2:ce:70:96:
+                    96:3a:ae:7c:51:ae:a1:35:5e:e3:66:8c:e7:df:94:
+                    2e:f6:d4:12:14:3f:1b:a3:8a:6e:40:ac:21:85:ce:
+                    b7:5d:61:a6:08:a6:44:5e:df:e7:5e:57:4a:4d:30:
+                    20:7c:ee:dc:8d:8c:16:0f:96:50:7e:9f:a6:76:e8:
+                    18:9a:62:25:6f:13:75:5f:4b:40:56:f3:47:0d:06:
+                    9f:be:32:af:ba:2d:b1:de:67:bc:39:e4:98:e1:70:
+                    5b:fc:fc:88:55:c7:91:23:f4:a1:8d:51:88:fb:63:
+                    65:0e:65:84:23:a1:61:77:5e:c5:4f:88:0e:cd:6f:
+                    82:03:1a:23:35:25:7f:f6:50:7c:e9:96:f2:bb:31:
+                    63:7f:79:63:9e:93:97:f8:cb:17:f7:9c:07:7c:6f:
+                    c2:ad:0a:7d:be:97:40:6e:56:33:9e:23:d5:2e:0f:
+                    b7:1b:26:38:10:9b:26:b0:01:2b:37:ed:68:85:48:
+                    d9:e6:14:5c:ce:0e:8f:9b:ba:22:a0:67:cf:e2:b3:
+                    6b:6b:30:ce:1c:a4:9a:d4:31:5e:47:ce:c2:32:e9:
+                    de:63:f6:63:5d:90:db:18:10:98:50:d4:af:25:bc:
+                    5b:68:d8:e9:83:8b:9b:3b:72:12:8f:57:e7:74:88:
+                    e0:6a:66:94:0f:94:02:23:de:2d:ca:a5:3d:4e:85:
+                    f7:4f:b1:08:61:7f:62:a9:58:47:46:b7:33:35:84:
+                    a9:7a:a9:9c:41:6f:de:1b:f9:c3:46:f7:3b:be:b9:
+                    43:15:93:c4:b0:df:24:82:36:ae:b1:ec:41:57:bb:
+                    08:45:8c:00:68:f0:c5:77:d1:71:5c:95:50:f4:f1:
+                    22:9c:c0:83:df:e8:81:47:7f:67:23:a4:3f:6a:08:
+                    73:40:8d:6b:11:c3:60:19:61:09:0e:ff:97:db:66:
+                    8a:8a:ba:ec:d7:00:0e:60:96:ad:41:a8:f0:ce:e0:
+                    b3:64:78:4f:5e:a6:5d:4f:1f:c1:03:85:ad:a9:8a:
+                    94:e6:24:b0:e8:a0:7d:4b:b0:80:7a:58:54:0a:6b:
+                    dc:22:96:11:f5:97:05:5c:f1:ab:51:61:6b:92:2e:
+                    e3:ee:10:a2:99:61:57:73:0b:9b:51:78:d2:c9:e8:
+                    47:82:69:f3:ae:23:5e:6a:0c:33:21:b1:2f:6d:9e:
+                    76:8a:54:fc:38:71:90:57:60:74:f9:b4:a8:c6:40:
+                    0b:23:32:42:16:ca:86:3c:8e:eb:33:80:04:f6:57:
+                    56:0d:93
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                Easy-RSA Generated Certificate
+            X509v3 Subject Key Identifier: 
+                F7:A2:C2:55:44:2D:C0:C2:09:99:A0:00:10:CB:7F:C7:D2:43:1B:C1
+            X509v3 Authority Key Identifier: 
+                keyid:80:33:ED:9C:AC:51:E8:49:9D:8A:21:68:6A:46:A7:1D:70:12:03:C0
+                DirName:/C=US/ST=CA/L=SanFrancisco/O=Fort-Funston/OU=fzjjs/CN=fzjjs/name=fzjjs/emailAddress=mail@host.domain
+                serial:0F:D0:15:B7:19:17:67:46:6B:46:27:F4:2D:6E:1F:1A:AD:A9:56:12
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature
+    Signature Algorithm: sha1WithRSAEncryption
+    Signature Value:
+        70:ed:80:0a:e6:06:54:31:9c:79:2b:52:b1:94:2f:bc:ff:4b:
+        82:f7:9c:af:40:91:b5:68:cb:f7:22:3e:8f:b8:19:3b:eb:41:
+        4e:ca:99:ca:c6:c3:fd:9f:f6:82:9f:82:fc:b8:98:82:09:49:
+        33:04:92:43:51:e5:f3:93:37:72:d4:23:67:7d:c6:3d:2c:f6:
+        f4:4b:b0:e0:44:59:f7:92:67:d5:89:4d:00:cd:3d:b2:80:42:
+        98:d4:bf:6c:0e:b4:47:e5:89:53:74:bf:db:04:77:15:20:42:
+        49:54:5f:33:57:1a:21:48:e2:4c:c2:aa:04:6e:37:79:28:0a:
+        da:6b:7f:dd:0a:9f:22:a7:78:db:12:a8:c3:ac:92:91:42:78:
+        86:36:66:4d:a0:86:8e:29:67:6d:02:8a:4e:d7:4c:90:5e:78:
+        d2:ab:f7:34:ac:74:ae:0b:51:93:93:bc:2d:5c:b9:3f:83:46:
+        20:bf:87:8f:55:b0:ad:c7:46:52:83:af:02:9a:74:f0:63:2d:
+        9a:b8:a5:aa:09:ef:6d:f3:84:63:a0:06:40:26:bc:89:ce:6a:
+        93:92:81:8a:a3:37:5c:1f:d7:5b:9b:37:ae:c9:43:a4:22:04:
+        ce:2b:63:81:6c:e5:4e:03:c4:64:7e:80:d3:06:d7:87:10:ab:
+        c7:0a:02:9c:8b:0c:3f:d9:ce:33:63:93:8d:9f:d5:b7:a3:06:
+        99:9a:3a:ac:07:af:b5:e8:46:ec:c8:8d:1b:f1:43:af:60:5e:
+        61:19:15:ba:9f:ce:d5:8d:2f:0e:7e:94:de:b5:69:7e:62:9b:
+        18:0f:90:cd:aa:2b:37:d0:73:65:d6:a9:77:78:bb:2b:62:b8:
+        e3:7b:aa:5b:52:9b:e5:50:3a:ad:15:5d:8e:74:24:84:f7:72:
+        97:84:3a:4d:77:02:cb:2c:4f:92:5f:88:ee:92:e6:bc:68:6a:
+        04:67:70:49:cc:d7:b1:82:3a:8b:81:f2:8d:f6:c2:06:01:e7:
+        5b:82:89:69:92:dd:78:f2:05:90:35:b4:06:d7:87:a0:46:a6:
+        2f:6a:e8:0f:4d:2c:cd:9f:3a:c0:9c:b9:ea:95:20:06:58:62:
+        1a:d3:0b:6c:a7:db:fb:37:ee:1c:17:dd:37:9c:7e:07:a8:6a:
+        29:6a:b7:00:5f:ff:58:aa:71:a8:ea:2b:6c:5f:f1:57:5b:bb:
+        0c:5f:3a:64:f4:d3:4c:35:f8:ba:1d:ab:12:1b:95:84:4b:f0:
+        93:8d:08:0b:ee:fb:0b:fe:1d:a7:0d:91:f1:fc:2a:9a:ac:68:
+        92:82:df:54:a3:3c:a3:ca:e1:4c:80:82:e3:f0:e4:79:0e:00:
+        12:54:21:9d:62:8b:41:42
+-----BEGIN CERTIFICATE-----
+MIIHDTCCBPWgAwIBAgIBAjANBgkqhkiG9w0BAQUFADCBmTELMAkGA1UEBhMCVVMx
+CzAJBgNVBAgTAkNBMRUwEwYDVQQHEwxTYW5GcmFuY2lzY28xFTATBgNVBAoTDEZv
+cnQtRnVuc3RvbjEOMAwGA1UECxMFZnpqanMxDjAMBgNVBAMTBWZ6ampzMQ4wDAYD
+VQQpEwVmempqczEfMB0GCSqGSIb3DQEJARYQbWFpbEBob3N0LmRvbWFpbjAeFw0y
+NDA1MzExNTU4MDdaFw0zNDA1MjkxNTU4MDdaMIGaMQswCQYDVQQGEwJVUzELMAkG
+A1UECBMCQ0ExFTATBgNVBAcTDFNhbkZyYW5jaXNjbzEVMBMGA1UEChMMRm9ydC1G
+dW5zdG9uMQ4wDAYDVQQLEwVmempqczEPMA0GA1UEAxMGY2xpZW50MQ4wDAYDVQQp
+EwVmempqczEfMB0GCSqGSIb3DQEJARYQbWFpbEBob3N0LmRvbWFpbjCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBAM0cMVP5iGO619ReiKmlaA7i/8E1l5KZ
+KHV6Vjh47kAkZuRyh9zzKpiiznCWljqufFGuoTVe42aM59+ULvbUEhQ/G6OKbkCs
+IYXOt11hpgimRF7f515XSk0wIHzu3I2MFg+WUH6fpnboGJpiJW8TdV9LQFbzRw0G
+n74yr7otsd5nvDnkmOFwW/z8iFXHkSP0oY1RiPtjZQ5lhCOhYXdexU+IDs1vggMa
+IzUlf/ZQfOmW8rsxY395Y56Tl/jLF/ecB3xvwq0Kfb6XQG5WM54j1S4PtxsmOBCb
+JrABKzftaIVI2eYUXM4Oj5u6IqBnz+Kza2swzhykmtQxXkfOwjLp3mP2Y12Q2xgQ
+mFDUryW8W2jY6YOLmztyEo9X53SI4GpmlA+UAiPeLcqlPU6F90+xCGF/YqlYR0a3
+MzWEqXqpnEFv3hv5w0b3O765QxWTxLDfJII2rrHsQVe7CEWMAGjwxXfRcVyVUPTx
+IpzAg9/ogUd/ZyOkP2oIc0CNaxHDYBlhCQ7/l9tmioq67NcADmCWrUGo8M7gs2R4
+T16mXU8fwQOFramKlOYksOigfUuwgHpYVApr3CKWEfWXBVzxq1Fha5Iu4+4Qoplh
+V3MLm1F40snoR4Jp864jXmoMMyGxL22edopU/DhxkFdgdPm0qMZACyMyQhbKhjyO
+6zOABPZXVg2TAgMBAAGjggFbMIIBVzAJBgNVHRMEAjAAMC0GCWCGSAGG+EIBDQQg
+Fh5FYXN5LVJTQSBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFPeiwlVE
+LcDCCZmgABDLf8fSQxvBMIHZBgNVHSMEgdEwgc6AFIAz7ZysUehJnYohaGpGpx1w
+EgPAoYGfpIGcMIGZMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFTATBgNVBAcT
+DFNhbkZyYW5jaXNjbzEVMBMGA1UEChMMRm9ydC1GdW5zdG9uMQ4wDAYDVQQLEwVm
+empqczEOMAwGA1UEAxMFZnpqanMxDjAMBgNVBCkTBWZ6ampzMR8wHQYJKoZIhvcN
+AQkBFhBtYWlsQGhvc3QuZG9tYWlughQP0BW3GRdnRmtGJ/Qtbh8aralWEjATBgNV
+HSUEDDAKBggrBgEFBQcDAjALBgNVHQ8EBAMCB4AwDQYJKoZIhvcNAQEFBQADggIB
+AHDtgArmBlQxnHkrUrGUL7z/S4L3nK9AkbVoy/ciPo+4GTvrQU7KmcrGw/2f9oKf
+gvy4mIIJSTMEkkNR5fOTN3LUI2d9xj0s9vRLsOBEWfeSZ9WJTQDNPbKAQpjUv2wO
+tEfliVN0v9sEdxUgQklUXzNXGiFI4kzCqgRuN3koCtprf90KnyKneNsSqMOskpFC
+eIY2Zk2gho4pZ20Cik7XTJBeeNKr9zSsdK4LUZOTvC1cuT+DRiC/h49VsK3HRlKD
+rwKadPBjLZq4paoJ723zhGOgBkAmvInOapOSgYqjN1wf11ubN67JQ6QiBM4rY4Fs
+5U4DxGR+gNMG14cQq8cKApyLDD/ZzjNjk42f1bejBpmaOqwHr7XoRuzIjRvxQ69g
+XmEZFbqfztWNLw5+lN61aX5imxgPkM2qKzfQc2XWqXd4uytiuON7qltSm+VQOq0V
+XY50JIT3cpeEOk13AsssT5JfiO6S5rxoagRncEnM17GCOouB8o32wgYB51uCiWmS
+3XjyBZA1tAbXh6BGpi9q6A9NLM2fOsCcueqVIAZYYhrTC2yn2/s37hwX3Tecfgeo
+ailqtwBf/1iqcajqK2xf8VdbuwxfOmT000w1+LodqxIblYRL8JONCAvu+wv+HacN
+kfH8KpqsaJKC31SjPKPK4UyAguPw5HkOABJUIZ1ii0FC
+-----END CERTIFICATE-----
