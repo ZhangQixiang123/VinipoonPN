@@ -69,3 +69,43 @@ The two essential components of a VPN are the encrypted tunnel and the server. F
 - Deploy the application to production servers.
 - Set up monitoring and logging for ongoing maintenance.
 
+### How to test it
+*Because we use linux to develop this, if you are using windows and want to follow this guide, you may use wsl by running. And you need two computer to test it out, one as a client and one as a server*
+```bash
+wsl --install
+```
+
+1. **Installing OpenVPN**
+run
+```bash
+sudo apt install openvpn
+```
+
+2. **Go to project folder**
+```bash
+sudo su
+cd ../etc/openvpn
+```
+
+3. **Download the configuration files**
+For the computer as a server, download all files in /server at github page to the /server in your computer. Vice Versa for client.
+
+4. **Modify the remote address in client.conf**
+run 
+```bash
+vim client.conf
+```
+look at line 42, modify the ip address into your public IP address
+
+5. **Run**
+run
+```bash
+openvpn server.conf
+```
+on server
+then run 
+```bash
+openvpn client.conf
+```
+on client.
+If you meet TLS error, it may because your networks (ie NUS network) block the VPN protocol, you need to use net tool like tailscale to address this.
