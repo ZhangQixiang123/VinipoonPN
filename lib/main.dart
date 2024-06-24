@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:vinipoo_p_n/pages/HomePage.dart';
 import 'generated/l10n.dart';
-import 'pages/LoginPage.dart';
+// import 'pages/LoginPage.dart';
 
 void main() {
   var locale = Locale.fromSubtags(languageCode: 'en');
