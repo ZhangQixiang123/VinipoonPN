@@ -1,0 +1,32 @@
+{
+    "str_self": "中文（简体）",
+    
+    "str_home": "首页",
+    "str_lang": "语言",
+    "str_setting": "设置",
+    "str_about_us": "关于我们",
+    "str_about": "关于",
+    "str_profile": "个人资料",
+    
+    "str_sign_in": "登录",
+    "str_sign_up": "注册",
+    "str_logout": "登出",
+    "str_no_account": "没有账号？",
+    "str_have_account": "已经有账号？",
+
+    "str_email": "电子邮件",
+    "str_password": "密码",
+
+    "str_connect": "连接",
+    "str_disconnect": "断开",
+    "str_select_server": "选择一个VPN服务器",
+    "str_server_exists": "服务器名称已存在！",
+    
+    "str_add_server": "添加服务器",
+    "str_server_name": "服务器名称",
+    "str_server_configuration": "服务器配置（JSON）（目前仅支持v2ray）",
+    "str_save": "保存",
+    "str_fill_blank": "请填写所有字段",
+
+    "str_select_lang": "选择语言"
+}

@@ -1,0 +1,32 @@
+{
+    "str_self": "中文（繁體）",
+
+    "str_home": "首頁",
+    "str_lang": "語言",
+    "str_setting": "設置",
+    "str_about_us": "關於我們",
+    "str_about": "關於",
+    "str_profile": "個人資料",
+    
+    "str_sign_in": "登錄",
+    "str_sign_up": "註冊",
+    "str_logout": "登出",
+    "str_no_account": "沒有帳號？",
+    "str_have_account": "已經有帳號？",
+
+    "str_email": "電子郵件",
+    "str_password": "密碼",
+
+    "str_connect": "連接",
+    "str_disconnect": "斷開",
+    "str_select_server": "選擇一個VPN伺服器",
+    "str_server_exists": "伺服器名稱已存在！",
+    
+    "str_add_server": "添加伺服器",
+    "str_server_name": "伺服器名稱",
+    "str_server_configuration": "伺服器配置（JSON）（目前僅支持v2ray）",
+    "str_save": "保存",
+    "str_fill_blank": "請填寫所有字段",
+
+    "str_select_lang": "選擇語言"
+}

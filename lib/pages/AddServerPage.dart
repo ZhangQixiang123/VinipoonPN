@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
+
 class AddServerPage extends StatefulWidget {
   final Function(String, String) onSave;
 
@@ -10,6 +12,14 @@ class AddServerPage extends StatefulWidget {
 }
 
 class _AddServerPageState extends State<AddServerPage> {
+
+  late S lang;
+  _updateLang() async {
+    AppLocalizationDelegate delegate = const AppLocalizationDelegate();
+    Locale myLocale = Localizations.localeOf(context);
+    lang = await delegate.load(myLocale);
+  }
+
   final TextEditingController _serverNameController = TextEditingController();
   final TextEditingController _serverConfigController = TextEditingController();
 
@@ -22,25 +32,27 @@ class _AddServerPageState extends State<AddServerPage> {
       Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please fill out all fields')),
+        SnackBar(content: Text(lang.str_fill_blank)),
       );
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    _updateLang();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Server'),
+        title: Text(lang.str_add_server),
+        backgroundColor: Color.fromARGB(214, 234, 221, 255),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: <Widget>[
             TextField(
               controller: _serverNameController,
               decoration: InputDecoration(
-                labelText: 'Server Name',
+                labelText: lang.str_server_name,
                 border: OutlineInputBorder(),
               ),
             ),
@@ -48,7 +60,7 @@ class _AddServerPageState extends State<AddServerPage> {
             TextField(
               controller: _serverConfigController,
               decoration: InputDecoration(
-                labelText: 'Server Configuration (JSON) (v2ray only now)',
+                labelText: lang.str_server_configuration,
                 border: OutlineInputBorder(),
               ),
               maxLines: 10,
@@ -56,7 +68,7 @@ class _AddServerPageState extends State<AddServerPage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: _saveServer,
-              child: Text('Save'),
+              child: Text(lang.str_save),
             ),
           ],
         ),

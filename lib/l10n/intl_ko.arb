@@ -1,0 +1,33 @@
+{
+    "str_self": "한국어",
+   
+    "str_home": "집",
+    "str_lang": "언어",
+    "str_setting": "설정",
+    "str_about_us": "회사 소개",
+    "str_about": "정보",
+    "str_profile": "프로필",
+   
+    "str_sign_in": "로그인",
+    "str_sign_up": "가입",
+    "str_logout": "로그아웃",
+    "str_no_account": "계정이 없나요?",
+    "str_have_account": "이미 계정이 있나요?",
+   
+    "str_email": "이메일",
+    "str_password": "비밀번호",
+   
+    "str_connect": "연결",
+    "str_disconnect": "연결 끊기",
+    "str_select_server": "VPN 서버 선택",
+    "str_server_exists": "서버 이름이 이미 존재합니다!",
+   
+   
+    "str_add_server": "서버 추가",
+    "str_server_name": "서버 이름",
+    "str_server_configuration": "서버 구성(JSON)(현재 v2ray만 해당)",
+    "str_save": "저장",
+    "str_fill_blank": "모든 필드를 작성해 주세요",
+   
+    "str_select_lang": "언어 선택"
+   }

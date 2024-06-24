@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vinipoo_p_n/generated/l10n.dart';
 
 import 'AboutPage.dart';
 import 'SettingPage.dart';
@@ -14,10 +15,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   bool _isHovering = false;
-  String _selectedLanguage = 'English';
+
+  late S lang;
+  _updateLang() async {
+    AppLocalizationDelegate delegate = const AppLocalizationDelegate();
+    Locale myLocale = Localizations.localeOf(context);
+    lang = await delegate.load(myLocale);
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    _updateLang();
     Widget page;
     switch (_selectedIndex) {
       case 0:
@@ -26,16 +35,10 @@ class _HomePageState extends State<HomePage> {
       case 1:
         page = SettingsPage(
           email: widget.email,
-          selectedLanguage: _selectedLanguage,
-          onLanguageChanged: (newLanguage) {
-            setState(() {
-              _selectedLanguage = newLanguage;
-            });
-          },
         );
         break;
       case 2:
-        page = AboutPage(selectedLanguage: _selectedLanguage);
+        page = AboutPage();
         break;
       default:
         throw UnimplementedError('no widget for $_selectedIndex');
@@ -63,15 +66,15 @@ class _HomePageState extends State<HomePage> {
                     destinations: [
                       NavigationRailDestination(
                         icon: Icon(Icons.home),
-                        label: Text(_selectedLanguage == 'English' ? 'Home' : '主页'),
+                        label: Text(lang.str_home),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.settings),
-                        label: Text(_selectedLanguage == 'English' ? 'Settings' : '设置'),
+                        label: Text(lang.str_setting),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.info),
-                        label: Text(_selectedLanguage == 'English' ? 'About' : '关于我们'),
+                        label: Text(lang.str_about),
                       ),
                     ],
                     selectedIndex: _selectedIndex,
@@ -87,7 +90,8 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: Container(
-                color: Theme.of(context).colorScheme.primaryContainer,
+                // color: Theme.of(context).colorScheme.primaryContainer,
+                color: Color.fromARGB(214, 234, 221, 255),
                 child: page,
               ),
             ),

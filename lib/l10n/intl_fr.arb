@@ -1,0 +1,32 @@
+{
+    "str_self": "Français",
+    
+    "str_home": "Accueil",
+    "str_lang": "Langue",
+    "str_setting": "Paramètre",
+    "str_about_us": "À propos de nous",
+    "str_about": "À propos",
+    "str_profile": "Profil",
+    
+    "str_sign_in": "Se connecter",
+    "str_sign_up": "S'inscrire",
+    "str_logout": "Se déconnecter",
+    "str_no_account": "Pas de compte ?",
+    "str_have_account": "Vous avez déjà un compte ?",
+
+    "str_email": "Email",
+    "str_password": "Mot de passe",
+
+    "str_connect": "Connecter",
+    "str_disconnect": "Déconnecter",
+    "str_select_server": "Sélectionner un serveur VPN",
+    "str_server_exists": "Le nom du serveur existe déjà !",
+    
+    "str_add_server": "Ajouter un serveur",
+    "str_server_name": "Nom du serveur",
+    "str_server_configuration": "Configuration du serveur (JSON) (v2ray uniquement pour l'instant)",
+    "str_save": "Sauvegarder",
+    "str_fill_blank": "Veuillez remplir tous les champs",
+
+    "str_select_lang": "Choisir la langue"
+}

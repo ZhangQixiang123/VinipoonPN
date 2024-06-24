@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:vinipoo_p_n/generated/l10n.dart';
 
-class AboutPage extends StatelessWidget {
-  final String selectedLanguage;
+class AboutPage extends StatefulWidget {
 
-  const AboutPage({required this.selectedLanguage, super.key});
+  const AboutPage({super.key});
+
+  @override
+  State<AboutPage> createState() => _AboutPageState();
+}
+
+class _AboutPageState extends State<AboutPage> {
+
+  late S lang;
+  _updateLang() async {
+    AppLocalizationDelegate delegate = const AppLocalizationDelegate();
+    Locale myLocale = Localizations.localeOf(context);
+    lang = await delegate.load(myLocale);
+  }
 
   @override
   Widget build(BuildContext context) {
+    _updateLang();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -21,9 +35,7 @@ class AboutPage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    selectedLanguage == 'English'
-                        ? 'About VinipooPN'
-                        : '关于VinipooPN',
+                    lang.str_about_us,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -31,9 +43,7 @@ class AboutPage extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    selectedLanguage == 'English'
-                        ? 'VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security.'
-                        : 'VinipooPN是一项安全可靠的VPN服务，旨在保护您的在线隐私并确保快速稳定的连接。我们的服务器遍布全球，为您提供最佳的速度和安全性。',
+                    'VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,

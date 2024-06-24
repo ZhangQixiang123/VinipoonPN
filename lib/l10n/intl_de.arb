@@ -1,0 +1,32 @@
+{
+    "str_self": "Deutsch",
+    
+    "str_home": "Startseite",
+    "str_lang": "Sprache",
+    "str_setting": "Einstellungen",
+    "str_about_us": "Über uns",
+    "str_about": "Über",
+    "str_profile": "Profil",
+    
+    "str_sign_in": "Anmelden",
+    "str_sign_up": "Registrieren",
+    "str_logout": "Abmelden",
+    "str_no_account": "Kein Konto?",
+    "str_have_account": "Bereits ein Konto?",
+
+    "str_email": "Email",
+    "str_password": "Passwort",
+
+    "str_connect": "Verbinden",
+    "str_disconnect": "Trennen",
+    "str_select_server": "VPN-Server auswählen",
+    "str_server_exists": "Servername existiert bereits!",
+    
+    "str_add_server": "Server hinzufügen",
+    "str_server_name": "Servername",
+    "str_server_configuration": "Serverkonfiguration (JSON) (nur v2ray derzeit)",
+    "str_save": "Speichern",
+    "str_fill_blank": "Bitte füllen Sie alle Felder aus",
+
+    "str_select_lang": "Sprache auswählen"
+}

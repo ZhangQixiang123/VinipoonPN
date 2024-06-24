@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
+import '../generated/l10n.dart';
+
+class ProfilePage extends StatefulWidget {
   final String email;
   final VoidCallback onLogout;
 
   ProfilePage({required this.email, required this.onLogout, super.key});
 
   @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  late S lang;
+
+  _updateLang() async {
+    AppLocalizationDelegate delegate = const AppLocalizationDelegate();
+    Locale myLocale = Localizations.localeOf(context);
+    lang = await delegate.load(myLocale);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    _updateLang();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: Text(lang.str_profile),
+        backgroundColor: Color.fromARGB(214, 234, 221, 255),
       ),
       body: Padding(
           padding: const EdgeInsets.all(50.0),
@@ -26,7 +43,7 @@ class ProfilePage extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       Text(
-                        'Profile',
+                        lang.str_profile,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -35,13 +52,13 @@ class ProfilePage extends StatelessWidget {
                       SizedBox(height: 20),
                       ListTile(
                         leading: Icon(Icons.email),
-                        title: Text('Email'),
-                        subtitle: Text(email),
+                        title: Text(lang.str_email),
+                        subtitle: Text(widget.email),
                       ),
                       SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: onLogout,
-                        child: Text('Logout'),
+                        onPressed: widget.onLogout,
+                        child: Text(lang.str_logout),
                       ),
                     ],
                   ),

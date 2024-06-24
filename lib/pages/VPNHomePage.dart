@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 
+import '../generated/l10n.dart';
 import 'AddServerPage.dart';
 
 class VPNHomePage extends StatefulWidget {
@@ -11,6 +12,13 @@ class VPNHomePage extends StatefulWidget {
 }
 
 class _VPNHomePageState extends State<VPNHomePage> {
+  late S lang;
+  _updateLang() async {
+    AppLocalizationDelegate delegate = const AppLocalizationDelegate();
+    Locale myLocale = Localizations.localeOf(context);
+    lang = await delegate.load(myLocale);
+  }
+  
   String _selectedServer = '(None)';
   bool _isConnected = false;
   Process? _v2rayProcess;
@@ -42,7 +50,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
   void _addServer(String serverName, String serverConfig) async {
     if (_servers.contains(serverName)) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Server name already exists!')),
+        SnackBar(content: Text(lang.str_server_exists)),
       );
       return;
     }
@@ -71,6 +79,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    _updateLang();
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -89,7 +98,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
                   child: Column(
                     children: <Widget>[
                       Text(
-                        'Select VPN Server',
+                        lang.str_select_server,
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -147,7 +156,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
                               onPressed:
                                   _selectedServer == '(None)' ? null : _disconnectVPN,
                               icon: Icon(Icons.link_off),
-                              label: Text('Disconnect'),
+                              label: Text(lang.str_disconnect),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.red,
                                 textStyle: TextStyle(fontSize: 18),
@@ -156,7 +165,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
                           : ElevatedButton.icon(
                               onPressed: _selectedServer == '(None)' ? null : _connectVPN,
                               icon: Icon(Icons.link),
-                              label: Text('Connect'),
+                              label: Text(lang.str_connect),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.green,
                                 textStyle: TextStyle(fontSize: 18),

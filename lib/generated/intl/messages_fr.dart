@@ -1,0 +1,60 @@
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// This is a library that provides messages for a fr locale. All the
+// messages from the main program should be duplicated here with the same
+// function name.
+
+// Ignore issues from commonly used lints in this file.
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
+// ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
+// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
+
+import 'package:intl/intl.dart';
+import 'package:intl/message_lookup_by_library.dart';
+
+final messages = new MessageLookup();
+
+typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
+
+class MessageLookup extends MessageLookupByLibrary {
+  String get localeName => 'fr';
+
+  final messages = _notInlinedMessages(_notInlinedMessages);
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "str_about": MessageLookupByLibrary.simpleMessage("À propos"),
+        "str_about_us":
+            MessageLookupByLibrary.simpleMessage("À propos de nous"),
+        "str_add_server":
+            MessageLookupByLibrary.simpleMessage("Ajouter un serveur"),
+        "str_connect": MessageLookupByLibrary.simpleMessage("Connecter"),
+        "str_disconnect": MessageLookupByLibrary.simpleMessage("Déconnecter"),
+        "str_email": MessageLookupByLibrary.simpleMessage("Email"),
+        "str_fill_blank": MessageLookupByLibrary.simpleMessage(
+            "Veuillez remplir tous les champs"),
+        "str_have_account":
+            MessageLookupByLibrary.simpleMessage("Vous avez déjà un compte ?"),
+        "str_home": MessageLookupByLibrary.simpleMessage("Accueil"),
+        "str_lang": MessageLookupByLibrary.simpleMessage("Langue"),
+        "str_logout": MessageLookupByLibrary.simpleMessage("Se déconnecter"),
+        "str_no_account":
+            MessageLookupByLibrary.simpleMessage("Pas de compte ?"),
+        "str_password": MessageLookupByLibrary.simpleMessage("Mot de passe"),
+        "str_profile": MessageLookupByLibrary.simpleMessage("Profil"),
+        "str_save": MessageLookupByLibrary.simpleMessage("Sauvegarder"),
+        "str_select_lang":
+            MessageLookupByLibrary.simpleMessage("Choisir la langue"),
+        "str_select_server":
+            MessageLookupByLibrary.simpleMessage("Sélectionner un serveur VPN"),
+        "str_self": MessageLookupByLibrary.simpleMessage("Français"),
+        "str_server_configuration": MessageLookupByLibrary.simpleMessage(
+            "Configuration du serveur (JSON) (v2ray uniquement pour l\'instant)"),
+        "str_server_exists": MessageLookupByLibrary.simpleMessage(
+            "Le nom du serveur existe déjà !"),
+        "str_server_name":
+            MessageLookupByLibrary.simpleMessage("Nom du serveur"),
+        "str_setting": MessageLookupByLibrary.simpleMessage("Paramètre"),
+        "str_sign_in": MessageLookupByLibrary.simpleMessage("Se connecter"),
+        "str_sign_up": MessageLookupByLibrary.simpleMessage("S\'inscrire")
+      };
+}

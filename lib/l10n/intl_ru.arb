@@ -1,0 +1,33 @@
+{
+    "str_self": "Русский",
+   
+    "str_home": "Дом",
+    "str_lang": "Язык",
+    "str_setting": "Настройка",
+    "str_about_us": "О нас",
+    "str_about": "О программе",
+    "str_profile": "Профиль",
+   
+    "str_sign_in": "Войти",
+    "str_sign_up": "Зарегистрироваться",
+    "str_logout": "Выход",
+    "str_no_account": "Нет аккаунта?",
+    "str_have_account": "У вас уже есть аккаунт?",
+   
+    "str_email": "Электронная почта",
+    "str_password": "Пароль",
+   
+    "str_connect": "Подключиться",
+    "str_disconnect": "Отключиться",
+    "str_select_server": "Выберите VPN-сервер",
+    "str_server_exists": "Имя сервера уже существует!",
+   
+   
+    "str_add_server": "Добавить сервер",
+    "str_server_name": "Имя сервера",
+    "str_server_configuration": "Конфигурация сервера (JSON) (только v2ray сейчас)",
+    "str_save": "Сохранить",
+    "str_fill_blank": "Пожалуйста, заполните все поля",
+   
+    "str_select_lang": "Выбрать язык"
+   }

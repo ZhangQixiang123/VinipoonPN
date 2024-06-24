@@ -1,0 +1,33 @@
+{
+    "str_self": "English",
+    
+    "str_home": "Home",
+    "str_lang": "Language",
+    "str_setting": "Setting",
+    "str_about_us": "About us",
+    "str_about": "About",
+    "str_profile": "Profile",
+    
+    "str_sign_in": "Sign In",
+    "str_sign_up": "Sign Up",
+    "str_logout": "Logout",
+    "str_no_account": "Don't have an account?",
+    "str_have_account": "Already have an account?",
+
+    "str_email": "Email",
+    "str_password": "Password",
+
+    "str_connect": "Connect",
+    "str_disconnect": "Disconnect",
+    "str_select_server": "Select a VPN Server",
+    "str_server_exists": "Server name already exists!",
+    
+
+    "str_add_server": "Add Server",
+    "str_server_name": "Server Name",
+    "str_server_configuration": "Server Configuration (JSON) (v2ray only now)",
+    "str_save": "Save",
+    "str_fill_blank": "Please fill out all fields",
+
+    "str_select_lang": "Select Language"
+}  

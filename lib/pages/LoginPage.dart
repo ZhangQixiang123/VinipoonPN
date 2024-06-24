@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
 import 'HomePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -41,8 +42,16 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  late S lang;
+  _updateLang() async {
+    AppLocalizationDelegate delegate = const AppLocalizationDelegate();
+    Locale myLocale = Localizations.localeOf(context);
+    lang = await delegate.load(myLocale);
+  }
+
   @override
   Widget build(BuildContext context) {
+    _updateLang();
     return Scaffold(
       body: Center(
         child: Card(
@@ -56,14 +65,14 @@ class _LoginPageState extends State<LoginPage> {
                 Image.file(new File('img\\logo.png')),
 
                 Text(
-                  _isSignIn ? 'Sign In' : 'Sign Up',
+                  _isSignIn ? lang.str_sign_in : lang.str_sign_up,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
                 TextField(
                   controller: _emailController,
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: lang.str_email,
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -71,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 TextField(
                   controller: _passwordController,
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    labelText: lang.str_password,
                     border: OutlineInputBorder(),
                   ),
                   obscureText: true,
@@ -81,14 +90,15 @@ class _LoginPageState extends State<LoginPage> {
                     ? CircularProgressIndicator()
                     : ElevatedButton(
                         onPressed: _authenticate,
-                        child: Text(_isSignIn ? 'Sign In' : 'Sign Up'),
+                        child: Text(_isSignIn ? lang.str_sign_in : lang.str_sign_up),
                       ),
                 SizedBox(height: 5),
                 TextButton(
                   onPressed: _toggleForm,
                   child: Text(_isSignIn
-                      ? 'Don\'t have an account? Sign Up'
-                      : 'Already have an account? Sign In'),
+                    ? lang.str_no_account + ' ' + lang.str_sign_up
+                    : lang.str_have_account + ' ' + lang.str_sign_in,
+                  )
                 ),
               ],
             ),
