@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vinipoo_p_n/global.dart';
+import 'package:http/http.dart' as http;
 
 import '../generated/l10n.dart';
 
 class ProfilePage extends StatefulWidget {
-  final String email;
-  final VoidCallback onLogout;
+  final String username;
 
-  ProfilePage({required this.email, required this.onLogout, super.key});
+  ProfilePage({required this.username, super.key});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -21,15 +23,59 @@ class _ProfilePageState extends State<ProfilePage> {
     lang = await delegate.load(myLocale);
   }
 
+  Future<void> _clearToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('authToken');
+  }
+
+  Future<String?> _retrieveToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('authToken');
+  }
+
+  Future<void> _logout() async {
+    final url = '$server/api/v1/rest-auth/logout/';
+    final token = await _retrieveToken();
+
+    final response = await http.post(
+      Uri.parse(url),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token $token',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      await _clearToken();
+      Navigator.pushReplacementNamed(context, '/login');
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Error'),
+          content: Text('Logout failed!'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     _updateLang();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(lang.str_profile),
-        backgroundColor: Color.fromARGB(214, 234, 221, 255),
-      ),
-      body: Padding(
+        appBar: AppBar(
+          title: Text(lang.str_profile),
+          backgroundColor: Color.fromARGB(214, 234, 221, 255),
+        ),
+        body: Padding(
           padding: const EdgeInsets.all(50.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -51,13 +97,13 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       SizedBox(height: 20),
                       ListTile(
-                        leading: Icon(Icons.email),
-                        title: Text(lang.str_email),
-                        subtitle: Text(widget.email),
+                        leading: Icon(Icons.person),
+                        title: Text(lang.str_username),
+                        subtitle: Text(widget.username),
                       ),
                       SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: widget.onLogout,
+                        onPressed: _logout,
                         child: Text(lang.str_logout),
                       ),
                     ],
@@ -66,7 +112,6 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }

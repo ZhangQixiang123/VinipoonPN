@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../generated/l10n.dart';
 import 'LanguagePage.dart';
-import 'LoginPage.dart';
 import 'ProfilePage.dart';
 
 class SettingsPage extends StatefulWidget {
-  final String email;
+  final String username;
 
-  SettingsPage({required this.email, super.key});
+  SettingsPage({required this.username, super.key});
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -67,13 +66,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => ProfilePage(
-                            email: widget.email, 
-                            onLogout: () => {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => LoginPage()),
-                              )
-                            }
+                            username: widget.username
                           ),
                         )
                       );

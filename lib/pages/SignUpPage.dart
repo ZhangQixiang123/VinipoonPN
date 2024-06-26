@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vinipoo_p_n/global.dart';
 import '../generated/l10n.dart';
 import 'HomePage.dart';
@@ -17,6 +18,17 @@ class _SignupPageState extends State<SignupPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
   bool _isLoading = false;
+
+  Future<void> _storeToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('authToken', token);
+  }
+
+  // Retrieve the token
+  Future<String?> _retrieveToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('authToken');
+  }
 
   Future<void> _signup() async {
     setState(() {
@@ -42,9 +54,10 @@ class _SignupPageState extends State<SignupPage> {
     if (response.statusCode == 201) {
       final data = json.decode(response.body);
       final token = data['key'];
+      _storeToken(token);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage(email: _emailController.text)),
+        MaterialPageRoute(builder: (context) => HomePage(username: _usernameController.text)),
       );
     } else {
       showDialog(
@@ -84,66 +97,68 @@ class _SignupPageState extends State<SignupPage> {
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Column(
-              children: [
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
                 Image.file(File('img/logo.png')),
                 Text(
                   lang.str_sign_up,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
-                TextField(
-                  controller: _usernameController,
-                  decoration: InputDecoration(
-                    labelText: lang.str_username,
-                    border: OutlineInputBorder(),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        TextField(
+                          controller: _usernameController,
+                          decoration: InputDecoration(
+                            labelText: lang.str_username,
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        TextField(
+                          controller: _emailController,
+                          decoration: InputDecoration(
+                            labelText: lang.str_email,
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        TextField(
+                          controller: _passwordController,
+                          decoration: InputDecoration(
+                            labelText: lang.str_password1,
+                            border: OutlineInputBorder(),
+                          ),
+                          obscureText: true,
+                        ),
+                        SizedBox(height: 20),
+                        TextField(
+                          controller: _confirmPasswordController,
+                          decoration: InputDecoration(
+                            labelText: lang.str_password2,
+                            border: OutlineInputBorder(),
+                          ),
+                          obscureText: true,
+                        ),
+                        SizedBox(height: 20),
+                        _isLoading
+                            ? CircularProgressIndicator()
+                            : ElevatedButton(
+                                onPressed: _signup,
+                                child: Text(lang.str_sign_up),
+                              ),
+                        SizedBox(height: 5),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(lang.str_have_account + ' ' + lang.str_sign_in),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 20),
-                SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      TextField(
-                        controller: _emailController,
-                        decoration: InputDecoration(
-                          labelText: lang.str_email,
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      TextField(
-                        controller: _passwordController,
-                        decoration: InputDecoration(
-                          labelText: lang.str_password1,
-                          border: OutlineInputBorder(),
-                        ),
-                        obscureText: true,
-                      ),
-                      SizedBox(height: 20),
-                      TextField(
-                        controller: _confirmPasswordController,
-                        decoration: InputDecoration(
-                          labelText: lang.str_password2,
-                          border: OutlineInputBorder(),
-                        ),
-                        obscureText: true,
-                      ),
-                      SizedBox(height: 20),
-                      _isLoading
-                          ? CircularProgressIndicator()
-                          : ElevatedButton(
-                              onPressed: _signup,
-                              child: Text(lang.str_sign_up),
-                            ),
-                      SizedBox(height: 5),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text(lang.str_have_account + ' ' + lang.str_sign_in),
-                      ),
-                    ],
-                  )
                 ),
               ],
             ),

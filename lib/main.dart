@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:vinipoo_p_n/pages/HomePage.dart';
 import 'package:vinipoo_p_n/pages/LoginPage.dart';
 import 'package:vinipoo_p_n/pages/SignUpPage.dart';
 import 'generated/l10n.dart';

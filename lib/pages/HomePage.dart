@@ -6,8 +6,8 @@ import 'SettingPage.dart';
 import 'VPNHomePage.dart';
 
 class HomePage extends StatefulWidget {
-  final String email;
-  HomePage({required this.email});
+  final String username;
+  HomePage({required this.username});
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         break;
       case 1:
         page = SettingsPage(
-          email: widget.email,
+          username: widget.username,
         );
         break;
       case 2:

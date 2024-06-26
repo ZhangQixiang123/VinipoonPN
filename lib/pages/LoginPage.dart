@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vinipoo_p_n/generated/l10n.dart';
 import 'package:vinipoo_p_n/global.dart';
 import 'HomePage.dart';
@@ -12,9 +13,20 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
+
+
+  Future<void> _storeToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('authToken', token);
+  }
+
+  Future<String?> _retrieveToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('authToken');
+  }
 
   Future<void> _login() async {
     setState(() {
@@ -28,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
         'Content-Type': 'application/json',
       },
       body: json.encode({
-        'username': _emailController.text,
+        'username': _usernameController.text,
         'password': _passwordController.text,
       }),
     );
@@ -39,11 +51,11 @@ class _LoginPageState extends State<LoginPage> {
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      final token = data['key'];  // rest-auth returns 'key' for the token
-      // Save token to global storage or use it as needed
+      final token = data['key'];
+      _storeToken(token);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage(email: _emailController.text)),
+        MaterialPageRoute(builder: (context) => HomePage(username: _usernameController.text)),
       );
     } else {
       final errorData = json.decode(response.body);
@@ -90,16 +102,16 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.file(new File('img\\logo.png')),
+                Image.file(new File('img/logo.png')),
                 Text(
                   lang.str_sign_in,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
                 TextField(
-                  controller: _emailController,
+                  controller: _usernameController,
                   decoration: InputDecoration(
-                    labelText: lang.str_email,
+                    labelText: lang.str_username,
                     border: OutlineInputBorder(),
                   ),
                 ),
