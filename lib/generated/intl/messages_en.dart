@@ -38,6 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "str_password": MessageLookupByLibrary.simpleMessage("Password"),
+        "str_password1": MessageLookupByLibrary.simpleMessage("Password"),
+        "str_password2":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "str_save": MessageLookupByLibrary.simpleMessage("Save"),
         "str_select_lang":
@@ -52,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_server_name": MessageLookupByLibrary.simpleMessage("Server Name"),
         "str_setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("Sign In"),
-        "str_sign_up": MessageLookupByLibrary.simpleMessage("Sign Up")
+        "str_sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "str_username": MessageLookupByLibrary.simpleMessage("Username")
       };
 }

@@ -180,11 +180,41 @@ class S {
     );
   }
 
+  /// `Username`
+  String get str_username {
+    return Intl.message(
+      'Username',
+      name: 'str_username',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password`
   String get str_password {
     return Intl.message(
       'Password',
       name: 'str_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get str_password1 {
+    return Intl.message(
+      'Password',
+      name: 'str_password1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get str_password2 {
+    return Intl.message(
+      'Confirm Password',
+      name: 'str_password2',
       desc: '',
       args: [],
     );

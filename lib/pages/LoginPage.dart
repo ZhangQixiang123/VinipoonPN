@@ -1,8 +1,9 @@
+import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-
-import '../generated/l10n.dart';
+import 'package:http/http.dart' as http;
+import 'package:vinipoo_p_n/generated/l10n.dart';
+import 'package:vinipoo_p_n/global.dart';
 import 'HomePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,36 +14,63 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  bool _isSignIn = true;
   bool _isLoading = false;
 
-  void _toggleForm() {
-    setState(() {
-      _isSignIn = !_isSignIn;
-    });
-  }
-
-  void _authenticate() async {
+  Future<void> _login() async {
     setState(() {
       _isLoading = true;
     });
-    // Simulate a network call
-    await Future.delayed(Duration(seconds: 2));
 
-    // Implement your authentication logic here
-    // For simplicity, we'll assume authentication is always successful
+    final url = Uri.parse('$server/api/v1/rest-auth/login/');
+    final response = await http.post(
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.encode({
+        'username': _emailController.text,
+        'password': _passwordController.text,
+      }),
+    );
 
     setState(() {
       _isLoading = false;
     });
 
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage(email: _emailController.text)),
-    );
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      final token = data['key'];  // rest-auth returns 'key' for the token
+      // Save token to global storage or use it as needed
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage(email: _emailController.text)),
+      );
+    } else {
+      final errorData = json.decode(response.body);
+      final errorMessage = errorData['non_field_errors'] != null
+          ? errorData['non_field_errors'][0]
+          : 'Authentication failed!';
+
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Error'),
+          content: Text(errorMessage),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   late S lang;
+
   _updateLang() async {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
@@ -63,9 +91,8 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.file(new File('img\\logo.png')),
-
                 Text(
-                  _isSignIn ? lang.str_sign_in : lang.str_sign_up,
+                  lang.str_sign_in,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
@@ -89,16 +116,15 @@ class _LoginPageState extends State<LoginPage> {
                 _isLoading
                     ? CircularProgressIndicator()
                     : ElevatedButton(
-                        onPressed: _authenticate,
-                        child: Text(_isSignIn ? lang.str_sign_in : lang.str_sign_up),
+                        onPressed: _login,
+                        child: Text(lang.str_sign_in),
                       ),
                 SizedBox(height: 5),
                 TextButton(
-                  onPressed: _toggleForm,
-                  child: Text(_isSignIn
-                    ? lang.str_no_account + ' ' + lang.str_sign_up
-                    : lang.str_have_account + ' ' + lang.str_sign_in,
-                  )
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signup');
+                  },
+                  child: Text(lang.str_no_account + ' ' + lang.str_sign_up),
                 ),
               ],
             ),

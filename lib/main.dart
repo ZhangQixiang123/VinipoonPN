@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:vinipoo_p_n/pages/HomePage.dart';
+import 'package:vinipoo_p_n/pages/LoginPage.dart';
+import 'package:vinipoo_p_n/pages/SignUpPage.dart';
 import 'generated/l10n.dart';
 // import 'pages/LoginPage.dart';
 
@@ -22,7 +24,11 @@ class VinipooPNApp extends StatelessWidget {
       //   primarySwatch: Colors.purple,
       //   visualDensity: VisualDensity.adaptivePlatformDensity,
       // ),
-      home: HomePage(email: '',),
+      home: LoginPage(),
+      routes: {
+        '/login': (context) => LoginPage(),
+        '/signup': (context) => SignupPage(),
+      },
       localizationsDelegates: const [
         AppLocalizationDelegate(),
         GlobalMaterialLocalizations.delegate,

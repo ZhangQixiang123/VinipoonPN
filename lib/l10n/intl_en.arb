@@ -15,7 +15,10 @@
     "str_have_account": "Already have an account?",
 
     "str_email": "Email",
+    "str_username": "Username",
     "str_password": "Password",
+    "str_password1": "Password",
+    "str_password2": "Confirm Password",
 
     "str_connect": "Connect",
     "str_disconnect": "Disconnect",
