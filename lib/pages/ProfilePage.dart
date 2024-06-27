@@ -6,9 +6,7 @@ import 'package:http/http.dart' as http;
 import '../generated/l10n.dart';
 
 class ProfilePage extends StatefulWidget {
-  final String username;
-
-  ProfilePage({required this.username, super.key});
+  ProfilePage({super.key});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -21,6 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
+    setState(() {});
   }
 
   Future<void> _clearToken() async {
@@ -31,6 +30,16 @@ class _ProfilePageState extends State<ProfilePage> {
   Future<String?> _retrieveToken() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('authToken');
+  }
+
+  Future<String?> _getUsername() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('username');
+  }
+
+  Future<void> _clearUsername() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('username');
   }
 
   Future<void> _logout() async {
@@ -47,19 +56,20 @@ class _ProfilePageState extends State<ProfilePage> {
 
     if (response.statusCode == 200) {
       await _clearToken();
+      await _clearUsername();
       Navigator.pushReplacementNamed(context, '/login');
     } else {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Error'),
-          content: Text('Logout failed!'),
+          title: Text(lang.str_error),
+          content: Text(lang.str_logout_fail),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: Text(lang.str_ok),
             ),
           ],
         ),
@@ -71,47 +81,62 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     _updateLang();
     return Scaffold(
-        appBar: AppBar(
-          title: Text(lang.str_profile),
-          backgroundColor: Color.fromARGB(214, 234, 221, 255),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(50.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
-                elevation: 6,
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        lang.str_profile,
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+      appBar: AppBar(
+        title: Text(lang.str_profile),
+        backgroundColor: Color.fromARGB(214, 234, 221, 255),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(50.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              elevation: 6,
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      lang.str_profile,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(height: 20),
-                      ListTile(
-                        leading: Icon(Icons.person),
-                        title: Text(lang.str_username),
-                        subtitle: Text(widget.username),
-                      ),
-                      SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: _logout,
-                        child: Text(lang.str_logout),
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 20),
+                    FutureBuilder<String?>(
+                      future: _getUsername(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Text(lang.str_error + ' ${snapshot.error}');
+                        } else if (!snapshot.hasData || snapshot.data == null) {
+                          return Text(lang.str_no_username_found);
+                        } else {
+                          return ListTile(
+                            leading: Icon(Icons.person),
+                            title: Text(lang.str_username),
+                            subtitle: Text(snapshot.data!),
+                          );
+                        }
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: _logout,
+                      child: Text(lang.str_logout),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

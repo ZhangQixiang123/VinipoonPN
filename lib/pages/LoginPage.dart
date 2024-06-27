@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vinipoo_p_n/generated/l10n.dart';
 import 'package:vinipoo_p_n/global.dart';
+import 'package:vinipoo_p_n/pages/LanguagePage.dart';
+import 'package:vinipoo_p_n/pages/SignUpPage.dart';
 import 'HomePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -26,6 +28,11 @@ class _LoginPageState extends State<LoginPage> {
   Future<String?> _retrieveToken() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('authToken');
+  }
+
+  Future<void> _storeUsername(String username) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('username', username);
   }
 
   Future<void> _login() async {
@@ -53,9 +60,10 @@ class _LoginPageState extends State<LoginPage> {
       final data = json.decode(response.body);
       final token = data['key'];
       _storeToken(token);
+      _storeUsername(_usernameController.text);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage(username: _usernameController.text)),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     } else {
       final errorData = json.decode(response.body);
@@ -66,14 +74,14 @@ class _LoginPageState extends State<LoginPage> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Error'),
+          title: Text(lang.str_error),
           content: Text(errorMessage),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: Text(lang.str_ok),
             ),
           ],
         ),
@@ -87,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
+    setState(() {});
   }
 
   @override
@@ -102,41 +111,64 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.file(new File('img/logo.png')),
+                Image.file(File('img/logo.png')),
+                SizedBox(height: 20),
                 Text(
                   lang.str_sign_in,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
-                TextField(
-                  controller: _usernameController,
-                  decoration: InputDecoration(
-                    labelText: lang.str_username,
-                    border: OutlineInputBorder(),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        TextField(
+                          controller: _usernameController,
+                          decoration: InputDecoration(
+                            labelText: lang.str_username,
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        TextField(
+                          controller: _passwordController,
+                          decoration: InputDecoration(
+                            labelText: lang.str_password,
+                            border: OutlineInputBorder(),
+                          ),
+                          obscureText: true,
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _isLoading
+                              ? CircularProgressIndicator()
+                              : ElevatedButton(
+                                  onPressed: _login,
+                                  child: Text(lang.str_sign_in),
+                                ),
+                            IconButton(
+                              icon: Icon(Icons.language),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => LanguagePage(),),
+                                  );
+                              },
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()));
+                          },
+                          child: Text(lang.str_no_account + ' ' + lang.str_sign_up),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 20),
-                TextField(
-                  controller: _passwordController,
-                  decoration: InputDecoration(
-                    labelText: lang.str_password,
-                    border: OutlineInputBorder(),
-                  ),
-                  obscureText: true,
-                ),
-                SizedBox(height: 20),
-                _isLoading
-                    ? CircularProgressIndicator()
-                    : ElevatedButton(
-                        onPressed: _login,
-                        child: Text(lang.str_sign_in),
-                      ),
-                SizedBox(height: 5),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/signup');
-                  },
-                  child: Text(lang.str_no_account + ' ' + lang.str_sign_up),
                 ),
               ],
             ),

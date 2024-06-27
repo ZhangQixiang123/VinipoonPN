@@ -1,32 +1,40 @@
 {
-    "str_self": "Deutsch",
-    
-    "str_home": "Startseite",
+    "str_home": "Home",
     "str_lang": "Sprache",
     "str_setting": "Einstellungen",
     "str_about_us": "Über uns",
-    "str_about": "Über",
+    "str_about": "Info",
     "str_profile": "Profil",
     
     "str_sign_in": "Anmelden",
     "str_sign_up": "Registrieren",
     "str_logout": "Abmelden",
-    "str_no_account": "Kein Konto?",
-    "str_have_account": "Bereits ein Konto?",
-
-    "str_email": "Email",
+    "str_no_account": "Sie haben noch kein Konto?",
+    "str_have_account": "Sie haben bereits ein Konto?",
+    
+    "str_email": "E-Mail",
+    "str_username": "Benutzername",
     "str_password": "Passwort",
-
+    "str_password1": "Passwort",
+    "str_password2": "Passwort bestätigen",
+    
     "str_connect": "Verbinden",
     "str_disconnect": "Trennen",
     "str_select_server": "VPN-Server auswählen",
-    "str_server_exists": "Servername existiert bereits!",
-    
+    "str_server_exists": "Servername bereits existiert!",
+    "str_enter_port": "Port eingeben",
     "str_add_server": "Server hinzufügen",
     "str_server_name": "Servername",
-    "str_server_configuration": "Serverkonfiguration (JSON) (nur v2ray derzeit)",
+    "str_server_configuration": "Serverkonfiguration (JSON) (jetzt nur v2ray)",
     "str_save": "Speichern",
-    "str_fill_blank": "Bitte füllen Sie alle Felder aus",
-
-    "str_select_lang": "Sprache auswählen"
+    "str_fill_blank": "Bitte alle Felder ausfüllen",
+    
+    "str_select_lang": "Sprache auswählen",
+    
+    "str_error": "Fehler",
+    "str_logout_fail": "Abmeldung fehlgeschlagen!",
+    "str_registration_fail": "Registrierung fehlgeschlagen!",
+    "str_ok": "OK",
+    "str_no_username_found": "Kein Benutzername gefunden",
+    "str_app_about": "VinipooPN ist ein sicherer und zuverlässiger VPN-Dienst, der Ihre Online-Privatsphäre schützt und eine schnelle und stabile Verbindung gewährleistet. Unsere Server sind auf der ganzen Welt verteilt und bieten Ihnen die bestmögliche Geschwindigkeit und Sicherheit."
 }

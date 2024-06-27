@@ -16,6 +16,7 @@ class _AboutPageState extends State<AboutPage> {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
+    setState(() {});
   }
 
   @override
@@ -43,7 +44,7 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security.',
+                    lang.str_app_about,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,

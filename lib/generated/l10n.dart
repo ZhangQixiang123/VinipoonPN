@@ -50,16 +50,6 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `English`
-  String get str_self {
-    return Intl.message(
-      'English',
-      name: 'str_self',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Home`
   String get str_home {
     return Intl.message(
@@ -260,6 +250,16 @@ class S {
     );
   }
 
+  /// `Enter port`
+  String get str_enter_port {
+    return Intl.message(
+      'Enter port',
+      name: 'str_enter_port',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add Server`
   String get str_add_server {
     return Intl.message(
@@ -315,6 +315,66 @@ class S {
     return Intl.message(
       'Select Language',
       name: 'str_select_lang',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get str_error {
+    return Intl.message(
+      'Error',
+      name: 'str_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout failed!`
+  String get str_logout_fail {
+    return Intl.message(
+      'Logout failed!',
+      name: 'str_logout_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration failed!`
+  String get str_registration_fail {
+    return Intl.message(
+      'Registration failed!',
+      name: 'str_registration_fail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get str_ok {
+    return Intl.message(
+      'OK',
+      name: 'str_ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Username Found`
+  String get str_no_username_found {
+    return Intl.message(
+      'No Username Found',
+      name: 'str_no_username_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security.`
+  String get str_app_about {
+    return Intl.message(
+      'VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security.',
+      name: 'str_app_about',
       desc: '',
       args: [],
     );

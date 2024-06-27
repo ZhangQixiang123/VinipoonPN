@@ -22,36 +22,51 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "str_about": MessageLookupByLibrary.simpleMessage("Über"),
+        "str_about": MessageLookupByLibrary.simpleMessage("Info"),
         "str_about_us": MessageLookupByLibrary.simpleMessage("Über uns"),
         "str_add_server":
             MessageLookupByLibrary.simpleMessage("Server hinzufügen"),
+        "str_app_about": MessageLookupByLibrary.simpleMessage(
+            "VinipooPN ist ein sicherer und zuverlässiger VPN-Dienst, der Ihre Online-Privatsphäre schützt und eine schnelle und stabile Verbindung gewährleistet. Unsere Server sind auf der ganzen Welt verteilt und bieten Ihnen die bestmögliche Geschwindigkeit und Sicherheit."),
         "str_connect": MessageLookupByLibrary.simpleMessage("Verbinden"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Trennen"),
-        "str_email": MessageLookupByLibrary.simpleMessage("Email"),
-        "str_fill_blank": MessageLookupByLibrary.simpleMessage(
-            "Bitte füllen Sie alle Felder aus"),
-        "str_have_account":
-            MessageLookupByLibrary.simpleMessage("Bereits ein Konto?"),
-        "str_home": MessageLookupByLibrary.simpleMessage("Startseite"),
+        "str_email": MessageLookupByLibrary.simpleMessage("E-Mail"),
+        "str_enter_port": MessageLookupByLibrary.simpleMessage("Port eingeben"),
+        "str_error": MessageLookupByLibrary.simpleMessage("Fehler"),
+        "str_fill_blank":
+            MessageLookupByLibrary.simpleMessage("Bitte alle Felder ausfüllen"),
+        "str_have_account": MessageLookupByLibrary.simpleMessage(
+            "Sie haben bereits ein Konto?"),
+        "str_home": MessageLookupByLibrary.simpleMessage("Home"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Sprache"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Abmelden"),
-        "str_no_account": MessageLookupByLibrary.simpleMessage("Kein Konto?"),
+        "str_logout_fail":
+            MessageLookupByLibrary.simpleMessage("Abmeldung fehlgeschlagen!"),
+        "str_no_account":
+            MessageLookupByLibrary.simpleMessage("Sie haben noch kein Konto?"),
+        "str_no_username_found":
+            MessageLookupByLibrary.simpleMessage("Kein Benutzername gefunden"),
+        "str_ok": MessageLookupByLibrary.simpleMessage("OK"),
         "str_password": MessageLookupByLibrary.simpleMessage("Passwort"),
+        "str_password1": MessageLookupByLibrary.simpleMessage("Passwort"),
+        "str_password2":
+            MessageLookupByLibrary.simpleMessage("Passwort bestätigen"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Profil"),
+        "str_registration_fail": MessageLookupByLibrary.simpleMessage(
+            "Registrierung fehlgeschlagen!"),
         "str_save": MessageLookupByLibrary.simpleMessage("Speichern"),
         "str_select_lang":
             MessageLookupByLibrary.simpleMessage("Sprache auswählen"),
         "str_select_server":
             MessageLookupByLibrary.simpleMessage("VPN-Server auswählen"),
-        "str_self": MessageLookupByLibrary.simpleMessage("Deutsch"),
         "str_server_configuration": MessageLookupByLibrary.simpleMessage(
-            "Serverkonfiguration (JSON) (nur v2ray derzeit)"),
+            "Serverkonfiguration (JSON) (jetzt nur v2ray)"),
         "str_server_exists": MessageLookupByLibrary.simpleMessage(
-            "Servername existiert bereits!"),
+            "Servername bereits existiert!"),
         "str_server_name": MessageLookupByLibrary.simpleMessage("Servername"),
         "str_setting": MessageLookupByLibrary.simpleMessage("Einstellungen"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("Anmelden"),
-        "str_sign_up": MessageLookupByLibrary.simpleMessage("Registrieren")
+        "str_sign_up": MessageLookupByLibrary.simpleMessage("Registrieren"),
+        "str_username": MessageLookupByLibrary.simpleMessage("Benutzername")
       };
 }

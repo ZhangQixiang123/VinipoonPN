@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:vinipoo_p_n/Model/VPNConnectionModel.dart';
+import 'package:vinipoo_p_n/pages/AboutPage.dart';
+import 'package:vinipoo_p_n/pages/HomePage.dart';
+import 'package:vinipoo_p_n/pages/LanguagePage.dart';
 import 'package:vinipoo_p_n/pages/LoginPage.dart';
+import 'package:vinipoo_p_n/pages/ProfilePage.dart';
+import 'package:vinipoo_p_n/pages/SettingsPage.dart';
 import 'package:vinipoo_p_n/pages/SignUpPage.dart';
+import 'package:vinipoo_p_n/pages/VPNHomePage.dart';
 import 'generated/l10n.dart';
 // import 'pages/LoginPage.dart';
 
 void main() {
   var locale = Locale.fromSubtags(languageCode: 'en');
-  runApp(VinipooPNApp(locale));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => VPNConnectionModel())
+      ],
+      child: VinipooPNApp(locale),
+    ),
+  );
 }
 
 class VinipooPNApp extends StatelessWidget {
@@ -27,6 +42,12 @@ class VinipooPNApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignupPage(),
+        '/language': (context) => LanguagePage(),
+        '/settings': (context) => SettingsPage(),
+        '/home': (context) => HomePage(),
+        '/about': (context) => AboutPage(),
+        '/profile': (context) => ProfilePage(),
+        '/VPNhome': (context) => VPNHomePage()
       },
       localizationsDelegates: const [
         AppLocalizationDelegate(),

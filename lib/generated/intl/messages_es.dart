@@ -27,9 +27,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Acerca de nosotros"),
         "str_add_server":
             MessageLookupByLibrary.simpleMessage("Agregar servidor"),
+        "str_app_about": MessageLookupByLibrary.simpleMessage(
+            "VinipooPN es un servicio VPN seguro y confiable diseñado para proteger su privacidad en línea y garantizar una conexión rápida y estable. Nuestros servidores están ubicados en todo el mundo, brindándole las mejores velocidades y seguridad posibles."),
         "str_connect": MessageLookupByLibrary.simpleMessage("Conectar"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Desconectar"),
         "str_email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
+        "str_enter_port":
+            MessageLookupByLibrary.simpleMessage("Ingresar puerto"),
+        "str_error": MessageLookupByLibrary.simpleMessage("Error"),
         "str_fill_blank": MessageLookupByLibrary.simpleMessage(
             "Por favor, complete todos los campos"),
         "str_have_account":
@@ -37,16 +42,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_home": MessageLookupByLibrary.simpleMessage("Inicio"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Idioma"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
+        "str_logout_fail":
+            MessageLookupByLibrary.simpleMessage("¡Falló el cierre de sesión!"),
         "str_no_account":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
+        "str_no_username_found": MessageLookupByLibrary.simpleMessage(
+            "No se encontró ningún nombre de usuario"),
+        "str_ok": MessageLookupByLibrary.simpleMessage("OK"),
         "str_password": MessageLookupByLibrary.simpleMessage("Contraseña"),
+        "str_password1": MessageLookupByLibrary.simpleMessage("Contraseña"),
+        "str_password2":
+            MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Perfil"),
+        "str_registration_fail":
+            MessageLookupByLibrary.simpleMessage("¡Error en el registro!"),
         "str_save": MessageLookupByLibrary.simpleMessage("Guardar"),
         "str_select_lang":
             MessageLookupByLibrary.simpleMessage("Seleccionar idioma"),
         "str_select_server":
             MessageLookupByLibrary.simpleMessage("Seleccione un servidor VPN"),
-        "str_self": MessageLookupByLibrary.simpleMessage("Español"),
         "str_server_configuration": MessageLookupByLibrary.simpleMessage(
             "Configuración del servidor (JSON) (v2ray solo ahora)"),
         "str_server_exists": MessageLookupByLibrary.simpleMessage(
@@ -55,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nombre del servidor"),
         "str_setting": MessageLookupByLibrary.simpleMessage("Configuración"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
-        "str_sign_up": MessageLookupByLibrary.simpleMessage("Registrarse")
+        "str_sign_up": MessageLookupByLibrary.simpleMessage("Registrarse"),
+        "str_username":
+            MessageLookupByLibrary.simpleMessage("Nombre de usuario")
       };
 }

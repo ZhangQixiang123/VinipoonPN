@@ -1,6 +1,4 @@
 {
-    "str_self": "Español",
-   
     "str_home": "Inicio",
     "str_lang": "Idioma",
     "str_setting": "Configuración",
@@ -15,12 +13,16 @@
     "str_have_account": "¿Ya tienes una cuenta?",
    
     "str_email": "Correo electrónico",
+    "str_username": "Nombre de usuario",
     "str_password": "Contraseña",
+    "str_password1": "Contraseña",
+    "str_password2": "Confirmar contraseña",
    
     "str_connect": "Conectar",
     "str_disconnect": "Desconectar",
     "str_select_server": "Seleccione un servidor VPN",
     "str_server_exists": "¡El nombre del servidor ya existe!",
+    "str_enter_port": "Ingresar puerto",
    
    
     "str_add_server": "Agregar servidor",
@@ -29,5 +31,12 @@
     "str_save": "Guardar",
     "str_fill_blank": "Por favor, complete todos los campos",
    
-    "str_select_lang": "Seleccionar idioma"
-   }
+    "str_select_lang": "Seleccionar idioma",
+   
+    "str_error": "Error",
+    "str_logout_fail": "¡Falló el cierre de sesión!",
+    "str_registration_fail": "¡Error en el registro!",
+    "str_ok": "OK",
+    "str_no_username_found": "No se encontró ningún nombre de usuario",
+    "str_app_about": "VinipooPN es un servicio VPN seguro y confiable diseñado para proteger su privacidad en línea y garantizar una conexión rápida y estable. Nuestros servidores están ubicados en todo el mundo, brindándole las mejores velocidades y seguridad posibles."
+}

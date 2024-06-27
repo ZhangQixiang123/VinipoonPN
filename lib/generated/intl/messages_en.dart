@@ -25,9 +25,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_about": MessageLookupByLibrary.simpleMessage("About"),
         "str_about_us": MessageLookupByLibrary.simpleMessage("About us"),
         "str_add_server": MessageLookupByLibrary.simpleMessage("Add Server"),
+        "str_app_about": MessageLookupByLibrary.simpleMessage(
+            "VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security."),
         "str_connect": MessageLookupByLibrary.simpleMessage("Connect"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Disconnect"),
         "str_email": MessageLookupByLibrary.simpleMessage("Email"),
+        "str_enter_port": MessageLookupByLibrary.simpleMessage("Enter port"),
+        "str_error": MessageLookupByLibrary.simpleMessage("Error"),
         "str_fill_blank":
             MessageLookupByLibrary.simpleMessage("Please fill out all fields"),
         "str_have_account":
@@ -35,19 +39,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_home": MessageLookupByLibrary.simpleMessage("Home"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Language"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "str_logout_fail":
+            MessageLookupByLibrary.simpleMessage("Logout failed!"),
         "str_no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "str_no_username_found":
+            MessageLookupByLibrary.simpleMessage("No Username Found"),
+        "str_ok": MessageLookupByLibrary.simpleMessage("OK"),
         "str_password": MessageLookupByLibrary.simpleMessage("Password"),
         "str_password1": MessageLookupByLibrary.simpleMessage("Password"),
         "str_password2":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "str_registration_fail":
+            MessageLookupByLibrary.simpleMessage("Registration failed!"),
         "str_save": MessageLookupByLibrary.simpleMessage("Save"),
         "str_select_lang":
             MessageLookupByLibrary.simpleMessage("Select Language"),
         "str_select_server":
             MessageLookupByLibrary.simpleMessage("Select a VPN Server"),
-        "str_self": MessageLookupByLibrary.simpleMessage("English"),
         "str_server_configuration": MessageLookupByLibrary.simpleMessage(
             "Server Configuration (JSON) (v2ray only now)"),
         "str_server_exists":

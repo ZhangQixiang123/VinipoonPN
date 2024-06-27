@@ -1,11 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vinipoo_p_n/Model/VPNConnectionModel.dart';
 import 'dart:io';
 
 import '../generated/l10n.dart';
-import 'AddServerPage.dart';
 
 class VPNHomePage extends StatefulWidget {
-  const VPNHomePage({super.key});
+  VPNHomePage({Key? key}) : super(key: key);
 
   @override
   _VPNHomePageState createState() => _VPNHomePageState();
@@ -13,65 +16,158 @@ class VPNHomePage extends StatefulWidget {
 
 class _VPNHomePageState extends State<VPNHomePage> {
   late S lang;
+
+  String? _selectedServer;
+  Map<String, String> _servers = {};
+
+  @override
+  void initState() {
+    super.initState();
+    
+    _servers = {
+      'Tokyo-Japan': '''{
+        "inbounds": [
+          {
+            "port": 1279,
+            "protocol": "socks",
+            "sniffing": {
+              "enabled": true,
+              "destOverride": ["http", "tls"]
+            },
+            "settings": {
+              "auth": "noauth"
+            }
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vmess",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "108.160.135.96",
+                  "port": 16823,
+                  "users": [
+                    {
+                      "id": "ddb70380-95b7-46fc-9b72-611f393ba418",
+                      "alterId": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }''',
+      'Server 2': '''{
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [{
+          "port": 1080,
+          "listen": "127.0.0.1",
+          "protocol": "socks",
+          "settings": {
+            "auth": "noauth",
+            "udp": false
+          }
+        }],
+        "outbounds": [{
+          "protocol": "vmess",
+          "settings": {
+            "vnext": [{
+              "address": "example2.com",
+              "port": 443,
+              "users": [{
+                "id": "uuid-2",
+                "alterId": 64
+              }]
+            }]
+          },
+          "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+              "path": "/path2"
+            },
+            "security": "tls"
+          }
+        }]
+      }''',
+      'Server 3': '''{
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [{
+          "port": 1080,
+          "listen": "127.0.0.1",
+          "protocol": "socks",
+          "settings": {
+            "auth": "noauth",
+            "udp": false
+          }
+        }],
+        "outbounds": [{
+          "protocol": "vmess",
+          "settings": {
+            "vnext": [{
+              "address": "example3.com",
+              "port": 443,
+              "users": [{
+                "id": "uuid-3",
+                "alterId": 64
+              }]
+            }]
+          },
+          "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+              "path": "/path3"
+            },
+            "security": "tls"
+          }
+        }]
+      }'''
+    };
+    _selectedServer = _servers.keys.first;
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _updateLang();
+  }
+
   _updateLang() async {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
+    setState(() {});
   }
-  
-  String _selectedServer = '(None)';
-  bool _isConnected = false;
-  Process? _v2rayProcess;
-  List<String> _servers = ['(None)'];
 
   void _connectVPN() async {
-    final configFrom = File('server\\${_selectedServer}.json');
-    String configInfo = await configFrom.readAsString();
-    final configTo = File('v2ray\\config.json');
-    await configTo.writeAsString(configInfo);
+    final config = _servers[_selectedServer]!;
+    final configJson = jsonDecode(config);
+    configJson['inbounds'][0]['port'] = int.parse(Provider.of<VPNConnectionModel>(context, listen: false).port.text);
+    final configTo = File('v2ray/config.json');
+    await configTo.writeAsString(jsonEncode(configJson));
 
-    _v2rayProcess = await Process.start('v2ray\\v2ray', ['-config', configTo.path]);
-
+    Provider.of<VPNConnectionModel>(context, listen: false).setV2rayProcess(await Process.start('v2ray/v2ray', ['-config', configTo.path]));
     setState(() {
-      _isConnected = true;
+      Provider.of<VPNConnectionModel>(context, listen: false).setConnected(true);
     });
   }
 
   void _disconnectVPN() async {
-    if (_v2rayProcess != null) {
-      _v2rayProcess!.kill();
-      await _v2rayProcess!.exitCode;
+    if (Provider.of<VPNConnectionModel>(context, listen:  false).v2rayProcess != null) {
+      Provider.of<VPNConnectionModel>(context, listen:  false).v2rayProcess!.kill();
+      await Provider.of<VPNConnectionModel>(context, listen:  false).v2rayProcess!.exitCode;
       setState(() {
-        _isConnected = false;
+        Provider.of<VPNConnectionModel>(context, listen: false).setConnected(false);
       });
     }
   }
 
-  void _addServer(String serverName, String serverConfig) async {
-    if (_servers.contains(serverName)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(lang.str_server_exists)),
-      );
-      return;
-    }
-
-    setState(() {
-      _servers.add(serverName);
-      _selectedServer = serverName;
-    });
-    new File('server\\${_selectedServer}.json').create(recursive: true);
-    final configTo = File('server\\${_selectedServer}.json');
-    await configTo.writeAsString(serverConfig);
-  }
-
-  void _deleteServer(String serverName) async {
-    setState(() {
-      _servers.removeWhere((item) => item == serverName);
-      _selectedServer = _servers[0];
-    });
-  }
-
-  void _changeSelectedServer(String newServer) {
+  void _changeSelectedServer(String? newServer) {
     setState(() {
       _selectedServer = newServer;
     });
@@ -79,7 +175,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _updateLang();
+    // print(Provider.of<VPNConnectionModel>(context, listen: false).isConnected);
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -88,14 +184,16 @@ class _VPNHomePageState extends State<VPNHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.file(new File('img\\guardian.png')),
+              Image.file(File('img/guardian.png')),
               Card(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
                 elevation: 6,
                 child: Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
                         lang.str_select_server,
@@ -106,55 +204,49 @@ class _VPNHomePageState extends State<VPNHomePage> {
                       ),
                       SizedBox(height: 20),
                       Row(
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           DropdownButton<String>(
                             value: _selectedServer,
-                            onChanged: _isConnected
+                            onChanged: Provider.of<VPNConnectionModel>(context, listen: false).isConnected
                                 ? null
                                 : (String? newValue) {
-                                    _changeSelectedServer(newValue!);
+                                    _changeSelectedServer(newValue);
                                   },
-                            items: _servers
-                                .map<DropdownMenuItem<String>>((String value) {
+                            items: _servers.keys
+                                .map<DropdownMenuItem<String>>((String key) {
                               return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
+                                value: key,
+                                child: Text(key),
                               );
                             }).toList(),
                           ),
-                          Container(
-                            child: TextButton(
-                              child: Icon(Icons.add),
-                              onPressed: _isConnected
-                                  ? null
-                                  : () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                AddServerPage(_addServer)),
-                                      );
-                                    },
-                            ),
-                          ),
-                          Container(
-                            child: TextButton(
-                              child: Icon(Icons.delete),
-                              onPressed: _selectedServer == '(None)' || _isConnected
-                                  ? null
-                                  : () {
-                                      _deleteServer(_selectedServer);
-                                    },
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 200,
+                            child: TextField(
+                              controller: Provider.of<VPNConnectionModel>(context, listen: false).port,
+                              decoration: InputDecoration(
+                                labelText: lang.str_enter_port,
+                                border: OutlineInputBorder(),
+                              ),
+                              keyboardType: TextInputType.number,
+                              enabled: !Provider.of<VPNConnectionModel>(context, listen: false).isConnected,
                             ),
                           ),
                         ],
                       ),
                       SizedBox(height: 20),
-                      _isConnected
+                      Provider.of<VPNConnectionModel>(context, listen: false).isConnected
                           ? ElevatedButton.icon(
-                              onPressed:
-                                  _selectedServer == '(None)' ? null : _disconnectVPN,
+                              onPressed: _disconnectVPN,
                               icon: Icon(Icons.link_off),
                               label: Text(lang.str_disconnect),
                               style: ElevatedButton.styleFrom(
@@ -163,7 +255,8 @@ class _VPNHomePageState extends State<VPNHomePage> {
                               ),
                             )
                           : ElevatedButton.icon(
-                              onPressed: _selectedServer == '(None)' ? null : _connectVPN,
+                              onPressed: _selectedServer == null ? null :  _connectVPN,
+
                               icon: Icon(Icons.link),
                               label: Text(lang.str_connect),
                               style: ElevatedButton.styleFrom(

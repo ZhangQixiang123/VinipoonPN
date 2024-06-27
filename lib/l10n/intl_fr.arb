@@ -1,32 +1,42 @@
 {
-    "str_self": "Français",
-    
     "str_home": "Accueil",
     "str_lang": "Langue",
     "str_setting": "Paramètre",
     "str_about_us": "À propos de nous",
     "str_about": "À propos",
     "str_profile": "Profil",
-    
-    "str_sign_in": "Se connecter",
-    "str_sign_up": "S'inscrire",
-    "str_logout": "Se déconnecter",
-    "str_no_account": "Pas de compte ?",
+   
+    "str_sign_in": "Connexion",
+    "str_sign_up": "Inscrivez-vous",
+    "str_logout": "Déconnexion",
+    "str_no_account": "Vous n'avez pas de compte ?",
     "str_have_account": "Vous avez déjà un compte ?",
-
-    "str_email": "Email",
+   
+    "str_email": "E-mail",
+    "str_username": "Nom d'utilisateur",
     "str_password": "Mot de passe",
-
+    "str_password1": "Mot de passe",
+    "str_password2": "Confirmer le mot de passe",
+   
     "str_connect": "Connecter",
     "str_disconnect": "Déconnecter",
-    "str_select_server": "Sélectionner un serveur VPN",
+    "str_select_server": "Sélectionnez un serveur VPN",
     "str_server_exists": "Le nom du serveur existe déjà !",
-    
+    "str_enter_port": "Entrer le port",
+   
+   
     "str_add_server": "Ajouter un serveur",
     "str_server_name": "Nom du serveur",
-    "str_server_configuration": "Configuration du serveur (JSON) (v2ray uniquement pour l'instant)",
-    "str_save": "Sauvegarder",
+    "str_server_configuration": "Configuration du serveur (JSON) (v2ray uniquement maintenant)",
+    "str_save": "Enregistrer",
     "str_fill_blank": "Veuillez remplir tous les champs",
-
-    "str_select_lang": "Choisir la langue"
+   
+    "str_select_lang": "Sélectionner la langue",
+   
+    "str_error": "Erreur",
+    "str_logout_fail": "La déconnexion a échoué !",
+    "str_registration_fail": "L'inscription a échoué !",
+    "str_ok": "D'accord",
+    "str_no_username_found": "Aucun nom d'utilisateur trouvé",
+    "str_app_about": "VinipooPN est un service VPN sécurisé et fiable conçu pour protéger votre confidentialité en ligne et garantir une connexion rapide et stable. Nos serveurs sont situés dans le monde entier, vous offrant les meilleures vitesses et sécurité possibles."
 }

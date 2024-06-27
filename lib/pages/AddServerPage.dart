@@ -18,6 +18,7 @@ class _AddServerPageState extends State<AddServerPage> {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
+    setState(() {});
   }
 
   final TextEditingController _serverNameController = TextEditingController();

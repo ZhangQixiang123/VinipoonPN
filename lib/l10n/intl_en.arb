@@ -1,6 +1,4 @@
 {
-    "str_self": "English",
-    
     "str_home": "Home",
     "str_lang": "Language",
     "str_setting": "Setting",
@@ -24,6 +22,7 @@
     "str_disconnect": "Disconnect",
     "str_select_server": "Select a VPN Server",
     "str_server_exists": "Server name already exists!",
+    "str_enter_port": "Enter port",
     
 
     "str_add_server": "Add Server",
@@ -32,5 +31,12 @@
     "str_save": "Save",
     "str_fill_blank": "Please fill out all fields",
 
-    "str_select_lang": "Select Language"
+    "str_select_lang": "Select Language",
+
+    "str_error": "Error",
+    "str_logout_fail": "Logout failed!",
+    "str_registration_fail": "Registration failed!",
+    "str_ok": "OK",
+    "str_no_username_found": "No Username Found",
+    "str_app_about": "VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security."
 }  

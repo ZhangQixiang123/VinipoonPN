@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:vinipoo_p_n/Model/VPNConnectionModel.dart';
 import 'package:vinipoo_p_n/generated/l10n.dart';
 import 'package:vinipoo_p_n/main.dart';
 
@@ -13,7 +15,14 @@ class LanguagePage extends StatefulWidget {
 class _LanguagePageState extends State<LanguagePage> {
 
   void changeLang(Locale locale) {
-    runApp(VinipooPNApp(locale));
+    runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => VPNConnectionModel())
+        ],
+        child: VinipooPNApp(locale),
+      ),
+    );
   }
 
   @override
@@ -42,7 +51,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     SizedBox(height: 20),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\gb.svg',
+                        'assets/flags/4x3/gb.svg',
                         width: 40,
                         height: 30,
                       ),
@@ -54,7 +63,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     Divider(),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\cn.svg',
+                        'assets/flags/4x3/cn.svg',
                         width: 40,
                         height: 30,
                       ),
@@ -66,7 +75,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     Divider(),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\tw.svg',
+                        'assets/flags/4x3/tw.svg',
                         width: 40,
                         height: 30,
                       ),
@@ -78,7 +87,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     Divider(),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\jp.svg',
+                        'assets/flags/4x3/jp.svg',
                         width: 40,
                         height: 30,
                       ),
@@ -90,7 +99,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     Divider(),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\kr.svg',
+                        'assets/flags/4x3/kr.svg',
                         width: 40,
                         height: 30,
                       ),
@@ -102,7 +111,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     Divider(),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\de.svg',
+                        'assets/flags/4x3/de.svg',
                         width: 40,
                         height: 30,
                       ),
@@ -114,7 +123,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     Divider(),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\fr.svg',
+                        'assets/flags/4x3/fr.svg',
                         width: 40,
                         height: 30,
                       ),
@@ -126,7 +135,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     Divider(),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\ru.svg',
+                        'assets/flags/4x3/ru.svg',
                         width: 40,
                         height: 30,
                       ),
@@ -138,7 +147,7 @@ class _LanguagePageState extends State<LanguagePage> {
                     Divider(),
                     ListTile(
                       leading: SvgPicture.asset(
-                        'assets\\flags\\4x3\\es.svg',
+                        'assets/flags/4x3/es.svg',
                         width: 40,
                         height: 30,
                       ),

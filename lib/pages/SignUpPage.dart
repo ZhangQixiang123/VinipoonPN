@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vinipoo_p_n/global.dart';
+import 'package:vinipoo_p_n/pages/LanguagePage.dart';
+import 'package:vinipoo_p_n/pages/LoginPage.dart';
 import '../generated/l10n.dart';
 import 'HomePage.dart';
 
@@ -22,6 +24,11 @@ class _SignupPageState extends State<SignupPage> {
   Future<void> _storeToken(String token) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('authToken', token);
+  }
+
+  Future<void> _storeUsername(String username) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('username', username);
   }
 
   // Retrieve the token
@@ -55,22 +62,23 @@ class _SignupPageState extends State<SignupPage> {
       final data = json.decode(response.body);
       final token = data['key'];
       _storeToken(token);
+      _storeToken(_usernameController.text);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage(username: _usernameController.text)),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     } else {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Error'),
-          content: Text('Registration failed!'),
+          title: Text(lang.str_error),
+          content: Text(lang.str_registration_fail),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: Text(lang.str_ok),
             ),
           ],
         ),
@@ -84,6 +92,7 @@ class _SignupPageState extends State<SignupPage> {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
+    setState(() {});
   }
 
   @override
@@ -100,6 +109,7 @@ class _SignupPageState extends State<SignupPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.file(File('img/logo.png')),
+                SizedBox(height: 20),
                 Text(
                   lang.str_sign_up,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -143,16 +153,30 @@ class _SignupPageState extends State<SignupPage> {
                           obscureText: true,
                         ),
                         SizedBox(height: 20),
-                        _isLoading
-                            ? CircularProgressIndicator()
-                            : ElevatedButton(
-                                onPressed: _signup,
-                                child: Text(lang.str_sign_up),
-                              ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _isLoading
+                              ? CircularProgressIndicator()
+                              : ElevatedButton(
+                                  onPressed: _signup,
+                                  child: Text(lang.str_sign_up),
+                                ),
+                            IconButton(
+                              icon: Icon(Icons.language),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => LanguagePage(),),
+                                  );
+                              },
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 5),
                         TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                           },
                           child: Text(lang.str_have_account + ' ' + lang.str_sign_in),
                         ),

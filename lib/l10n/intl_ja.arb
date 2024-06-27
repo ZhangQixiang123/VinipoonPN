@@ -1,6 +1,4 @@
 {
-    "str_self": "日本語",
-    
     "str_home": "ホーム",
     "str_lang": "言語",
     "str_setting": "設定",
@@ -11,23 +9,33 @@
     "str_sign_in": "サインイン",
     "str_sign_up": "サインアップ",
     "str_logout": "ログアウト",
-    "str_no_account": "アカウントをお持ちではありませんか?",
+    "str_no_account": "アカウントをお持ちではありませんか？",
+    "str_have_account": "すでにアカウントをお持ちですか？",
     
-    "str_have_account": "すでにアカウントをお持ちですか?",
-    
-    "str_email": "メール",
+    "str_email": "メールアドレス",
+    "str_username": "ユーザー名",
     "str_password": "パスワード",
+    "str_password1": "パスワード",
+    "str_password2": "パスワードの確認",
     
     "str_connect": "接続",
     "str_disconnect": "切断",
     "str_select_server": "VPN サーバーを選択",
-    "str_server_exists": "サーバー名が既に存在します!",
+    "str_server_exists": "サーバー名がすでにが存在します!",
+    "str_enter_port": "ポートを入力してください",
     
-    "str_add_server": "サーバーの追加",
+    "str_add_server": "サーバーを追加",
     "str_server_name": "サーバー名",
     "str_server_configuration": "サーバー構成 (JSON) (現在は v2ray のみ)",
     "str_save": "保存",
     "str_fill_blank": "すべてのフィールドに入力してください",
     
-    "str_select_lang": "言語を選択してください"
-    }
+    "str_select_lang": "言語を選択",
+    
+    "str_error": "エラー",
+    "str_logout_fail": "ログアウトに失敗しました!",
+    "str_registration_fail": "登録に失敗しました!",
+    "str_ok": "OK",
+    "str_no_username_found": "ユーザー名が見つかりません",
+    "str_app_about": "VinipooPN は、オンライン プライバシーを保護し、高速で安定した接続を保証するように設計された、安全で信頼性の高い VPN サービスです。当社のサーバーは世界中に配置されており、可能な限り最高の速度とセキュリティを提供します。"
+}

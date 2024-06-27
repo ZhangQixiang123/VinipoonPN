@@ -26,9 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_about_us": MessageLookupByLibrary.simpleMessage("О нас"),
         "str_add_server":
             MessageLookupByLibrary.simpleMessage("Добавить сервер"),
+        "str_app_about": MessageLookupByLibrary.simpleMessage(
+            "VinipooPN — это безопасный и надежный VPN-сервис, предназначенный для защиты вашей конфиденциальности в Интернете и обеспечения быстрого и стабильного соединения. Наши серверы расположены по всему миру, обеспечивая вам максимально возможную скорость и безопасность."),
         "str_connect": MessageLookupByLibrary.simpleMessage("Подключиться"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Отключиться"),
         "str_email": MessageLookupByLibrary.simpleMessage("Электронная почта"),
+        "str_enter_port": MessageLookupByLibrary.simpleMessage("Введите порт"),
+        "str_error": MessageLookupByLibrary.simpleMessage("Ошибка"),
         "str_fill_blank": MessageLookupByLibrary.simpleMessage(
             "Пожалуйста, заполните все поля"),
         "str_have_account":
@@ -36,14 +40,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_home": MessageLookupByLibrary.simpleMessage("Дом"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Язык"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Выход"),
+        "str_logout_fail":
+            MessageLookupByLibrary.simpleMessage("Выйти не удалось!"),
         "str_no_account": MessageLookupByLibrary.simpleMessage("Нет аккаунта?"),
+        "str_no_username_found":
+            MessageLookupByLibrary.simpleMessage("Имя пользователя не найдено"),
+        "str_ok": MessageLookupByLibrary.simpleMessage("ОК"),
         "str_password": MessageLookupByLibrary.simpleMessage("Пароль"),
+        "str_password1": MessageLookupByLibrary.simpleMessage("Пароль"),
+        "str_password2":
+            MessageLookupByLibrary.simpleMessage("Подтвердите пароль"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Профиль"),
+        "str_registration_fail":
+            MessageLookupByLibrary.simpleMessage("Регистрация не удалась!"),
         "str_save": MessageLookupByLibrary.simpleMessage("Сохранить"),
         "str_select_lang": MessageLookupByLibrary.simpleMessage("Выбрать язык"),
         "str_select_server":
             MessageLookupByLibrary.simpleMessage("Выберите VPN-сервер"),
-        "str_self": MessageLookupByLibrary.simpleMessage("Русский"),
         "str_server_configuration": MessageLookupByLibrary.simpleMessage(
             "Конфигурация сервера (JSON) (только v2ray сейчас)"),
         "str_server_exists":
@@ -52,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_setting": MessageLookupByLibrary.simpleMessage("Настройка"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("Войти"),
         "str_sign_up":
-            MessageLookupByLibrary.simpleMessage("Зарегистрироваться")
+            MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
+        "str_username": MessageLookupByLibrary.simpleMessage("Имя пользователя")
       };
 }

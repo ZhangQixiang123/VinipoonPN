@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:vinipoo_p_n/generated/l10n.dart';
 
 import 'AboutPage.dart';
-import 'SettingPage.dart';
+import 'SettingsPage.dart';
 import 'VPNHomePage.dart';
 
 class HomePage extends StatefulWidget {
-  final String username;
-  HomePage({required this.username});
+  HomePage();
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -21,6 +20,7 @@ class _HomePageState extends State<HomePage> {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
+    setState(() {});
   }
 
 
@@ -33,9 +33,7 @@ class _HomePageState extends State<HomePage> {
         page = VPNHomePage();
         break;
       case 1:
-        page = SettingsPage(
-          username: widget.username,
-        );
+        page = SettingsPage();
         break;
       case 2:
         page = AboutPage();

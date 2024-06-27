@@ -5,9 +5,8 @@ import 'LanguagePage.dart';
 import 'ProfilePage.dart';
 
 class SettingsPage extends StatefulWidget {
-  final String username;
 
-  SettingsPage({required this.username, super.key});
+  SettingsPage({super.key});
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();
@@ -19,6 +18,7 @@ class _SettingsPageState extends State<SettingsPage> {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
+    setState(() {});
   }
 
   @override
@@ -65,9 +65,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProfilePage(
-                            username: widget.username
-                          ),
+                          builder: (context) => ProfilePage(),
                         )
                       );
                     },
