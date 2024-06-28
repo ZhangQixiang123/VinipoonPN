@@ -209,7 +209,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.file(File('img/guardian.png')),
+              Image.file(File('assets/common/guardian.png')),
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),

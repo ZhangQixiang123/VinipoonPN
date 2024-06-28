@@ -114,7 +114,7 @@ class _SignupPageState extends State<SignupPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.file(File('img/logo.png')),
+                Image.file(File('assets/common/logo.png')),
                 SizedBox(height: 20),
                 Text(
                   lang.str_sign_up,
