@@ -36,56 +36,63 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _login() async {
-    setState(() {
-      _isLoading = true;
-    });
 
-    final url = Uri.parse('$server/api/v1/rest-auth/login/');
-    final response = await http.post(
-      url,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: json.encode({
-        'username': _usernameController.text,
-        'password': _passwordController.text,
-      }),
-    );
-
-    setState(() {
-      _isLoading = false;
-    });
-
-    if (response.statusCode == 200) {
-      final data = json.decode(response.body);
-      final token = data['key'];
-      _storeToken(token);
-      _storeUsername(_usernameController.text);
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+    if (_usernameController.text.isEmpty || _passwordController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(lang.str_fill_blank)),
       );
     } else {
-      final errorData = json.decode(response.body);
-      final errorMessage = errorData['non_field_errors'] != null
-          ? errorData['non_field_errors'][0]
-          : 'Authentication failed!';
+      setState(() {
+        _isLoading = true;
+      });
 
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(lang.str_error),
-          content: Text(errorMessage),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(lang.str_ok),
-            ),
-          ],
-        ),
+      final url = Uri.parse('$server/api/v1/rest-auth/login/');
+      final response = await http.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: json.encode({
+          'username': _usernameController.text,
+          'password': _passwordController.text,
+        }),
       );
+
+      setState(() {
+        _isLoading = false;
+      });
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        final token = data['key'];
+        _storeToken(token);
+        _storeUsername(_usernameController.text);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
+      } else {
+        final errorData = json.decode(response.body);
+        final errorMessage = errorData['non_field_errors'] != null
+            ? errorData['non_field_errors'][0]
+            : 'Authentication failed!';
+
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(lang.str_error),
+            content: Text(errorMessage),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(lang.str_ok),
+              ),
+            ],
+          ),
+        );
+      }
     }
   }
 

@@ -38,51 +38,57 @@ class _SignupPageState extends State<SignupPage> {
   }
 
   Future<void> _signup() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    final url = '$server/api/v1/rest-auth/registration/';
-    final response = await http.post(
-      Uri.parse(url),
-      headers: {'Content-Type': 'application/json'},
-      body: json.encode({
-        'username': _usernameController.text,
-        'email': _emailController.text,
-        'password1': _passwordController.text,
-        'password2': _confirmPasswordController.text,
-      }),
-    );
-
-    setState(() {
-      _isLoading = false;
-    });
-
-    if (response.statusCode == 201) {
-      final data = json.decode(response.body);
-      final token = data['key'];
-      _storeToken(token);
-      _storeToken(_usernameController.text);
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+    if (_usernameController.text.isEmpty || _emailController.text.isEmpty || _passwordController.text.isEmpty || _confirmPasswordController.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(lang.str_fill_blank)),
       );
     } else {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(lang.str_error),
-          content: Text(lang.str_registration_fail),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(lang.str_ok),
-            ),
-          ],
-        ),
+      setState(() {
+        _isLoading = true;
+      });
+
+      final url = '$server/api/v1/rest-auth/registration/';
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'username': _usernameController.text,
+          'email': _emailController.text,
+          'password1': _passwordController.text,
+          'password2': _confirmPasswordController.text,
+        }),
       );
+
+      setState(() {
+        _isLoading = false;
+      });
+
+      if (response.statusCode == 201) {
+        final data = json.decode(response.body);
+        final token = data['key'];
+        _storeToken(token);
+        _storeToken(_usernameController.text);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomePage()),
+        );
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(lang.str_error),
+            content: Text(lang.str_registration_fail),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(lang.str_ok),
+              ),
+            ],
+          ),
+        );
+      }
     }
   }
 

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:vinipoo_p_n/Model/VPNConnectionModel.dart';
 import 'dart:io';
@@ -18,123 +19,144 @@ class _VPNHomePageState extends State<VPNHomePage> {
   late S lang;
 
   String? _selectedServer;
-  Map<String, String> _servers = {};
+  Map<String, Map<String, String>> _servers = {};
+  TextEditingController? _portController;
 
   @override
   void initState() {
     super.initState();
-    
     _servers = {
-      'Tokyo-Japan': '''{
-        "inbounds": [
-          {
-            "port": 1279,
-            "protocol": "socks",
-            "sniffing": {
-              "enabled": true,
-              "destOverride": ["http", "tls"]
-            },
-            "settings": {
-              "auth": "noauth"
+      'Tokyo-Japan': {
+        'flag': 'assets/flags/4x3/jp.svg',
+        'config': '''{
+          "inbounds": [
+            {
+              "port": 1279,
+              "protocol": "socks",
+              "sniffing": {
+                "enabled": true,
+                "destOverride": ["http", "tls"]
+              },
+              "settings": {
+                "auth": "noauth"
+              }
             }
-          }
-        ],
-        "outbounds": [
-          {
-            "protocol": "vmess",
-            "settings": {
-              "vnext": [
-                {
-                  "address": "108.160.135.96",
-                  "port": 16823,
-                  "users": [
-                    {
-                      "id": "ddb70380-95b7-46fc-9b72-611f393ba418",
-                      "alterId": 0
-                    }
-                  ]
-                }
-              ]
+          ],
+          "outbounds": [
+            {
+              "protocol": "vmess",
+              "settings": {
+                "vnext": [
+                  {
+                    "address": "108.160.135.96",
+                    "port": 16823,
+                    "users": [
+                      {
+                        "id": "ddb70380-95b7-46fc-9b72-611f393ba418",
+                        "alterId": 0
+                      }
+                    ]
+                  }
+                ]
+              }
             }
-          }
-        ]
-      }''',
-      'Server 2': '''{
-        "log": {
-          "loglevel": "warning"
-        },
-        "inbounds": [{
-          "port": 1080,
-          "listen": "127.0.0.1",
-          "protocol": "socks",
-          "settings": {
-            "auth": "noauth",
-            "udp": false
-          }
-        }],
-        "outbounds": [{
-          "protocol": "vmess",
-          "settings": {
-            "vnext": [{
-              "address": "example2.com",
-              "port": 443,
-              "users": [{
-                "id": "uuid-2",
-                "alterId": 64
-              }]
-            }]
-          },
-          "streamSettings": {
-            "network": "ws",
-            "wsSettings": {
-              "path": "/path2"
-            },
-            "security": "tls"
-          }
-        }]
-      }''',
-      'Server 3': '''{
-        "log": {
-          "loglevel": "warning"
-        },
-        "inbounds": [{
-          "port": 1080,
-          "listen": "127.0.0.1",
-          "protocol": "socks",
-          "settings": {
-            "auth": "noauth",
-            "udp": false
-          }
-        }],
-        "outbounds": [{
-          "protocol": "vmess",
-          "settings": {
-            "vnext": [{
-              "address": "example3.com",
-              "port": 443,
-              "users": [{
-                "id": "uuid-3",
-                "alterId": 64
-              }]
-            }]
-          },
-          "streamSettings": {
-            "network": "ws",
-            "wsSettings": {
-              "path": "/path3"
-            },
-            "security": "tls"
-          }
-        }]
-      }'''
+          ]
+        }'''
+      },
+      'Los Angeles-USA': {
+        'flag': 'assets/flags/4x3/us.svg',
+        'config': '''{
+          "inbounds": [
+            {
+              "port": 1279,
+              "protocol": "socks",
+              "sniffing": {
+                "enabled": true,
+                "destOverride": ["http", "tls"]
+              },
+              "settings": {
+                "auth": "noauth"
+              }
+            }
+          ],
+          "outbounds": [
+            {
+              "protocol": "vmess",
+              "settings": {
+                "vnext": [
+                  {
+                    "address": "140.82.21.3",
+                    "port": 16823,
+                    "users": [
+                      {
+                        "id": "43aa28d1-0923-4db3-b8a1-4e4ad1d311f8",
+                        "alterId": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }'''
+      },
+      'Warsaw-Poland': {
+        'flag': 'assets/flags/4x3/pl.svg',
+        'config': '''{
+          "inbounds": [
+            {
+              "port": 1279,
+              "protocol": "socks",
+              "sniffing": {
+                "enabled": true,
+                "destOverride": ["http", "tls"]
+              },
+              "settings": {
+                "auth": "noauth"
+              }
+            }
+          ],
+          "outbounds": [
+            {
+              "protocol": "vmess",
+              "settings": {
+                "vnext": [
+                  {
+                    "address": "70.34.254.59",
+                    "port": 16823,
+                    "users": [
+                      {
+                        "id": "3d1ac968-19e8-4cfc-9053-764dd6c92416",
+                        "alterId": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }'''
+      }
     };
     _selectedServer = _servers.keys.first;
+    _portController = Provider.of<VPNConnectionModel>(context, listen: false).port;
+    _portController!.addListener(_onPortChanged);
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _updateLang();
+  }
+
+  @override
+  void dispose() {
+    _portController?.removeListener(_onPortChanged);
+    super.dispose();
+  }
+
+  void _onPortChanged() {
+    setState(() {}); // Update the state to enable/disable the button based on port input
   }
 
   _updateLang() async {
@@ -145,9 +167,9 @@ class _VPNHomePageState extends State<VPNHomePage> {
   }
 
   void _connectVPN() async {
-    final config = _servers[_selectedServer]!;
+    final config = _servers[_selectedServer]!['config']!;
     final configJson = jsonDecode(config);
-    configJson['inbounds'][0]['port'] = int.parse(Provider.of<VPNConnectionModel>(context, listen: false).port.text);
+    configJson['inbounds'][0]['port'] = int.parse(_portController!.text);
     final configTo = File('v2ray/config.json');
     await configTo.writeAsString(jsonEncode(configJson));
 
@@ -173,9 +195,12 @@ class _VPNHomePageState extends State<VPNHomePage> {
     });
   }
 
+  bool _isPortFilled() {
+    return _portController!.text.isNotEmpty;
+  }
+
   @override
   Widget build(BuildContext context) {
-    // print(Provider.of<VPNConnectionModel>(context, listen: false).isConnected);
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -218,7 +243,17 @@ class _VPNHomePageState extends State<VPNHomePage> {
                                 .map<DropdownMenuItem<String>>((String key) {
                               return DropdownMenuItem<String>(
                                 value: key,
-                                child: Text(key),
+                                child: Row(
+                                  children: [
+                                    SvgPicture.asset(
+                                      _servers[key]!['flag']!,
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                    SizedBox(width: 10),
+                                    Text(key),
+                                  ],
+                                ),
                               );
                             }).toList(),
                           ),
@@ -232,7 +267,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
                           SizedBox(
                             width: 200,
                             child: TextField(
-                              controller: Provider.of<VPNConnectionModel>(context, listen: false).port,
+                              controller: _portController,
                               decoration: InputDecoration(
                                 labelText: lang.str_listening_port,
                                 border: OutlineInputBorder(),
@@ -255,8 +290,9 @@ class _VPNHomePageState extends State<VPNHomePage> {
                               ),
                             )
                           : ElevatedButton.icon(
-                              onPressed: _selectedServer == null ? null :  _connectVPN,
-
+                              onPressed: _selectedServer == null || !_isPortFilled()
+                                ? null 
+                                : _connectVPN,
                               icon: Icon(Icons.link),
                               label: Text(lang.str_connect),
                               style: ElevatedButton.styleFrom(
