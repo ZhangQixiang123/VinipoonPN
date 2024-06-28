@@ -234,7 +234,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
                             child: TextField(
                               controller: Provider.of<VPNConnectionModel>(context, listen: false).port,
                               decoration: InputDecoration(
-                                labelText: lang.str_enter_port,
+                                labelText: lang.str_listening_port,
                                 border: OutlineInputBorder(),
                               ),
                               keyboardType: TextInputType.number,

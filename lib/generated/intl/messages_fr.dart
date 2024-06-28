@@ -32,8 +32,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_connect": MessageLookupByLibrary.simpleMessage("Connecter"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Déconnecter"),
         "str_email": MessageLookupByLibrary.simpleMessage("E-mail"),
-        "str_enter_port":
-            MessageLookupByLibrary.simpleMessage("Entrer le port"),
         "str_error": MessageLookupByLibrary.simpleMessage("Erreur"),
         "str_fill_blank": MessageLookupByLibrary.simpleMessage(
             "Veuillez remplir tous les champs"),
@@ -41,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Vous avez déjà un compte ?"),
         "str_home": MessageLookupByLibrary.simpleMessage("Accueil"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Langue"),
+        "str_listening_port":
+            MessageLookupByLibrary.simpleMessage("Écouter sur le port"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Déconnexion"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("La déconnexion a échoué !"),
@@ -53,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password1": MessageLookupByLibrary.simpleMessage("Mot de passe"),
         "str_password2":
             MessageLookupByLibrary.simpleMessage("Confirmer le mot de passe"),
+        "str_please_disconnect": MessageLookupByLibrary.simpleMessage(
+            "Veuillez d\'abord vous déconnecter !"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Profil"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("L\'inscription a échoué !"),

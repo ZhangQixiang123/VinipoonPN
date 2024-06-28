@@ -30,7 +30,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_connect": MessageLookupByLibrary.simpleMessage("Connect"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Disconnect"),
         "str_email": MessageLookupByLibrary.simpleMessage("Email"),
-        "str_enter_port": MessageLookupByLibrary.simpleMessage("Enter port"),
         "str_error": MessageLookupByLibrary.simpleMessage("Error"),
         "str_fill_blank":
             MessageLookupByLibrary.simpleMessage("Please fill out all fields"),
@@ -38,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "str_home": MessageLookupByLibrary.simpleMessage("Home"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Language"),
+        "str_listening_port":
+            MessageLookupByLibrary.simpleMessage("Listen on Port"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("Logout failed!"),
@@ -50,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password1": MessageLookupByLibrary.simpleMessage("Password"),
         "str_password2":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "str_please_disconnect":
+            MessageLookupByLibrary.simpleMessage("Please disconnect first!"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("Registration failed!"),

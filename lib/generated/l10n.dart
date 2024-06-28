@@ -250,11 +250,11 @@ class S {
     );
   }
 
-  /// `Enter port`
-  String get str_enter_port {
+  /// `Listen on Port`
+  String get str_listening_port {
     return Intl.message(
-      'Enter port',
-      name: 'str_enter_port',
+      'Listen on Port',
+      name: 'str_listening_port',
       desc: '',
       args: [],
     );
@@ -305,6 +305,16 @@ class S {
     return Intl.message(
       'Please fill out all fields',
       name: 'str_fill_blank',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please disconnect first!`
+  String get str_please_disconnect {
+    return Intl.message(
+      'Please disconnect first!',
+      name: 'str_please_disconnect',
       desc: '',
       args: [],
     );

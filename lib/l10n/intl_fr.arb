@@ -22,14 +22,14 @@
     "str_disconnect": "Déconnecter",
     "str_select_server": "Sélectionnez un serveur VPN",
     "str_server_exists": "Le nom du serveur existe déjà !",
-    "str_enter_port": "Entrer le port",
-   
+    "str_listening_port": "Écouter sur le port",
    
     "str_add_server": "Ajouter un serveur",
     "str_server_name": "Nom du serveur",
     "str_server_configuration": "Configuration du serveur (JSON) (v2ray uniquement maintenant)",
     "str_save": "Enregistrer",
     "str_fill_blank": "Veuillez remplir tous les champs",
+    "str_please_disconnect": "Veuillez d'abord vous déconnecter !",
    
     "str_select_lang": "Sélectionner la langue",
    

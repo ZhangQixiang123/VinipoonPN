@@ -31,7 +31,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_connect": MessageLookupByLibrary.simpleMessage("Подключиться"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Отключиться"),
         "str_email": MessageLookupByLibrary.simpleMessage("Электронная почта"),
-        "str_enter_port": MessageLookupByLibrary.simpleMessage("Введите порт"),
         "str_error": MessageLookupByLibrary.simpleMessage("Ошибка"),
         "str_fill_blank": MessageLookupByLibrary.simpleMessage(
             "Пожалуйста, заполните все поля"),
@@ -39,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("У вас уже есть аккаунт?"),
         "str_home": MessageLookupByLibrary.simpleMessage("Дом"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Язык"),
+        "str_listening_port":
+            MessageLookupByLibrary.simpleMessage("Прослушивать порт"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Выход"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("Выйти не удалось!"),
@@ -50,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password1": MessageLookupByLibrary.simpleMessage("Пароль"),
         "str_password2":
             MessageLookupByLibrary.simpleMessage("Подтвердите пароль"),
+        "str_please_disconnect":
+            MessageLookupByLibrary.simpleMessage("Сначала отключитесь!"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Профиль"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("Регистрация не удалась!"),

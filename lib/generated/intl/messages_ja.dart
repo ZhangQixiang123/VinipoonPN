@@ -30,7 +30,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_connect": MessageLookupByLibrary.simpleMessage("接続"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("切断"),
         "str_email": MessageLookupByLibrary.simpleMessage("メールアドレス"),
-        "str_enter_port": MessageLookupByLibrary.simpleMessage("ポートを入力してください"),
         "str_error": MessageLookupByLibrary.simpleMessage("エラー"),
         "str_fill_blank":
             MessageLookupByLibrary.simpleMessage("すべてのフィールドに入力してください"),
@@ -38,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("すでにアカウントをお持ちですか？"),
         "str_home": MessageLookupByLibrary.simpleMessage("ホーム"),
         "str_lang": MessageLookupByLibrary.simpleMessage("言語"),
+        "str_listening_port":
+            MessageLookupByLibrary.simpleMessage("ポートをリッスンする"),
         "str_logout": MessageLookupByLibrary.simpleMessage("ログアウト"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("ログアウトに失敗しました!"),
@@ -49,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password": MessageLookupByLibrary.simpleMessage("パスワード"),
         "str_password1": MessageLookupByLibrary.simpleMessage("パスワード"),
         "str_password2": MessageLookupByLibrary.simpleMessage("パスワードの確認"),
+        "str_please_disconnect":
+            MessageLookupByLibrary.simpleMessage("まず切断してください!"),
         "str_profile": MessageLookupByLibrary.simpleMessage("プロフィール"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("登録に失敗しました!"),

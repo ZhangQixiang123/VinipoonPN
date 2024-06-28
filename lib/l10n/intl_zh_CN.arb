@@ -22,13 +22,14 @@
     "str_disconnect": "断开连接",
     "str_select_server": "选择 VPN 服务器",
     "str_server_exists": "服务器名称已经存在！",
-    "str_enter_port": "输入端口",
+    "str_listening_port": "监听端口",
     
     "str_add_server": "添加服务器",
     "str_server_name": "服务器名称",
     "str_server_configuration": "服务器配置 (JSON)（目前仅限 v2ray）",
     "str_save": "保存",
     "str_fill_blank": "请填写所有字段",
+    "str_please_disconnect": "请先断开连接！",
     
     "str_select_lang": "选择语言",
     

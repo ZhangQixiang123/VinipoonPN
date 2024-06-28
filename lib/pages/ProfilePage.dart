@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vinipoo_p_n/Model/VPNConnectionModel.dart';
 import 'package:vinipoo_p_n/global.dart';
 import 'package:http/http.dart' as http;
 
@@ -127,8 +129,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: _logout,
-                      child: Text(lang.str_logout),
+                      onPressed: Provider.of<VPNConnectionModel>(context, listen: false).isConnected
+                        ? null
+                        :_logout,
+                      child: Provider.of<VPNConnectionModel>(context, listen: false).isConnected
+                        ? Text(lang.str_please_disconnect)
+                        : Text(lang.str_logout),
                     ),
                   ],
                 ),

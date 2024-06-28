@@ -22,13 +22,14 @@
     "str_disconnect": "切断",
     "str_select_server": "VPN サーバーを選択",
     "str_server_exists": "サーバー名がすでにが存在します!",
-    "str_enter_port": "ポートを入力してください",
+    "str_listening_port": "ポートをリッスンする",
     
     "str_add_server": "サーバーを追加",
     "str_server_name": "サーバー名",
     "str_server_configuration": "サーバー構成 (JSON) (現在は v2ray のみ)",
     "str_save": "保存",
     "str_fill_blank": "すべてのフィールドに入力してください",
+    "str_please_disconnect": "まず切断してください!",
     
     "str_select_lang": "言語を選択",
     

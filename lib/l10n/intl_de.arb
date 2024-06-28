@@ -22,12 +22,14 @@
     "str_disconnect": "Trennen",
     "str_select_server": "VPN-Server auswählen",
     "str_server_exists": "Servername bereits existiert!",
-    "str_enter_port": "Port eingeben",
+    "str_listening_port": "Auf Port lauschen",
+    
     "str_add_server": "Server hinzufügen",
     "str_server_name": "Servername",
     "str_server_configuration": "Serverkonfiguration (JSON) (jetzt nur v2ray)",
     "str_save": "Speichern",
     "str_fill_blank": "Bitte alle Felder ausfüllen",
+    "str_please_disconnect": "Bitte zuerst trennen!",
     
     "str_select_lang": "Sprache auswählen",
     

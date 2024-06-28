@@ -10,7 +10,7 @@ class VPNConnectionModel extends ChangeNotifier {
   bool _isConnected = false;
   bool get isConnected => _isConnected;
 
-  TextEditingController _port = TextEditingController(text: '1080');
+  TextEditingController _port = TextEditingController();
   TextEditingController get port => _port;
 
   void setV2rayProcess(Process v2rayProcess) {

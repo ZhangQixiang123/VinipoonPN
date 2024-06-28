@@ -22,7 +22,7 @@
     "str_disconnect": "Отключиться",
     "str_select_server": "Выберите VPN-сервер",
     "str_server_exists": "Имя сервера уже существует!",
-    "str_enter_port": "Введите порт",
+    "str_listening_port": "Прослушивать порт",
    
    
     "str_add_server": "Добавить сервер",
@@ -30,6 +30,7 @@
     "str_server_configuration": "Конфигурация сервера (JSON) (только v2ray сейчас)",
     "str_save": "Сохранить",
     "str_fill_blank": "Пожалуйста, заполните все поля",
+    "str_please_disconnect": "Сначала отключитесь!",
    
     "str_select_lang": "Выбрать язык",
    
