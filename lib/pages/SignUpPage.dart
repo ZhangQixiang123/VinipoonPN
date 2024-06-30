@@ -67,17 +67,22 @@ class _SignupPageState extends State<SignupPage> {
         final data = json.decode(response.body);
         final token = data['key'];
         _storeToken(token);
-        _storeToken(_usernameController.text);
+        _storeUsername(_usernameController.text);
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => HomePage()),
         );
       } else {
+        final Map<String, dynamic> errorResponse = json.decode(response.body);
+        // String errorMessage = errorResponse.entries.map((e) => '${e.value}').join('\n');
+        String errorMessage = errorResponse.values.map((e) => e[0]).join('\n');
+        // print(errorMessage);
+      
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
             title: Text(lang.str_error),
-            content: Text(lang.str_registration_fail),
+            content: Text(errorMessage),
             actions: <Widget>[
               TextButton(
                 onPressed: () {
