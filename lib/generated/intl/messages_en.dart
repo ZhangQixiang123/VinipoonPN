@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_error": MessageLookupByLibrary.simpleMessage("Error"),
         "str_fill_blank":
             MessageLookupByLibrary.simpleMessage("Please fill out all fields"),
+        "str_global_proxy":
+            MessageLookupByLibrary.simpleMessage("Global Proxy"),
         "str_have_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "str_home": MessageLookupByLibrary.simpleMessage("Home"),

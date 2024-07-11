@@ -20,7 +20,8 @@ class _VPNHomePageState extends State<VPNHomePage> {
 
   String? _selectedServer;
   Map<String, Map<String, String>> _servers = {};
-  TextEditingController? _portController;
+  // TextEditingController? _portController;
+  // bool _globalProxy = false;
 
   @override
   void initState() {
@@ -29,36 +30,12 @@ class _VPNHomePageState extends State<VPNHomePage> {
       'Tokyo-Japan': {
         'flag': 'assets/flags/4x3/jp.svg',
         'config': '''{
-          "inbounds": [
+          "address": "108.160.135.96",
+          "port": 16823,
+          "users": [
             {
-              "port": 1279,
-              "protocol": "socks",
-              "sniffing": {
-                "enabled": true,
-                "destOverride": ["http", "tls"]
-              },
-              "settings": {
-                "auth": "noauth"
-              }
-            }
-          ],
-          "outbounds": [
-            {
-              "protocol": "vmess",
-              "settings": {
-                "vnext": [
-                  {
-                    "address": "108.160.135.96",
-                    "port": 16823,
-                    "users": [
-                      {
-                        "id": "ddb70380-95b7-46fc-9b72-611f393ba418",
-                        "alterId": 0
-                      }
-                    ]
-                  }
-                ]
-              }
+              "id": "ddb70380-95b7-46fc-9b72-611f393ba418",
+              "alterId": 0
             }
           ]
         }'''
@@ -66,36 +43,12 @@ class _VPNHomePageState extends State<VPNHomePage> {
       'Los Angeles-USA': {
         'flag': 'assets/flags/4x3/us.svg',
         'config': '''{
-          "inbounds": [
+          "address": "140.82.21.3",
+          "port": 16823,
+          "users": [
             {
-              "port": 1279,
-              "protocol": "socks",
-              "sniffing": {
-                "enabled": true,
-                "destOverride": ["http", "tls"]
-              },
-              "settings": {
-                "auth": "noauth"
-              }
-            }
-          ],
-          "outbounds": [
-            {
-              "protocol": "vmess",
-              "settings": {
-                "vnext": [
-                  {
-                    "address": "140.82.21.3",
-                    "port": 16823,
-                    "users": [
-                      {
-                        "id": "43aa28d1-0923-4db3-b8a1-4e4ad1d311f8",
-                        "alterId": 0
-                      }
-                    ]
-                  }
-                ]
-              }
+              "id": "43aa28d1-0923-4db3-b8a1-4e4ad1d311f8",
+              "alterId": 0
             }
           ]
         }'''
@@ -103,44 +56,20 @@ class _VPNHomePageState extends State<VPNHomePage> {
       'Warsaw-Poland': {
         'flag': 'assets/flags/4x3/pl.svg',
         'config': '''{
-          "inbounds": [
+          "address": "70.34.254.59",
+          "port": 16823,
+          "users": [
             {
-              "port": 1279,
-              "protocol": "socks",
-              "sniffing": {
-                "enabled": true,
-                "destOverride": ["http", "tls"]
-              },
-              "settings": {
-                "auth": "noauth"
-              }
-            }
-          ],
-          "outbounds": [
-            {
-              "protocol": "vmess",
-              "settings": {
-                "vnext": [
-                  {
-                    "address": "70.34.254.59",
-                    "port": 16823,
-                    "users": [
-                      {
-                        "id": "3d1ac968-19e8-4cfc-9053-764dd6c92416",
-                        "alterId": 0
-                      }
-                    ]
-                  }
-                ]
-              }
+              "id": "3d1ac968-19e8-4cfc-9053-764dd6c92416",
+              "alterId": 0
             }
           ]
         }'''
       }
     };
     _selectedServer = _servers.keys.first;
-    _portController = Provider.of<VPNConnectionModel>(context, listen: false).port;
-    _portController!.addListener(_onPortChanged);
+    // _portController = TextEditingController();
+    // _portController!.addListener(_onPortChanged);
   }
 
   @override
@@ -149,15 +78,15 @@ class _VPNHomePageState extends State<VPNHomePage> {
     _updateLang();
   }
 
-  @override
-  void dispose() {
-    _portController?.removeListener(_onPortChanged);
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _portController?.removeListener(_onPortChanged);
+  //   super.dispose();
+  // }
 
-  void _onPortChanged() {
-    setState(() {}); // Update the state to enable/disable the button based on port input
-  }
+  // void _onPortChanged() {
+  //   setState(() {}); // Update the state to enable/disable the button based on port input
+  // }
 
   _updateLang() async {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
@@ -167,9 +96,10 @@ class _VPNHomePageState extends State<VPNHomePage> {
   }
 
   void _connectVPN() async {
-    final config = _servers[_selectedServer]!['config']!;
+    final config = await File('lib/Model/global.json').readAsString();
+    // final config = _servers[_selectedServer]!['config']!;
     final configJson = jsonDecode(config);
-    configJson['inbounds'][0]['port'] = int.parse(_portController!.text);
+    configJson['outbounds'][0]['settings']['vnext'][0] = jsonDecode(_servers[_selectedServer]!['config']!);
     final configTo = File('v2ray/config.json');
     await configTo.writeAsString(jsonEncode(configJson));
 
@@ -177,15 +107,41 @@ class _VPNHomePageState extends State<VPNHomePage> {
     setState(() {
       Provider.of<VPNConnectionModel>(context, listen: false).setConnected(true);
     });
+
+    if (Platform.isWindows) {
+      final proxyUrl = '127.0.0.1:12800';
+      final proxyOverride = 'localhost;127.*;10.*;172.16.*;172.17.*;172.18.*;172.19.*;172.20.*;172.21.*;172.22.*;172.23.*;172.24.*;172.25.*;172.26.*;172.27.*;172.28.*;172.29.*;172.30.*;172.31.*;192.168.*';
+      final path = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings';
+      
+      try {
+        await Process.run('reg', ['add', path, '/v', 'ProxyServer', '/d', proxyUrl, '/f']);
+        await Process.run('reg', ['add', path, '/v', 'ProxyEnable', '/t', 'REG_DWORD', '/d', '1', '/f']);
+        await Process.run('reg', ['add', path, '/v', 'ProxyOverride', '/t', 'REG_SZ', '/d', proxyOverride, '/f']);
+      } catch (e) {
+        print('Failed to set proxy settings: $e');
+      }
+    }
   }
 
   void _disconnectVPN() async {
-    if (Provider.of<VPNConnectionModel>(context, listen:  false).v2rayProcess != null) {
-      Provider.of<VPNConnectionModel>(context, listen:  false).v2rayProcess!.kill();
-      await Provider.of<VPNConnectionModel>(context, listen:  false).v2rayProcess!.exitCode;
+    if (Provider.of<VPNConnectionModel>(context, listen: false).v2rayProcess != null) {
+      Provider.of<VPNConnectionModel>(context, listen: false).v2rayProcess!.kill();
+      await Provider.of<VPNConnectionModel>(context, listen: false).v2rayProcess!.exitCode;
       setState(() {
         Provider.of<VPNConnectionModel>(context, listen: false).setConnected(false);
       });
+
+      if (Platform.isWindows) {
+        final path = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings';
+
+        try {
+          await Process.run('reg', ['delete', path, '/v', 'ProxyServer', '/f']);
+          await Process.run('reg', ['add', path, '/v', 'ProxyEnable', '/t', 'REG_DWORD', '/d', '0', '/f']);
+          await Process.run('reg', ['delete', path, '/v', 'ProxyOverride', '/f']);
+        } catch (e) {
+          print('Failed to clear proxy settings: $e');
+        }
+      }
     }
   }
 
@@ -195,9 +151,9 @@ class _VPNHomePageState extends State<VPNHomePage> {
     });
   }
 
-  bool _isPortFilled() {
-    return _portController!.text.isNotEmpty;
-  }
+  // bool _isPortFilled() {
+  //   return _portController!.text.isNotEmpty;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -259,25 +215,41 @@ class _VPNHomePageState extends State<VPNHomePage> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: 200,
-                            child: TextField(
-                              controller: _portController,
-                              decoration: InputDecoration(
-                                labelText: lang.str_listening_port,
-                                border: OutlineInputBorder(),
-                              ),
-                              keyboardType: TextInputType.number,
-                              enabled: !Provider.of<VPNConnectionModel>(context, listen: false).isConnected,
-                            ),
-                          ),
-                        ],
-                      ),
+                      // SizedBox(height: 20),
+                      // Row(
+                      //   mainAxisSize: MainAxisSize.min,
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     SizedBox(
+                      //       width: 200,
+                      //       child: TextField(
+                      //         controller: _portController,
+                      //         decoration: InputDecoration(
+                      //           labelText: lang.str_listening_port,
+                      //           border: OutlineInputBorder(),
+                      //         ),
+                      //         keyboardType: TextInputType.number,
+                      //         enabled: !Provider.of<VPNConnectionModel>(context, listen: false).isConnected,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                      // SizedBox(height: 20),
+                      // Row(
+                      //   mainAxisSize: MainAxisSize.min,
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     Text(lang.str_global_proxy),
+                      //     Switch(
+                      //       value: _globalProxy,
+                      //       onChanged: (bool value) {
+                      //         setState(() {
+                      //           _globalProxy = value;
+                      //         });
+                      //       },
+                      //     ),
+                      //   ],
+                      // ),
                       SizedBox(height: 20),
                       Provider.of<VPNConnectionModel>(context, listen: false).isConnected
                           ? ElevatedButton.icon(
@@ -290,7 +262,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
                               ),
                             )
                           : ElevatedButton.icon(
-                              onPressed: _selectedServer == null || !_isPortFilled()
+                              onPressed: _selectedServer == null //|| !_isPortFilled()
                                 ? null 
                                 : _connectVPN,
                               icon: Icon(Icons.link),
@@ -311,3 +283,4 @@ class _VPNHomePageState extends State<VPNHomePage> {
     );
   }
 }
+

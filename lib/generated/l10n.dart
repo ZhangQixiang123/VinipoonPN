@@ -260,6 +260,16 @@ class S {
     );
   }
 
+  /// `Global Proxy`
+  String get str_global_proxy {
+    return Intl.message(
+      'Global Proxy',
+      name: 'str_global_proxy',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add Server`
   String get str_add_server {
     return Intl.message(

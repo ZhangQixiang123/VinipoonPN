@@ -23,6 +23,7 @@
     "str_select_server": "Select a VPN Server",
     "str_server_exists": "Server name already exists!",
     "str_listening_port": "Listen on Port", 
+    "str_global_proxy": "Global Proxy",
 
     "str_add_server": "Add Server",
     "str_server_name": "Server Name",
