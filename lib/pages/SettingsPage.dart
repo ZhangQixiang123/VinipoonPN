@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:vinipoo_p_n/pages/portSettingPage.dart';
 
 import '../generated/l10n.dart';
 import 'LanguagePage.dart';
 import 'ProfilePage.dart';
 
 class SettingsPage extends StatefulWidget {
-
   SettingsPage({super.key});
 
   @override
@@ -14,6 +14,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   late S lang;
+
   _updateLang() async {
     AppLocalizationDelegate delegate = const AppLocalizationDelegate();
     Locale myLocale = Localizations.localeOf(context);
@@ -36,7 +37,7 @@ class _SettingsPageState extends State<SettingsPage> {
             elevation: 5,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Column(   
+              child: Column(
                 children: [
                   Text(
                     lang.str_setting,
@@ -51,9 +52,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     trailing: Icon(Icons.arrow_forward_ios),
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LanguagePage(),),
-                        );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LanguagePage(),
+                        ),
+                      );
                     },
                   ),
                   Divider(),
@@ -66,7 +69,21 @@ class _SettingsPageState extends State<SettingsPage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => ProfilePage(),
-                        )
+                        ),
+                      );
+                    },
+                  ),
+                  Divider(),
+                  ListTile(
+                    leading: Icon(Icons.settings_input_component),
+                    title: Text(lang.str_listening_port),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PortSettingPage(),
+                        ),
                       );
                     },
                   ),

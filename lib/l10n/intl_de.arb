@@ -5,6 +5,7 @@
     "str_about_us": "Über uns",
     "str_about": "Info",
     "str_profile": "Profil",
+    "str_log": "Anmelden",
     
     "str_sign_in": "Anmelden",
     "str_sign_up": "Registrieren",
@@ -21,15 +22,16 @@
     "str_connect": "Verbinden",
     "str_disconnect": "Trennen",
     "str_select_server": "VPN-Server auswählen",
-    "str_server_exists": "Servername bereits existiert!",
-    "str_listening_port": "Auf Port lauschen",
+    "str_server_exists": "Servername existiert bereits!",
+    "str_listening_port": "Abhörport festlegen",
+    "str_global_proxy": "Globaler Proxy",
     
     "str_add_server": "Server hinzufügen",
     "str_server_name": "Servername",
     "str_server_configuration": "Serverkonfiguration (JSON) (jetzt nur v2ray)",
     "str_save": "Speichern",
-    "str_fill_blank": "Bitte alle Felder ausfüllen",
-    "str_please_disconnect": "Bitte zuerst trennen!",
+    "str_fill_blank": "Bitte füllen Sie alle Felder aus",
+    "str_please_disconnect": "Bitte trennen Sie zuerst die Verbindung!",
     
     "str_select_lang": "Sprache auswählen",
     
@@ -38,5 +40,12 @@
     "str_registration_fail": "Registrierung fehlgeschlagen!",
     "str_ok": "OK",
     "str_no_username_found": "Kein Benutzername gefunden",
-    "str_app_about": "VinipooPN ist ein sicherer und zuverlässiger VPN-Dienst, der Ihre Online-Privatsphäre schützt und eine schnelle und stabile Verbindung gewährleistet. Unsere Server sind auf der ganzen Welt verteilt und bieten Ihnen die bestmögliche Geschwindigkeit und Sicherheit."
+    "str_app_about": "VinipooPN ist ein sicherer und zuverlässiger VPN-Dienst, der Ihre Online-Verbindung schützt. Privatsphäre und sorgen für eine schnelle und stabile Verbindung. Unsere Server sind auf der ganzen Welt verteilt und bieten Ihnen die bestmögliche Geschwindigkeit und Sicherheit.",
+    
+    "str_port_empty": "Bitte geben Sie eine Portnummer ein",
+    "str_port_valid": "Bitte geben Sie eine gültige Nummer ein",
+    "str_port_range": "Die Portnummer muss zwischen 1024 und 65535 liegen",
+    
+    "str_socks_port_number": "SOCKS-Portnummer",
+    "str_http_port_number": "HTTP-Portnummer"
 }

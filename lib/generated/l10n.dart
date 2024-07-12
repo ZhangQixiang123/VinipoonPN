@@ -110,6 +110,16 @@ class S {
     );
   }
 
+  /// `Log`
+  String get str_log {
+    return Intl.message(
+      'Log',
+      name: 'str_log',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign In`
   String get str_sign_in {
     return Intl.message(
@@ -250,10 +260,10 @@ class S {
     );
   }
 
-  /// `Listen on Port`
+  /// `Set Listening Port`
   String get str_listening_port {
     return Intl.message(
-      'Listen on Port',
+      'Set Listening Port',
       name: 'str_listening_port',
       desc: '',
       args: [],
@@ -395,6 +405,56 @@ class S {
     return Intl.message(
       'VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security.',
       name: 'str_app_about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a port number`
+  String get str_port_empty {
+    return Intl.message(
+      'Please enter a port number',
+      name: 'str_port_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid number`
+  String get str_port_valid {
+    return Intl.message(
+      'Please enter a valid number',
+      name: 'str_port_valid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Port number must be between 1024 and 65535`
+  String get str_port_range {
+    return Intl.message(
+      'Port number must be between 1024 and 65535',
+      name: 'str_port_range',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Socks Port Number`
+  String get str_socks_port_number {
+    return Intl.message(
+      'Socks Port Number',
+      name: 'str_socks_port_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `HTTP Port Number`
+  String get str_http_port_number {
+    return Intl.message(
+      'HTTP Port Number',
+      name: 'str_http_port_number',
       desc: '',
       args: [],
     );

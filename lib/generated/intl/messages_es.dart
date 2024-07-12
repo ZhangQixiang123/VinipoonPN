@@ -35,12 +35,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_error": MessageLookupByLibrary.simpleMessage("Error"),
         "str_fill_blank": MessageLookupByLibrary.simpleMessage(
             "Por favor, complete todos los campos"),
+        "str_global_proxy":
+            MessageLookupByLibrary.simpleMessage("Proxy Global"),
         "str_have_account":
             MessageLookupByLibrary.simpleMessage("¿Ya tienes una cuenta?"),
         "str_home": MessageLookupByLibrary.simpleMessage("Inicio"),
+        "str_http_port_number":
+            MessageLookupByLibrary.simpleMessage("Número de puerto HTTP"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Idioma"),
-        "str_listening_port":
-            MessageLookupByLibrary.simpleMessage("Escuchar en el puerto"),
+        "str_listening_port": MessageLookupByLibrary.simpleMessage(
+            "Establecer puerto de escucha"),
+        "str_log": MessageLookupByLibrary.simpleMessage("Registro"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("¡Falló el cierre de sesión!"),
@@ -55,6 +60,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
         "str_please_disconnect": MessageLookupByLibrary.simpleMessage(
             "¡Por favor, desconéctate primero!"),
+        "str_port_empty":
+            MessageLookupByLibrary.simpleMessage("Ingrese un número de puerto"),
+        "str_port_range": MessageLookupByLibrary.simpleMessage(
+            "El número de puerto debe estar entre 1024 y 65535"),
+        "str_port_valid": MessageLookupByLibrary.simpleMessage(
+            "Por favor ingresa un número válido"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Perfil"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("¡Error en el registro!"),
@@ -72,6 +83,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_setting": MessageLookupByLibrary.simpleMessage("Configuración"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "str_sign_up": MessageLookupByLibrary.simpleMessage("Registrarse"),
+        "str_socks_port_number": MessageLookupByLibrary.simpleMessage(
+            "Número de puerto de calcetines"),
         "str_username":
             MessageLookupByLibrary.simpleMessage("Nombre de usuario")
       };

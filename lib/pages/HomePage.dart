@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vinipoo_p_n/generated/l10n.dart';
+import 'package:vinipoo_p_n/pages/LogsPage.dart';
 
 import 'AboutPage.dart';
 import 'SettingsPage.dart';
@@ -33,9 +34,12 @@ class _HomePageState extends State<HomePage> {
         page = VPNHomePage();
         break;
       case 1:
-        page = SettingsPage();
+        page = LogsPage();
         break;
       case 2:
+        page = SettingsPage();
+        break;
+      case 3:
         page = AboutPage();
         break;
       default:
@@ -65,6 +69,10 @@ class _HomePageState extends State<HomePage> {
                       NavigationRailDestination(
                         icon: Icon(Icons.home),
                         label: Text(lang.str_home),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.assignment),
+                        label: Text(lang.str_log),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.settings),

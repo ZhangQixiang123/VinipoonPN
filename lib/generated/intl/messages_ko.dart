@@ -33,11 +33,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_error": MessageLookupByLibrary.simpleMessage("오류"),
         "str_fill_blank":
             MessageLookupByLibrary.simpleMessage("모든 필드를 작성해 주세요"),
+        "str_global_proxy": MessageLookupByLibrary.simpleMessage("전역 프록시"),
         "str_have_account": MessageLookupByLibrary.simpleMessage("이미 계정이 있나요?"),
         "str_home": MessageLookupByLibrary.simpleMessage("집"),
+        "str_http_port_number":
+            MessageLookupByLibrary.simpleMessage("HTTP 포트 번호"),
         "str_lang": MessageLookupByLibrary.simpleMessage("언어"),
-        "str_listening_port":
-            MessageLookupByLibrary.simpleMessage("포트에서 수신 대기"),
+        "str_listening_port": MessageLookupByLibrary.simpleMessage("수신 포트 설정"),
+        "str_log": MessageLookupByLibrary.simpleMessage("로그"),
         "str_logout": MessageLookupByLibrary.simpleMessage("로그아웃"),
         "str_logout_fail": MessageLookupByLibrary.simpleMessage("로그아웃 실패!"),
         "str_no_account": MessageLookupByLibrary.simpleMessage("계정이 없나요?"),
@@ -49,6 +52,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password2": MessageLookupByLibrary.simpleMessage("비밀번호 확인"),
         "str_please_disconnect":
             MessageLookupByLibrary.simpleMessage("먼저 연결을 끊으세요!"),
+        "str_port_empty": MessageLookupByLibrary.simpleMessage("포트 번호를 입력하세요"),
+        "str_port_range": MessageLookupByLibrary.simpleMessage(
+            "포트 번호는 1024에서 65535 사이여야 합니다."),
+        "str_port_valid": MessageLookupByLibrary.simpleMessage("유효한 숫자를 입력하세요"),
         "str_profile": MessageLookupByLibrary.simpleMessage("프로필"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("등록에 실패했습니다!"),
@@ -63,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_setting": MessageLookupByLibrary.simpleMessage("설정"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("로그인"),
         "str_sign_up": MessageLookupByLibrary.simpleMessage("가입"),
+        "str_socks_port_number":
+            MessageLookupByLibrary.simpleMessage("양말 포트 번호"),
         "str_username": MessageLookupByLibrary.simpleMessage("사용자 이름")
       };
 }

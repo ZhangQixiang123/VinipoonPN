@@ -5,6 +5,7 @@
     "str_about_us": "회사 소개",
     "str_about": "정보",
     "str_profile": "프로필",
+    "str_log": "로그",
    
     "str_sign_in": "로그인",
     "str_sign_up": "가입",
@@ -22,7 +23,8 @@
     "str_disconnect": "연결 끊기",
     "str_select_server": "VPN 서버 선택",
     "str_server_exists": "서버 이름이 이미 존재합니다!",
-    "str_listening_port": "포트에서 수신 대기",
+    "str_listening_port": "수신 포트 설정",
+    "str_global_proxy": "전역 프록시",
    
     "str_add_server": "서버 추가",
     "str_server_name": "서버 이름",
@@ -38,5 +40,12 @@
     "str_registration_fail": "등록에 실패했습니다!",
     "str_ok": "알았어",
     "str_no_username_found": "사용자 이름을 찾을 수 없습니다",
-    "str_app_about": "VinipooPN은 귀하의 온라인 개인 정보를 보호하고 빠르고 안정적인 연결을 보장하도록 설계된 안전하고 안정적인 VPN 서비스입니다. 당사 서버는 전 세계에 위치하여 최고의 속도와 보안을 제공합니다."
+    "str_app_about": "VinipooPN은 귀하의 온라인 개인 정보를 보호하고 빠르고 안정적인 연결을 보장하도록 설계된 안전하고 안정적인 VPN 서비스입니다. 당사 서버는 전 세계에 위치하여 최고의 속도와 보안을 제공합니다.",
+   
+    "str_port_empty": "포트 번호를 입력하세요",
+    "str_port_valid": "유효한 숫자를 입력하세요",
+    "str_port_range": "포트 번호는 1024에서 65535 사이여야 합니다.",
+   
+    "str_socks_port_number": "양말 포트 번호",
+    "str_http_port_number": "HTTP 포트 번호"
 }

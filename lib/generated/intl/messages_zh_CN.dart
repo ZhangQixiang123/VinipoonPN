@@ -32,10 +32,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_email": MessageLookupByLibrary.simpleMessage("电子邮件"),
         "str_error": MessageLookupByLibrary.simpleMessage("错误"),
         "str_fill_blank": MessageLookupByLibrary.simpleMessage("请填写所有字段"),
+        "str_global_proxy": MessageLookupByLibrary.simpleMessage("全局代理"),
         "str_have_account": MessageLookupByLibrary.simpleMessage("已有账户？"),
         "str_home": MessageLookupByLibrary.simpleMessage("主页"),
+        "str_http_port_number":
+            MessageLookupByLibrary.simpleMessage("HTTP 端口号"),
         "str_lang": MessageLookupByLibrary.simpleMessage("语言"),
-        "str_listening_port": MessageLookupByLibrary.simpleMessage("监听端口"),
+        "str_listening_port": MessageLookupByLibrary.simpleMessage("设置监听端口"),
+        "str_log": MessageLookupByLibrary.simpleMessage("日志"),
         "str_logout": MessageLookupByLibrary.simpleMessage("注销"),
         "str_logout_fail": MessageLookupByLibrary.simpleMessage("注销失败！"),
         "str_no_account": MessageLookupByLibrary.simpleMessage("没有账户？"),
@@ -46,18 +50,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password2": MessageLookupByLibrary.simpleMessage("确认密码"),
         "str_please_disconnect":
             MessageLookupByLibrary.simpleMessage("请先断开连接！"),
+        "str_port_empty": MessageLookupByLibrary.simpleMessage("请输入端口号"),
+        "str_port_range":
+            MessageLookupByLibrary.simpleMessage("端口号必须介于 1024 和 65535 之间"),
+        "str_port_valid": MessageLookupByLibrary.simpleMessage("请输入有效数字"),
         "str_profile": MessageLookupByLibrary.simpleMessage("个人资料"),
         "str_registration_fail": MessageLookupByLibrary.simpleMessage("注册失败！"),
         "str_save": MessageLookupByLibrary.simpleMessage("保存"),
         "str_select_lang": MessageLookupByLibrary.simpleMessage("选择语言"),
         "str_select_server": MessageLookupByLibrary.simpleMessage("选择 VPN 服务器"),
         "str_server_configuration":
-            MessageLookupByLibrary.simpleMessage("服务器配置 (JSON)（目前仅限 v2ray）"),
-        "str_server_exists": MessageLookupByLibrary.simpleMessage("服务器名称已经存在！"),
+            MessageLookupByLibrary.simpleMessage("服务器配置（JSON）（目前仅限 v2ray）"),
+        "str_server_exists": MessageLookupByLibrary.simpleMessage("服务器名称已存在！"),
         "str_server_name": MessageLookupByLibrary.simpleMessage("服务器名称"),
         "str_setting": MessageLookupByLibrary.simpleMessage("设置"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("登录"),
         "str_sign_up": MessageLookupByLibrary.simpleMessage("注册"),
+        "str_socks_port_number":
+            MessageLookupByLibrary.simpleMessage("Socks 端口号"),
         "str_username": MessageLookupByLibrary.simpleMessage("用户名")
       };
 }

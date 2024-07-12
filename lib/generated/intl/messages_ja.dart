@@ -24,26 +24,30 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "str_about": MessageLookupByLibrary.simpleMessage("会社概要"),
         "str_about_us": MessageLookupByLibrary.simpleMessage("会社概要"),
-        "str_add_server": MessageLookupByLibrary.simpleMessage("サーバーを追加"),
+        "str_add_server": MessageLookupByLibrary.simpleMessage("サーバーの追加"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
-            "VinipooPN は、オンライン プライバシーを保護し、高速で安定した接続を保証するように設計された、安全で信頼性の高い VPN サービスです。当社のサーバーは世界中に配置されており、可能な限り最高の速度とセキュリティを提供します。"),
+            "VinipooPN は、オンライン プライバシーを保護し、高速で安定した接続を確保します。当社のサーバーは世界中に配置されており、可能な限り最高の速度とセキュリティを提供します。"),
         "str_connect": MessageLookupByLibrary.simpleMessage("接続"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("切断"),
         "str_email": MessageLookupByLibrary.simpleMessage("メールアドレス"),
         "str_error": MessageLookupByLibrary.simpleMessage("エラー"),
         "str_fill_blank":
             MessageLookupByLibrary.simpleMessage("すべてのフィールドに入力してください"),
+        "str_global_proxy": MessageLookupByLibrary.simpleMessage("グローバルプロキシ"),
         "str_have_account":
-            MessageLookupByLibrary.simpleMessage("すでにアカウントをお持ちですか？"),
+            MessageLookupByLibrary.simpleMessage("すでにアカウントをお持ちですか?"),
         "str_home": MessageLookupByLibrary.simpleMessage("ホーム"),
+        "str_http_port_number":
+            MessageLookupByLibrary.simpleMessage("HTTP ポート番号"),
         "str_lang": MessageLookupByLibrary.simpleMessage("言語"),
         "str_listening_port":
-            MessageLookupByLibrary.simpleMessage("ポートをリッスンする"),
+            MessageLookupByLibrary.simpleMessage("リスニングポートの設定"),
+        "str_log": MessageLookupByLibrary.simpleMessage("ログイン"),
         "str_logout": MessageLookupByLibrary.simpleMessage("ログアウト"),
         "str_logout_fail":
-            MessageLookupByLibrary.simpleMessage("ログアウトに失敗しました!"),
+            MessageLookupByLibrary.simpleMessage("ログアウトに失敗しました！"),
         "str_no_account":
-            MessageLookupByLibrary.simpleMessage("アカウントをお持ちではありませんか？"),
+            MessageLookupByLibrary.simpleMessage("アカウントをお持ちではありませんか?"),
         "str_no_username_found":
             MessageLookupByLibrary.simpleMessage("ユーザー名が見つかりません"),
         "str_ok": MessageLookupByLibrary.simpleMessage("OK"),
@@ -51,22 +55,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password1": MessageLookupByLibrary.simpleMessage("パスワード"),
         "str_password2": MessageLookupByLibrary.simpleMessage("パスワードの確認"),
         "str_please_disconnect":
-            MessageLookupByLibrary.simpleMessage("まず切断してください!"),
+            MessageLookupByLibrary.simpleMessage("まず切断してください！"),
+        "str_port_empty":
+            MessageLookupByLibrary.simpleMessage("ポート番号を入力してください"),
+        "str_port_range": MessageLookupByLibrary.simpleMessage(
+            "ポート番号は 1024 から 65535 までの範囲でなければなりません"),
+        "str_port_valid":
+            MessageLookupByLibrary.simpleMessage("有効な番号を入力してください"),
         "str_profile": MessageLookupByLibrary.simpleMessage("プロフィール"),
         "str_registration_fail":
-            MessageLookupByLibrary.simpleMessage("登録に失敗しました!"),
+            MessageLookupByLibrary.simpleMessage("登録に失敗しました！"),
         "str_save": MessageLookupByLibrary.simpleMessage("保存"),
         "str_select_lang": MessageLookupByLibrary.simpleMessage("言語を選択"),
         "str_select_server":
-            MessageLookupByLibrary.simpleMessage("VPN サーバーを選択"),
+            MessageLookupByLibrary.simpleMessage("VPN サーバーの選択"),
         "str_server_configuration": MessageLookupByLibrary.simpleMessage(
             "サーバー構成 (JSON) (現在は v2ray のみ)"),
         "str_server_exists":
-            MessageLookupByLibrary.simpleMessage("サーバー名がすでにが存在します!"),
+            MessageLookupByLibrary.simpleMessage("サーバー名がすでに存在します！"),
         "str_server_name": MessageLookupByLibrary.simpleMessage("サーバー名"),
         "str_setting": MessageLookupByLibrary.simpleMessage("設定"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("サインイン"),
         "str_sign_up": MessageLookupByLibrary.simpleMessage("サインアップ"),
+        "str_socks_port_number":
+            MessageLookupByLibrary.simpleMessage("Socks ポート番号"),
         "str_username": MessageLookupByLibrary.simpleMessage("ユーザー名")
       };
 }

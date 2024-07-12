@@ -38,8 +38,8 @@ class VinipooPNApp extends StatelessWidget {
       //   primarySwatch: Colors.purple,
       //   visualDensity: VisualDensity.adaptivePlatformDensity,
       // ),
-      home: LoginPage(),
-      // home: HomePage(),
+      // home: LoginPage(),
+      home: HomePage(),
       routes: {
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignupPage(),

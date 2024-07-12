@@ -34,12 +34,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_error": MessageLookupByLibrary.simpleMessage("Ошибка"),
         "str_fill_blank": MessageLookupByLibrary.simpleMessage(
             "Пожалуйста, заполните все поля"),
+        "str_global_proxy":
+            MessageLookupByLibrary.simpleMessage("Глобальный прокси"),
         "str_have_account":
             MessageLookupByLibrary.simpleMessage("У вас уже есть аккаунт?"),
         "str_home": MessageLookupByLibrary.simpleMessage("Дом"),
+        "str_http_port_number":
+            MessageLookupByLibrary.simpleMessage("Номер HTTP-порта"),
         "str_lang": MessageLookupByLibrary.simpleMessage("Язык"),
-        "str_listening_port":
-            MessageLookupByLibrary.simpleMessage("Прослушивать порт"),
+        "str_listening_port": MessageLookupByLibrary.simpleMessage(
+            "Установить порт прослушивания"),
+        "str_log": MessageLookupByLibrary.simpleMessage("Журнал"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Выход"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("Выйти не удалось!"),
@@ -53,6 +58,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Подтвердите пароль"),
         "str_please_disconnect":
             MessageLookupByLibrary.simpleMessage("Сначала отключитесь!"),
+        "str_port_empty": MessageLookupByLibrary.simpleMessage(
+            "Пожалуйста, введите номер порта"),
+        "str_port_range": MessageLookupByLibrary.simpleMessage(
+            "Номер порта должен находиться в диапазоне от 1024 до 65535"),
+        "str_port_valid": MessageLookupByLibrary.simpleMessage(
+            "Пожалуйста, введите действительный номер"),
         "str_profile": MessageLookupByLibrary.simpleMessage("Профиль"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("Регистрация не удалась!"),
@@ -69,6 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_in": MessageLookupByLibrary.simpleMessage("Войти"),
         "str_sign_up":
             MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
+        "str_socks_port_number":
+            MessageLookupByLibrary.simpleMessage("Номер порта Socks"),
         "str_username": MessageLookupByLibrary.simpleMessage("Имя пользователя")
       };
 }

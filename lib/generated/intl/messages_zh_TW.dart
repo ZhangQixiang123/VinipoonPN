@@ -32,10 +32,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_email": MessageLookupByLibrary.simpleMessage("電子郵件"),
         "str_error": MessageLookupByLibrary.simpleMessage("錯誤"),
         "str_fill_blank": MessageLookupByLibrary.simpleMessage("請填入所有欄位"),
+        "str_global_proxy": MessageLookupByLibrary.simpleMessage("全域代理"),
         "str_have_account": MessageLookupByLibrary.simpleMessage("已有帳戶？"),
         "str_home": MessageLookupByLibrary.simpleMessage("家"),
+        "str_http_port_number":
+            MessageLookupByLibrary.simpleMessage("HTTP 連接埠號碼"),
         "str_lang": MessageLookupByLibrary.simpleMessage("語言"),
-        "str_listening_port": MessageLookupByLibrary.simpleMessage("監聽埠"),
+        "str_listening_port": MessageLookupByLibrary.simpleMessage("設定監聽埠"),
+        "str_log": MessageLookupByLibrary.simpleMessage("日誌"),
         "str_logout": MessageLookupByLibrary.simpleMessage("登出"),
         "str_logout_fail": MessageLookupByLibrary.simpleMessage("登出失敗！"),
         "str_no_account": MessageLookupByLibrary.simpleMessage("沒有帳戶？"),
@@ -46,6 +50,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password1": MessageLookupByLibrary.simpleMessage("密碼"),
         "str_password2": MessageLookupByLibrary.simpleMessage("確認密碼"),
         "str_please_disconnect": MessageLookupByLibrary.simpleMessage("請先斷線！"),
+        "str_port_empty": MessageLookupByLibrary.simpleMessage("請輸入連接埠號碼"),
+        "str_port_range":
+            MessageLookupByLibrary.simpleMessage("連接埠號碼必須在 1024 到 65535 之間"),
+        "str_port_valid": MessageLookupByLibrary.simpleMessage("請輸入有效的號碼"),
         "str_profile": MessageLookupByLibrary.simpleMessage("個人資料"),
         "str_registration_fail": MessageLookupByLibrary.simpleMessage("註冊失敗！"),
         "str_save": MessageLookupByLibrary.simpleMessage("儲存"),
@@ -58,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_setting": MessageLookupByLibrary.simpleMessage("設定"),
         "str_sign_in": MessageLookupByLibrary.simpleMessage("登入"),
         "str_sign_up": MessageLookupByLibrary.simpleMessage("註冊"),
+        "str_socks_port_number":
+            MessageLookupByLibrary.simpleMessage("襪子連接埠號碼"),
         "str_username": MessageLookupByLibrary.simpleMessage("使用者名稱")
       };
 }

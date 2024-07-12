@@ -5,6 +5,7 @@
     "str_about_us": "关于我们",
     "str_about": "关于",
     "str_profile": "个人资料",
+    "str_log": "日志",
     
     "str_sign_in": "登录",
     "str_sign_up": "注册",
@@ -21,12 +22,13 @@
     "str_connect": "连接",
     "str_disconnect": "断开连接",
     "str_select_server": "选择 VPN 服务器",
-    "str_server_exists": "服务器名称已经存在！",
-    "str_listening_port": "监听端口",
+    "str_server_exists": "服务器名称已存在！",
+    "str_listening_port": "设置监听端口",
+    "str_global_proxy": "全局代理",
     
     "str_add_server": "添加服务器",
     "str_server_name": "服务器名称",
-    "str_server_configuration": "服务器配置 (JSON)（目前仅限 v2ray）",
+    "str_server_configuration": "服务器配置（JSON）（目前仅限 v2ray）",
     "str_save": "保存",
     "str_fill_blank": "请填写所有字段",
     "str_please_disconnect": "请先断开连接！",
@@ -38,5 +40,12 @@
     "str_registration_fail": "注册失败！",
     "str_ok": "确定",
     "str_no_username_found": "未找到用户名",
-    "str_app_about": "VinipooPN 是一种安全可靠的 VPN 服务，旨在保护您的在线隐私并确保快速稳定的连接。我们的服务器遍布全球，为您提供最佳的速度和安全性。"
+    "str_app_about": "VinipooPN 是一种安全可靠的 VPN 服务，旨在保护您的在线隐私并确保快速稳定的连接。我们的服务器遍布全球，为您提供最佳的速度和安全性。",
+    
+    "str_port_empty": "请输入端口号",
+    "str_port_valid": "请输入有效数字",
+    "str_port_range": "端口号必须介于 1024 和 65535 之间",
+    
+    "str_socks_port_number": "Socks 端口号",
+    "str_http_port_number": "HTTP 端口号"
 }

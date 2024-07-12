@@ -5,6 +5,7 @@
     "str_about_us": "About us",
     "str_about": "About",
     "str_profile": "Profile",
+    "str_log": "Log",
     
     "str_sign_in": "Sign In",
     "str_sign_up": "Sign Up",
@@ -22,7 +23,7 @@
     "str_disconnect": "Disconnect",
     "str_select_server": "Select a VPN Server",
     "str_server_exists": "Server name already exists!",
-    "str_listening_port": "Listen on Port", 
+    "str_listening_port": "Set Listening Port", 
     "str_global_proxy": "Global Proxy",
 
     "str_add_server": "Add Server",
@@ -39,5 +40,12 @@
     "str_registration_fail": "Registration failed!",
     "str_ok": "OK",
     "str_no_username_found": "No Username Found",
-    "str_app_about": "VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security."
+    "str_app_about": "VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security.",
+
+    "str_port_empty": "Please enter a port number",
+    "str_port_valid": "Please enter a valid number",
+    "str_port_range": "Port number must be between 1024 and 65535",
+
+    "str_socks_port_number": "Socks Port Number",
+    "str_http_port_number": "HTTP Port Number"
 }  
