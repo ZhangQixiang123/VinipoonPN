@@ -69,6 +69,7 @@ class _PortSettingPageState extends State<PortSettingPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(lang.str_listening_port),
+        backgroundColor: Color.fromARGB(214, 234, 221, 255),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
