@@ -61,9 +61,9 @@ class VPNConnection {
       final path = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings';
       
       try {
-        await Process.run('reg', ['add', path, '/v', 'ProxyServer', '/d', proxyUrl, '/f']);
-        await Process.run('reg', ['add', path, '/v', 'ProxyEnable', '/t', 'REG_DWORD', '/d', '1', '/f']);
-        await Process.run('reg', ['add', path, '/v', 'ProxyOverride', '/t', 'REG_SZ', '/d', proxyOverride, '/f']);
+        Process.run('reg', ['add', path, '/v', 'ProxyServer', '/d', proxyUrl, '/f']);
+        Process.run('reg', ['add', path, '/v', 'ProxyEnable', '/t', 'REG_DWORD', '/d', '1', '/f']);
+        Process.run('reg', ['add', path, '/v', 'ProxyOverride', '/t', 'REG_SZ', '/d', proxyOverride, '/f']);
       } catch (e) {
         print('Failed to set proxy settings: $e');
       }
@@ -72,18 +72,21 @@ class VPNConnection {
     return Process.start('v2ray/v2ray', ['-config', configTo.path]);
   }
 
-  void disconnectVPN() async {
+  Future<bool> disconnectVPN() async {
       if (Platform.isWindows) {
         final path = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings';
 
         try {
-          await Process.run('reg', ['delete', path, '/v', 'ProxyServer', '/f']);
-          await Process.run('reg', ['add', path, '/v', 'ProxyEnable', '/t', 'REG_DWORD', '/d', '0', '/f']);
-          await Process.run('reg', ['delete', path, '/v', 'ProxyOverride', '/f']);
+          Process.run('reg', ['add', path, '/v', 'ProxyEnable', '/t', 'REG_DWORD', '/d', '0', '/f']);
+          Process.run('reg', ['delete', path, '/v', 'ProxyOverride', '/f']);
+          Process.run('reg', ['delete', path, '/v', 'ProxyServer', '/f']);
+          return true;
         } catch (e) {
           print('Failed to clear proxy settings: $e');
         }
       }
+
+      return false;
   }
   
 }

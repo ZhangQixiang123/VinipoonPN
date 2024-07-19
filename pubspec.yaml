@@ -40,6 +40,8 @@ dependencies:
   flutter_svg: ^2.0.1
   shared_preferences: ^2.0.9
   provider: ^6.0.1
+  flutter_window_close: ^1.0.0
+  intl_utils: any
 
   http: any
 dev_dependencies:

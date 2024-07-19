@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -17,13 +16,8 @@ class VPNHomePage extends StatefulWidget {
 }
 
 class _VPNHomePageState extends State<VPNHomePage> {
-  
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   late S lang;
+  int? pingTime;
 
   @override
   void initState() {
@@ -32,6 +26,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
       final vpnModel = Provider.of<VPNConnectionModel>(context, listen: false);
       vpnModel.setServers(VPNConnection().servers);
       if (vpnModel.selectedServer == null) vpnModel.setSelectedServer(vpnModel.servers.keys.first);
+      // _updatePingTime(vpnModel.selectedServer);
     });
   }
 
@@ -53,12 +48,14 @@ class _VPNHomePageState extends State<VPNHomePage> {
     Process process = await VPNConnection().connectVPN(vpnModel.selectedServer!, vpnModel.socksPort!, vpnModel.httpPort!);
     vpnModel.setV2rayProcess(process);
     vpnModel.setConnected(true);
-    vpnModel.appendLog('Connected to ${vpnModel.selectedServer}');
+    _addLog('Connected to ${vpnModel.selectedServer}');
     _startTrackingLogs(process);
   }
 
   void _addLog(String log) {
-    Provider.of<VPNConnectionModel>(context, listen: false).appendLog(log);
+    if (mounted) {
+      Provider.of<VPNConnectionModel>(context, listen: false).appendLog(log);
+    }
   }
 
   Stream<String> _trackingLogs(Process process) async* {
@@ -86,7 +83,36 @@ class _VPNHomePageState extends State<VPNHomePage> {
 
   void _changeSelectedServer(String? newServer) {
     Provider.of<VPNConnectionModel>(context, listen: false).setSelectedServer(newServer);
+    // _updatePingTime(newServer);
   }
+
+  // Future<int> _checkPing(String selectedServer) async {
+  //   final serverAddress = jsonDecode(VPNConnection().servers[selectedServer]!['config']!)['address'];
+  //   try {
+  //     final ping = Ping(serverAddress, count: 1);
+  //     await for (var response in ping.stream) {
+  //       if (response.error != null) {
+  //         print('Ping error: ${response.error}');
+  //       } else if (response.response != null) {
+  //         return response.response!.time!.inMilliseconds;
+  //       }
+  //     }
+  //     await ping.stop();
+  //     return 1;
+  //   } catch (e) {
+  //     print('Error pinging server: $e');
+  //   }
+  //   return -1;
+  // }
+
+  // void _updatePingTime(String? serverAddress) async {
+  //   if (serverAddress != null) {
+  //     final ping = await _checkPing(serverAddress);
+  //     setState(() {
+  //       pingTime = ping;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -153,6 +179,12 @@ class _VPNHomePageState extends State<VPNHomePage> {
                         ],
                       ),
                       SizedBox(height: 20),
+                      // if (pingTime != null)
+                      //   Text(
+                      //     'Ping: $pingTime ms',
+                      //     style: TextStyle(fontSize: 18),
+                      //   ),
+                      // SizedBox(height: 20),
                       Consumer<VPNConnectionModel>(
                         builder: (context, vpnModel, child) {
                           return vpnModel.isConnected
