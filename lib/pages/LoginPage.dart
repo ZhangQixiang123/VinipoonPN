@@ -1,7 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_window_close/flutter_window_close.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vinipoo_p_n/Model/VPNConnectionModel.dart';
+import 'package:vinipoo_p_n/function/VPNConnection.dart';
 import 'package:vinipoo_p_n/generated/l10n.dart';
 import 'package:vinipoo_p_n/global.dart';
 import 'package:vinipoo_p_n/pages/LanguagePage.dart';
@@ -32,6 +36,16 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _storeUsername(String username) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('username', username);
+  }
+
+  Future<void> _setLogin() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('isLogin', "yes");
+  }
+
+  Future<String?> _checkLogin() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('isLogin');
   }
 
   Future<void> _login() async {
@@ -66,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
         final token = data['key'];
         _storeToken(token);
         _storeUsername(_usernameController.text);
+        _setLogin();
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => HomePage()),
@@ -102,6 +117,45 @@ class _LoginPageState extends State<LoginPage> {
     Locale myLocale = Localizations.localeOf(context);
     lang = await delegate.load(myLocale);
     setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Set up the window close listener
+    FlutterWindowClose.setWindowShouldCloseHandler(() async {
+      bool shouldClose = await _showCloseConfirmationDialog();
+      return shouldClose;
+    });
+  }
+
+  Future<bool> _showCloseConfirmationDialog() async {
+    return await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(lang.str_close_window),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(lang.str_no),
+          ),
+          TextButton(
+            onPressed: () async {
+              final vpnModel = Provider.of<VPNConnectionModel>(context, listen: false);
+              await VPNConnection().disconnectVPN();
+              if (vpnModel.v2rayProcess != null) {
+                vpnModel.v2rayProcess!.kill();
+                await vpnModel.v2rayProcess!.exitCode;
+                vpnModel.setConnected(false);
+              }
+              Navigator.of(context).pop(true);
+            },
+            child: Text(lang.str_yes),
+          ),
+        ],
+      ),
+    ) ?? false;
   }
 
   @override

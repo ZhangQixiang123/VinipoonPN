@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_window_close/flutter_window_close.dart';
 import 'package:provider/provider.dart';
 import 'package:vinipoo_p_n/Model/VPNConnectionModel.dart';
-import 'package:vinipoo_p_n/function/VPNConnection.dart';
 import 'package:vinipoo_p_n/pages/AboutPage.dart';
 import 'package:vinipoo_p_n/pages/HomePage.dart';
 import 'package:vinipoo_p_n/pages/LanguagePage.dart';
@@ -84,46 +82,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
-  void initState() {
-    super.initState();
-
-    // Set up the window close listener
-    FlutterWindowClose.setWindowShouldCloseHandler(() async {
-      bool shouldClose = await _showCloseConfirmationDialog();
-      return shouldClose;
-    });
-  }
-
-  Future<bool> _showCloseConfirmationDialog() async {
-    return await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(lang.str_close_window),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(lang.str_no),
-          ),
-          TextButton(
-            onPressed: () async {
-              final vpnModel = Provider.of<VPNConnectionModel>(context, listen: false);
-              await VPNConnection().disconnectVPN();
-              if (vpnModel.v2rayProcess != null) {
-                vpnModel.v2rayProcess!.kill();
-                await vpnModel.v2rayProcess!.exitCode;
-                vpnModel.setConnected(false);
-              }
-              Navigator.of(context).pop(true);
-            },
-            child: Text(lang.str_yes),
-          ),
-        ],
-      ),
-    ) ?? false;
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return HomePage();
+    return LoginPage();
   }
 }

@@ -78,8 +78,6 @@ flutter:
     - assets/flags/4x3/pl.svg
     - assets/common/logo.png
     - assets/common/guardian.png
-    - assets/model/global.json
-    - assets/model/whitelist.json
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

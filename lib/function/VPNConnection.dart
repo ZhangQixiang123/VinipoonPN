@@ -46,7 +46,7 @@ class VPNConnection {
     };
 
   Future<Process> connectVPN(String _selectedServer, int socksPort, int httpPort) async {
-    final config = await File('assets/model/global.json').readAsString();
+    final config = await File('model/global.json').readAsString();
     // final config = _servers[_selectedServer]!['config']!;
     final configJson = jsonDecode(config);
     configJson['outbounds'][0]['settings']['vnext'][0] = jsonDecode(servers[_selectedServer]!['config']!);
