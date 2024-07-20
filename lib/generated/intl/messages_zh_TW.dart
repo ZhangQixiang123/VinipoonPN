@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_add_server": MessageLookupByLibrary.simpleMessage("新增伺服器"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN 是一項安全可靠的 VPN 服務，旨在保護您的線上隱私並確保快速穩定的連線。我們的伺服器位於全球各地，為您提供最佳的速度和安全性。"),
+        "str_close_window":
+            MessageLookupByLibrary.simpleMessage("您確定要關閉應用程式嗎？"),
         "str_connect": MessageLookupByLibrary.simpleMessage("連線"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("斷開連線"),
         "str_email": MessageLookupByLibrary.simpleMessage("電子郵件"),
@@ -42,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_log": MessageLookupByLibrary.simpleMessage("日誌"),
         "str_logout": MessageLookupByLibrary.simpleMessage("登出"),
         "str_logout_fail": MessageLookupByLibrary.simpleMessage("登出失敗！"),
+        "str_no": MessageLookupByLibrary.simpleMessage("否"),
         "str_no_account": MessageLookupByLibrary.simpleMessage("沒有帳戶？"),
         "str_no_username_found":
             MessageLookupByLibrary.simpleMessage("未找到使用者名稱"),
@@ -49,7 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password": MessageLookupByLibrary.simpleMessage("密碼"),
         "str_password1": MessageLookupByLibrary.simpleMessage("密碼"),
         "str_password2": MessageLookupByLibrary.simpleMessage("確認密碼"),
-        "str_please_disconnect": MessageLookupByLibrary.simpleMessage("請先斷線！"),
+        "str_please_disconnect":
+            MessageLookupByLibrary.simpleMessage("請先斷開連線！"),
         "str_port_empty": MessageLookupByLibrary.simpleMessage("請輸入連接埠號碼"),
         "str_port_range":
             MessageLookupByLibrary.simpleMessage("連接埠號碼必須在 1024 到 65535 之間"),
@@ -68,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("註冊"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("襪子連接埠號碼"),
-        "str_username": MessageLookupByLibrary.simpleMessage("使用者名稱")
+        "str_username": MessageLookupByLibrary.simpleMessage("使用者名稱"),
+        "str_yes": MessageLookupByLibrary.simpleMessage("是")
       };
 }

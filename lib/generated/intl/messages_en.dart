@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_add_server": MessageLookupByLibrary.simpleMessage("Add Server"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN is a secure and reliable VPN service designed to protect your online privacy and ensure a fast and stable connection. Our servers are located around the globe, providing you with the best possible speeds and security."),
+        "str_close_window": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to close the app?"),
         "str_connect": MessageLookupByLibrary.simpleMessage("Connect"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Disconnect"),
         "str_email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -47,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("Logout failed!"),
+        "str_no": MessageLookupByLibrary.simpleMessage("No"),
         "str_no_account":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "str_no_username_found":
@@ -82,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("Socks Port Number"),
-        "str_username": MessageLookupByLibrary.simpleMessage("Username")
+        "str_username": MessageLookupByLibrary.simpleMessage("Username"),
+        "str_yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }

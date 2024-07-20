@@ -47,5 +47,9 @@
     "str_port_range": "포트 번호는 1024에서 65535 사이여야 합니다.",
    
     "str_socks_port_number": "양말 포트 번호",
-    "str_http_port_number": "HTTP 포트 번호"
-}
+    "str_http_port_number": "HTTP 포트 번호",
+   
+    "str_close_window": "정말 앱을 닫으시겠어요?",
+    "str_yes": "예",
+    "str_no": "아니요"
+   }

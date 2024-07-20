@@ -31,7 +31,7 @@
     "str_server_configuration": "伺服器設定（JSON）（現在僅限 v2ray）",
     "str_save": "儲存",
     "str_fill_blank": "請填入所有欄位",
-    "str_please_disconnect": "請先斷線！",
+    "str_please_disconnect": "請先斷開連線！",
    
     "str_select_lang": "選擇語言",
    
@@ -47,5 +47,9 @@
     "str_port_range": "連接埠號碼必須在 1024 到 65535 之間",
    
     "str_socks_port_number": "襪子連接埠號碼",
-    "str_http_port_number": "HTTP 連接埠號碼"
-}
+    "str_http_port_number": "HTTP 連接埠號碼",
+   
+    "str_close_window": "您確定要關閉應用程式嗎？",
+    "str_yes": "是",
+    "str_no": "否"
+   }

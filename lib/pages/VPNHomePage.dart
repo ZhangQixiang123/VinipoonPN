@@ -49,12 +49,13 @@ class _VPNHomePageState extends State<VPNHomePage> {
     vpnModel.setV2rayProcess(process);
     vpnModel.setConnected(true);
     _addLog('Connected to ${vpnModel.selectedServer}');
-    _startTrackingLogs(process);
+    _startTrackingLogs(process, vpnModel);
   }
 
   void _addLog(String log) {
+    final vpnModel = Provider.of<VPNConnectionModel>(context, listen: false);
     if (mounted) {
-      Provider.of<VPNConnectionModel>(context, listen: false).appendLog(log);
+      vpnModel.appendLog(log);
     }
   }
 
@@ -64,9 +65,9 @@ class _VPNHomePageState extends State<VPNHomePage> {
     }
   }
 
-  void _startTrackingLogs(Process process) {
+  void _startTrackingLogs(Process process, VPNConnectionModel vpnModel) {
     _trackingLogs(process).listen((log) {
-      _addLog(log.split('\n')[0]);
+      vpnModel.appendLog(log.split('\n')[0]);
     });
   }
 
@@ -85,34 +86,6 @@ class _VPNHomePageState extends State<VPNHomePage> {
     Provider.of<VPNConnectionModel>(context, listen: false).setSelectedServer(newServer);
     // _updatePingTime(newServer);
   }
-
-  // Future<int> _checkPing(String selectedServer) async {
-  //   final serverAddress = jsonDecode(VPNConnection().servers[selectedServer]!['config']!)['address'];
-  //   try {
-  //     final ping = Ping(serverAddress, count: 1);
-  //     await for (var response in ping.stream) {
-  //       if (response.error != null) {
-  //         print('Ping error: ${response.error}');
-  //       } else if (response.response != null) {
-  //         return response.response!.time!.inMilliseconds;
-  //       }
-  //     }
-  //     await ping.stop();
-  //     return 1;
-  //   } catch (e) {
-  //     print('Error pinging server: $e');
-  //   }
-  //   return -1;
-  // }
-
-  // void _updatePingTime(String? serverAddress) async {
-  //   if (serverAddress != null) {
-  //     final ping = await _checkPing(serverAddress);
-  //     setState(() {
-  //       pingTime = ping;
-  //     });
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -179,12 +152,6 @@ class _VPNHomePageState extends State<VPNHomePage> {
                         ],
                       ),
                       SizedBox(height: 20),
-                      // if (pingTime != null)
-                      //   Text(
-                      //     'Ping: $pingTime ms',
-                      //     style: TextStyle(fontSize: 18),
-                      //   ),
-                      // SizedBox(height: 20),
                       Consumer<VPNConnectionModel>(
                         builder: (context, vpnModel, child) {
                           return vpnModel.isConnected

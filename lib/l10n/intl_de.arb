@@ -47,5 +47,9 @@
     "str_port_range": "Die Portnummer muss zwischen 1024 und 65535 liegen",
     
     "str_socks_port_number": "SOCKS-Portnummer",
-    "str_http_port_number": "HTTP-Portnummer"
-}
+    "str_http_port_number": "HTTP-Portnummer",
+    
+    "str_close_window": "Möchten Sie die App wirklich schließen?",
+    "str_yes": "Ja",
+    "str_no": "Nein"
+    }

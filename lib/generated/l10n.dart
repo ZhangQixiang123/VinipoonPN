@@ -459,6 +459,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Are you sure you want to close the app?`
+  String get str_close_window {
+    return Intl.message(
+      'Are you sure you want to close the app?',
+      name: 'str_close_window',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get str_yes {
+    return Intl.message(
+      'Yes',
+      name: 'str_yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get str_no {
+    return Intl.message(
+      'No',
+      name: 'str_no',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ajouter un serveur"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN est un service VPN sécurisé et fiable conçu pour protéger votre confidentialité en ligne et garantir une connexion rapide et stable. Nos serveurs sont situés dans le monde entier, vous offrant les meilleures vitesses et sécurité possibles."),
+        "str_close_window": MessageLookupByLibrary.simpleMessage(
+            "Etes-vous sûr de vouloir fermer l\'application ?"),
         "str_connect": MessageLookupByLibrary.simpleMessage("Connecter"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Déconnecter"),
         "str_email": MessageLookupByLibrary.simpleMessage("E-mail"),
@@ -49,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_logout": MessageLookupByLibrary.simpleMessage("Déconnexion"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("La déconnexion a échoué !"),
+        "str_no": MessageLookupByLibrary.simpleMessage("Non"),
         "str_no_account": MessageLookupByLibrary.simpleMessage(
             "Vous n\'avez pas de compte ?"),
         "str_no_username_found": MessageLookupByLibrary.simpleMessage(
@@ -61,7 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_please_disconnect": MessageLookupByLibrary.simpleMessage(
             "Veuillez d\'abord vous déconnecter !"),
         "str_port_empty": MessageLookupByLibrary.simpleMessage(
-            "Veuillez saisir un numéro de port"),
+            "Veuillez entrer un numéro de port"),
         "str_port_range": MessageLookupByLibrary.simpleMessage(
             "Le numéro de port doit être compris entre 1024 et 65535"),
         "str_port_valid": MessageLookupByLibrary.simpleMessage(
@@ -86,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("Numéro de port chaussettes"),
         "str_username":
-            MessageLookupByLibrary.simpleMessage("Nom d\'utilisateur")
+            MessageLookupByLibrary.simpleMessage("Nom d\'utilisateur"),
+        "str_yes": MessageLookupByLibrary.simpleMessage("Oui")
       };
 }

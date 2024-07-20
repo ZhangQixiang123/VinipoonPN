@@ -31,7 +31,7 @@
     "str_server_configuration": "Configuración del servidor (JSON) (v2ray solo ahora)",
     "str_save": "Guardar",
     "str_fill_blank": "Por favor, complete todos los campos",
-    "str_please_disconnect": "¡Por favor, desconéctate primero!",
+    "str_please_disconnect": "¡Por favor desconéctese primero!",
    
     "str_select_lang": "Seleccionar idioma",
    
@@ -47,5 +47,9 @@
     "str_port_range": "El número de puerto debe estar entre 1024 y 65535",
    
     "str_socks_port_number": "Número de puerto de calcetines",
-    "str_http_port_number": "Número de puerto HTTP"
-}
+    "str_http_port_number": "Número de puerto HTTP",
+   
+    "str_close_window": "¿Estás seguro de que quieres cerrar la aplicación?",
+    "str_yes": "Sí",
+    "str_no": "No"
+   }

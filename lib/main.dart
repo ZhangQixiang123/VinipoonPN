@@ -68,6 +68,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  late S lang;
+  _updateLang() async {
+    AppLocalizationDelegate delegate = const AppLocalizationDelegate();
+    Locale myLocale = Localizations.localeOf(context);
+    lang = await delegate.load(myLocale);
+    setState(() {});
+  }
+  
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _updateLang();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -83,11 +98,11 @@ class _MyAppState extends State<MyApp> {
     return await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Are you sure you want to close the app?'),
+        title: Text(lang.str_close_window),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('No'),
+            child: Text(lang.str_no),
           ),
           TextButton(
             onPressed: () async {
@@ -100,7 +115,7 @@ class _MyAppState extends State<MyApp> {
               }
               Navigator.of(context).pop(true);
             },
-            child: Text('Yes'),
+            child: Text(lang.str_yes),
           ),
         ],
       ),

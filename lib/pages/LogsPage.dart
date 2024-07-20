@@ -30,23 +30,23 @@ class LogsPageState extends State<LogsPage>{
   @override
   Widget build(BuildContext context) {
     _updateLang();
-    List<String> _logs = Provider.of<VPNConnectionModel>(context, listen: false).v2rayLog;
+    List<String> _logs = Provider.of<VPNConnectionModel>(context).v2rayLog;
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
           Container(
             height: 600,
-            padding: EdgeInsets.all(10),  // Padding for inner content
+            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey[400]!),  // Adjust border color
+              border: Border.all(color: Colors.grey[400]!),
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),  // Add a subtle shadow
+                  color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 2,
                   blurRadius: 5,
-                  offset: Offset(0, 3), // changes position of shadow
+                  offset: Offset(0, 3),
                 ),
               ],
             ),
@@ -54,10 +54,10 @@ class LogsPageState extends State<LogsPage>{
               itemCount: _logs.length,
               itemBuilder: (context, index) {
                 return Container(
-                  margin: EdgeInsets.symmetric(vertical: 4),  // Adjust vertical spacing
-                  padding: EdgeInsets.all(8),  // Padding for each log item
+                  margin: EdgeInsets.symmetric(vertical: 4),
+                  padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.5),  // Background color for each log item
+                    color: Colors.grey.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(

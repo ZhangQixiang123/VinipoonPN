@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_add_server": MessageLookupByLibrary.simpleMessage("서버 추가"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN은 귀하의 온라인 개인 정보를 보호하고 빠르고 안정적인 연결을 보장하도록 설계된 안전하고 안정적인 VPN 서비스입니다. 당사 서버는 전 세계에 위치하여 최고의 속도와 보안을 제공합니다."),
+        "str_close_window":
+            MessageLookupByLibrary.simpleMessage("정말 앱을 닫으시겠어요?"),
         "str_connect": MessageLookupByLibrary.simpleMessage("연결"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("연결 끊기"),
         "str_email": MessageLookupByLibrary.simpleMessage("이메일"),
@@ -43,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_log": MessageLookupByLibrary.simpleMessage("로그"),
         "str_logout": MessageLookupByLibrary.simpleMessage("로그아웃"),
         "str_logout_fail": MessageLookupByLibrary.simpleMessage("로그아웃 실패!"),
+        "str_no": MessageLookupByLibrary.simpleMessage("아니요"),
         "str_no_account": MessageLookupByLibrary.simpleMessage("계정이 없나요?"),
         "str_no_username_found":
             MessageLookupByLibrary.simpleMessage("사용자 이름을 찾을 수 없습니다"),
@@ -72,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("가입"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("양말 포트 번호"),
-        "str_username": MessageLookupByLibrary.simpleMessage("사용자 이름")
+        "str_username": MessageLookupByLibrary.simpleMessage("사용자 이름"),
+        "str_yes": MessageLookupByLibrary.simpleMessage("예")
       };
 }

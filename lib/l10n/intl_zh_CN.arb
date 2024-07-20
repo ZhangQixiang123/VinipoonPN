@@ -47,5 +47,9 @@
     "str_port_range": "端口号必须介于 1024 和 65535 之间",
     
     "str_socks_port_number": "Socks 端口号",
-    "str_http_port_number": "HTTP 端口号"
-}
+    "str_http_port_number": "HTTP 端口号",
+    
+    "str_close_window": "您确定要关闭应用程序吗？",
+    "str_yes": "是",
+    "str_no": "否"
+    }

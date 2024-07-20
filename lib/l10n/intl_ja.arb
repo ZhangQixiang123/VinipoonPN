@@ -51,5 +51,11 @@
     
     "str_socks_port_number": "Socks ポート番号",
     
-    "str_http_port_number": "HTTP ポート番号"
-}
+    "str_http_port_number": "HTTP ポート番号",
+    
+    "str_close_window": "アプリを閉じてもよろしいですか?",
+    
+    "str_yes": "はい",
+    
+    "str_no": "いいえ"
+    }

@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_add_server": MessageLookupByLibrary.simpleMessage("サーバーの追加"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN は、オンライン プライバシーを保護し、高速で安定した接続を確保します。当社のサーバーは世界中に配置されており、可能な限り最高の速度とセキュリティを提供します。"),
+        "str_close_window":
+            MessageLookupByLibrary.simpleMessage("アプリを閉じてもよろしいですか?"),
         "str_connect": MessageLookupByLibrary.simpleMessage("接続"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("切断"),
         "str_email": MessageLookupByLibrary.simpleMessage("メールアドレス"),
@@ -46,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_logout": MessageLookupByLibrary.simpleMessage("ログアウト"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("ログアウトに失敗しました！"),
+        "str_no": MessageLookupByLibrary.simpleMessage("いいえ"),
         "str_no_account":
             MessageLookupByLibrary.simpleMessage("アカウントをお持ちではありませんか?"),
         "str_no_username_found":
@@ -79,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("サインアップ"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("Socks ポート番号"),
-        "str_username": MessageLookupByLibrary.simpleMessage("ユーザー名")
+        "str_username": MessageLookupByLibrary.simpleMessage("ユーザー名"),
+        "str_yes": MessageLookupByLibrary.simpleMessage("はい")
       };
 }

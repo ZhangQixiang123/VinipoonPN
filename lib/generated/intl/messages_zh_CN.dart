@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_add_server": MessageLookupByLibrary.simpleMessage("添加服务器"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN 是一种安全可靠的 VPN 服务，旨在保护您的在线隐私并确保快速稳定的连接。我们的服务器遍布全球，为您提供最佳的速度和安全性。"),
+        "str_close_window":
+            MessageLookupByLibrary.simpleMessage("您确定要关闭应用程序吗？"),
         "str_connect": MessageLookupByLibrary.simpleMessage("连接"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("断开连接"),
         "str_email": MessageLookupByLibrary.simpleMessage("电子邮件"),
@@ -42,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_log": MessageLookupByLibrary.simpleMessage("日志"),
         "str_logout": MessageLookupByLibrary.simpleMessage("注销"),
         "str_logout_fail": MessageLookupByLibrary.simpleMessage("注销失败！"),
+        "str_no": MessageLookupByLibrary.simpleMessage("否"),
         "str_no_account": MessageLookupByLibrary.simpleMessage("没有账户？"),
         "str_no_username_found": MessageLookupByLibrary.simpleMessage("未找到用户名"),
         "str_ok": MessageLookupByLibrary.simpleMessage("确定"),
@@ -68,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("注册"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("Socks 端口号"),
-        "str_username": MessageLookupByLibrary.simpleMessage("用户名")
+        "str_username": MessageLookupByLibrary.simpleMessage("用户名"),
+        "str_yes": MessageLookupByLibrary.simpleMessage("是")
       };
 }

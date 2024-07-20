@@ -36,7 +36,7 @@
     "str_select_lang": "Выбрать язык",
    
     "str_error": "Ошибка",
-    "str_logout_fail": "Выйти не удалось!",
+    "str_logout_fail": "Не удалось выйти из системы!",
     "str_registration_fail": "Регистрация не удалась!",
     "str_ok": "ОК",
     "str_no_username_found": "Имя пользователя не найдено",
@@ -47,5 +47,9 @@
     "str_port_range": "Номер порта должен находиться в диапазоне от 1024 до 65535",
    
     "str_socks_port_number": "Номер порта Socks",
-    "str_http_port_number": "Номер HTTP-порта"
-}
+    "str_http_port_number": "Номер HTTP-порта",
+   
+    "str_close_window": "Вы уверены, что хотите закрыть приложение?",
+    "str_yes": "Да",
+    "str_no": "Нет"
+   }

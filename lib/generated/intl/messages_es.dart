@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Agregar servidor"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN es un servicio VPN seguro y confiable diseñado para proteger su privacidad en línea y garantizar una conexión rápida y estable. Nuestros servidores están ubicados en todo el mundo, brindándole las mejores velocidades y seguridad posibles."),
+        "str_close_window": MessageLookupByLibrary.simpleMessage(
+            "¿Estás seguro de que quieres cerrar la aplicación?"),
         "str_connect": MessageLookupByLibrary.simpleMessage("Conectar"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Desconectar"),
         "str_email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
@@ -49,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_logout": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
         "str_logout_fail":
             MessageLookupByLibrary.simpleMessage("¡Falló el cierre de sesión!"),
+        "str_no": MessageLookupByLibrary.simpleMessage("No"),
         "str_no_account":
             MessageLookupByLibrary.simpleMessage("¿No tienes una cuenta?"),
         "str_no_username_found": MessageLookupByLibrary.simpleMessage(
@@ -59,7 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password2":
             MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
         "str_please_disconnect": MessageLookupByLibrary.simpleMessage(
-            "¡Por favor, desconéctate primero!"),
+            "¡Por favor desconéctese primero!"),
         "str_port_empty":
             MessageLookupByLibrary.simpleMessage("Ingrese un número de puerto"),
         "str_port_range": MessageLookupByLibrary.simpleMessage(
@@ -86,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_socks_port_number": MessageLookupByLibrary.simpleMessage(
             "Número de puerto de calcetines"),
         "str_username":
-            MessageLookupByLibrary.simpleMessage("Nombre de usuario")
+            MessageLookupByLibrary.simpleMessage("Nombre de usuario"),
+        "str_yes": MessageLookupByLibrary.simpleMessage("Sí")
       };
 }

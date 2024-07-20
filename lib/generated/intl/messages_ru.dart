@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Добавить сервер"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN — это безопасный и надежный VPN-сервис, предназначенный для защиты вашей конфиденциальности в Интернете и обеспечения быстрого и стабильного соединения. Наши серверы расположены по всему миру, обеспечивая вам максимально возможную скорость и безопасность."),
+        "str_close_window": MessageLookupByLibrary.simpleMessage(
+            "Вы уверены, что хотите закрыть приложение?"),
         "str_connect": MessageLookupByLibrary.simpleMessage("Подключиться"),
         "str_disconnect": MessageLookupByLibrary.simpleMessage("Отключиться"),
         "str_email": MessageLookupByLibrary.simpleMessage("Электронная почта"),
@@ -46,8 +48,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Установить порт прослушивания"),
         "str_log": MessageLookupByLibrary.simpleMessage("Журнал"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Выход"),
-        "str_logout_fail":
-            MessageLookupByLibrary.simpleMessage("Выйти не удалось!"),
+        "str_logout_fail": MessageLookupByLibrary.simpleMessage(
+            "Не удалось выйти из системы!"),
+        "str_no": MessageLookupByLibrary.simpleMessage("Нет"),
         "str_no_account": MessageLookupByLibrary.simpleMessage("Нет аккаунта?"),
         "str_no_username_found":
             MessageLookupByLibrary.simpleMessage("Имя пользователя не найдено"),
@@ -82,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("Номер порта Socks"),
-        "str_username": MessageLookupByLibrary.simpleMessage("Имя пользователя")
+        "str_username":
+            MessageLookupByLibrary.simpleMessage("Имя пользователя"),
+        "str_yes": MessageLookupByLibrary.simpleMessage("Да")
       };
 }
