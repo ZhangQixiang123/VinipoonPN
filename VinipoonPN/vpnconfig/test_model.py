@@ -42,3 +42,4 @@ class VpnConfigSerializerTest(TestCase):
         serializer = VpnConfigSerializer(data=data)
         self.assertFalse(serializer.is_valid())
         self.assertIn('ip_address', serializer.errors)
+
