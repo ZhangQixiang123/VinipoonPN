@@ -6,5 +6,5 @@ class VpnConfig(models.Model):
     country_code = models.CharField(max_length=2, default='sg')
     ip_address = models.GenericIPAddressField()
     port = models.IntegerField()
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    userid = models.CharField(max_length=1000, default='')
     
