@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/v1/rest-auth/registration/', 
         include('rest_auth.registration.urls')),
     path("files/v1/", include("files.urls")),
+    path("vpnconfig/", include("vpnconfig.urls")),
 ]
 
 from django.conf import settings
