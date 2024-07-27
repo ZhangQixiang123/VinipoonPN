@@ -17,16 +17,17 @@ class VPNHomePage extends StatefulWidget {
 
 class _VPNHomePageState extends State<VPNHomePage> {
   late S lang;
-  int? pingTime;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final vpnModel = Provider.of<VPNConnectionModel>(context, listen: false);
-      vpnModel.setServers(VPNConnection().servers);
-      if (vpnModel.selectedServer == null) vpnModel.setSelectedServer(vpnModel.servers.keys.first);
-      // _updatePingTime(vpnModel.selectedServer);
+      if (vpnModel.isStart) {
+        vpnModel.fetchServerInfo();
+        vpnModel.setIsStart();
+      }
+      vpnModel.startPingUpdates();
     });
   }
 
@@ -45,7 +46,7 @@ class _VPNHomePageState extends State<VPNHomePage> {
 
   void _connectVPN() async {
     final vpnModel = Provider.of<VPNConnectionModel>(context, listen: false);
-    Process process = await VPNConnection().connectVPN(vpnModel.selectedServer!, vpnModel.socksPort!, vpnModel.httpPort!);
+    Process process = await VPNConnection().connectVPN(vpnModel);
     vpnModel.setV2rayProcess(process);
     vpnModel.setConnected(true);
     _addLog('Connected to ${vpnModel.selectedServer}');
@@ -116,63 +117,62 @@ class _VPNHomePageState extends State<VPNHomePage> {
                         ),
                       ),
                       SizedBox(height: 20),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Consumer<VPNConnectionModel>(
-                            builder: (context, vpnModel, child) {
-                              return DropdownButton<String>(
-                                value: vpnModel.selectedServer,
-                                onChanged: vpnModel.isConnected
-                                    ? null
-                                    : (String? newValue) {
-                                        _changeSelectedServer(newValue);
-                                      },
-                                items: vpnModel.servers.keys
-                                    .map<DropdownMenuItem<String>>((String key) {
-                                  return DropdownMenuItem<String>(
-                                    value: key,
-                                    child: Row(
-                                      children: [
-                                        SvgPicture.asset(
-                                          vpnModel.servers[key]!['flag']!,
-                                          width: 20,
-                                          height: 20,
-                                        ),
-                                        SizedBox(width: 10),
-                                        Text(key),
-                                      ],
-                                    ),
-                                  );
-                                }).toList(),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 20),
+                      
                       Consumer<VPNConnectionModel>(
                         builder: (context, vpnModel, child) {
-                          return vpnModel.isConnected
-                              ? ElevatedButton.icon(
-                                  onPressed: _disconnectVPN,
-                                  icon: Icon(Icons.link_off),
-                                  label: Text(lang.str_disconnect),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.red,
-                                    textStyle: TextStyle(fontSize: 18),
-                                  ),
-                                )
-                              : ElevatedButton.icon(
-                                  onPressed: vpnModel.selectedServer == null ? null : _connectVPN,
-                                  icon: Icon(Icons.link),
-                                  label: Text(lang.str_connect),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.green,
-                                    textStyle: TextStyle(fontSize: 18),
-                                  ),
-                                );
+                          return Column(
+                            children: [
+                              ElevatedButton(
+                                onPressed: vpnModel.isConnected ? null : (() {
+                                  vpnModel.fetchServerInfo();
+                                  vpnModel.startPingUpdates();
+                                }),
+                                child: Text(lang.str_update_server),
+                              ),
+                              SizedBox(height: 20),
+                              DataTable(
+                                columns: [
+                                  DataColumn(label: Text(lang.str_server)),
+                                  DataColumn(label: Text(lang.str_location)),
+                                  DataColumn(label: Text(lang.str_ping_ms)),
+                                  DataColumn(label: Text(lang.str_action)),
+                                ],
+                                rows: vpnModel.servers.keys.map((key) {
+                                  final pingTime = vpnModel.getPingTime(key);
+                                  return DataRow(cells: [
+                                    DataCell(Text(key)),
+                                    DataCell(SvgPicture.asset(
+                                      vpnModel.servers[key]!['flag']!,
+                                      width: 20,
+                                      height: 20,
+                                    )),
+                                    DataCell(Text(pingTime != null ? '$pingTime' : 'N/A')),
+                                    DataCell(
+                                      vpnModel.selectedServer == key && vpnModel.isConnected
+                                          ? ElevatedButton.icon(
+                                              onPressed: _disconnectVPN,
+                                              icon: Icon(Icons.link_off),
+                                              label: Text(lang.str_disconnect),
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.red,
+                                                textStyle: TextStyle(fontSize: 18),
+                                              ),
+                                            )
+                                          : ElevatedButton.icon(
+                                              onPressed: vpnModel.isConnected ? null : (vpnModel.selectedServer == key ? _connectVPN : () => _changeSelectedServer(key)),
+                                              icon: vpnModel.selectedServer == key ? Icon(Icons.link) : Icon(Icons.arrow_forward),
+                                              label: Text(vpnModel.selectedServer == key ? lang.str_connect : lang.str_select),
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: vpnModel.selectedServer == key ? Colors.green : Colors.blue,
+                                                textStyle: TextStyle(fontSize: 18),
+                                              ),
+                                            ),
+                                    ),
+                                  ]);
+                                }).toList(),
+                              ),
+                            ],
+                          );
                         },
                       ),
                     ],

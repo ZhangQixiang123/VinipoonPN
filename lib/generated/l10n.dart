@@ -489,6 +489,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Select`
+  String get str_select {
+    return Intl.message(
+      'Select',
+      name: 'str_select',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Server Info`
+  String get str_update_server {
+    return Intl.message(
+      'Update Server Info',
+      name: 'str_update_server',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Server`
+  String get str_server {
+    return Intl.message(
+      'Server',
+      name: 'str_server',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get str_location {
+    return Intl.message(
+      'Location',
+      name: 'str_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ping (ms)`
+  String get str_ping_ms {
+    return Intl.message(
+      'Ping (ms)',
+      name: 'str_ping_ms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Action`
+  String get str_action {
+    return Intl.message(
+      'Action',
+      name: 'str_action',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

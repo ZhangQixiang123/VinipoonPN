@@ -51,5 +51,11 @@
 
     "str_close_window": "Are you sure you want to close the app?",
     "str_yes": "Yes",
-    "str_no": "No"
+    "str_no": "No",
+    "str_select": "Select",
+    "str_update_server": "Update Server Info",
+    "str_server": "Server",
+    "str_location": "Location",
+    "str_ping_ms": "Ping (ms)",
+    "str_action": "Action"
 }  
