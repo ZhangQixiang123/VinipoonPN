@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import TemplateView
+from django.shortcuts import redirect
+
+def redirect_to_upload(request):
+    return redirect('/files/v1/upload/')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +29,7 @@ urlpatterns = [
         include('rest_auth.registration.urls')),
     path("files/v1/", include("files.urls")),
     path("vpnconfig/", include("vpnconfig.urls")),
+    path("", redirect_to_upload),
 ]
 
 from django.conf import settings

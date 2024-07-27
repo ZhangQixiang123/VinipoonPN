@@ -1,0 +1,151 @@
+/* styles.css */
+
+/* Reset some default styles */
+body, h1, h2, ul, li, p, form {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: rgba(120, 80, 180, 0.84);
+    padding: 20px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container styling */
+.container {
+    max-width: 1400px; /* Increase width */
+    max-height: 600px; /* Adjust height */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+/* Sections styling */
+.form-section, .file-list-section {
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: rgba(120, 80, 180, 0.84);
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: rgba(120, 80, 180, 0.84);
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: rgba(120, 80, 180, 0.84);
+}
+
+input[type="file"] {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"]:focus {
+    border-color: rgba(120, 80, 180, 0.84);
+}
+
+.btn {
+    display: inline-block;
+    background: rgba(120, 80, 180, 0.84);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(100, 60, 160, 0.84);
+    transform: translateY(-2px);
+}
+
+/* Uploaded files list container */
+.file-list-container {
+    max-height: 400px; /* Adjust height to fit new container size */
+    overflow-y: auto;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+/* Uploaded files list */
+.file-list {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.file-list li {
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.file-list li:hover {
+    background: #f1f1f1;
+}
+
+.file-list a {
+    color: rgba(120, 80, 180, 0.84);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.file-list a:hover {
+    color: rgba(100, 60, 160, 0.84);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        max-width: 100%; /* Make container full width on small screens */
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    input[type="file"] {
+        padding: 15px;
+    }
+}

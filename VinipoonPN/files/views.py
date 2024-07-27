@@ -17,7 +17,7 @@ def upload_file(request):
     else:
         form = UploadFileForm()
     files = UploadedFile.objects.all()
-    return render(request, 'upload_file.html', {'form': form, 'files': files})
+    return render(request, 'page.html', {'form': form, 'files': files})
 
 def download_file(request, file_id):
     uploaded_file = UploadedFile.objects.get(pk=file_id)
