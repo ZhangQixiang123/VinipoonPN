@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "str_about": MessageLookupByLibrary.simpleMessage("Info"),
         "str_about_us": MessageLookupByLibrary.simpleMessage("Über uns"),
+        "str_action": MessageLookupByLibrary.simpleMessage("Aktion"),
         "str_add_server":
             MessageLookupByLibrary.simpleMessage("Server hinzufügen"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
@@ -46,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_lang": MessageLookupByLibrary.simpleMessage("Sprache"),
         "str_listening_port":
             MessageLookupByLibrary.simpleMessage("Abhörport festlegen"),
+        "str_location": MessageLookupByLibrary.simpleMessage("Standort"),
         "str_log": MessageLookupByLibrary.simpleMessage("Anmelden"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Abmelden"),
         "str_logout_fail":
@@ -60,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password1": MessageLookupByLibrary.simpleMessage("Passwort"),
         "str_password2":
             MessageLookupByLibrary.simpleMessage("Passwort bestätigen"),
+        "str_ping_ms": MessageLookupByLibrary.simpleMessage("Ping (ms)"),
         "str_please_disconnect": MessageLookupByLibrary.simpleMessage(
             "Bitte trennen Sie zuerst die Verbindung!"),
         "str_port_empty": MessageLookupByLibrary.simpleMessage(
@@ -72,10 +75,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_registration_fail": MessageLookupByLibrary.simpleMessage(
             "Registrierung fehlgeschlagen!"),
         "str_save": MessageLookupByLibrary.simpleMessage("Speichern"),
+        "str_select": MessageLookupByLibrary.simpleMessage("Auswählen"),
         "str_select_lang":
             MessageLookupByLibrary.simpleMessage("Sprache auswählen"),
         "str_select_server":
             MessageLookupByLibrary.simpleMessage("VPN-Server auswählen"),
+        "str_server": MessageLookupByLibrary.simpleMessage("Server"),
         "str_server_configuration": MessageLookupByLibrary.simpleMessage(
             "Serverkonfiguration (JSON) (jetzt nur v2ray)"),
         "str_server_exists": MessageLookupByLibrary.simpleMessage(
@@ -86,6 +91,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("Registrieren"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("SOCKS-Portnummer"),
+        "str_update_server": MessageLookupByLibrary.simpleMessage(
+            "Serverinformationen aktualisieren"),
         "str_username": MessageLookupByLibrary.simpleMessage("Benutzername"),
         "str_yes": MessageLookupByLibrary.simpleMessage("Ja")
       };

@@ -51,5 +51,11 @@
     
     "str_close_window": "您确定要关闭应用程序吗？",
     "str_yes": "是",
-    "str_no": "否"
+    "str_no": "否",
+    "str_select": "选择",
+    "str_update_server": "更新服务器信息",
+    "str_server": "服务器",
+    "str_location": "位置",
+    "str_ping_ms": "Ping (ms)",
+    "str_action": "操作"
     }

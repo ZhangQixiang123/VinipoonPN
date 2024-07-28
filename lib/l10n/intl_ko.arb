@@ -44,12 +44,18 @@
    
     "str_port_empty": "포트 번호를 입력하세요",
     "str_port_valid": "유효한 숫자를 입력하세요",
-    "str_port_range": "포트 번호는 1024에서 65535 사이여야 합니다.",
+    "str_port_range": "포트 번호는 1024에서 65535 사이여야 합니다",
    
     "str_socks_port_number": "양말 포트 번호",
     "str_http_port_number": "HTTP 포트 번호",
    
     "str_close_window": "정말 앱을 닫으시겠어요?",
     "str_yes": "예",
-    "str_no": "아니요"
+    "str_no": "아니요",
+    "str_select": "선택",
+    "str_update_server": "서버 정보 업데이트",
+    "str_server": "서버",
+    "str_location": "위치",
+    "str_ping_ms": "핑(ms)",
+    "str_action": "작업"
    }

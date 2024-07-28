@@ -83,7 +83,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return LoginPage();
-    // return HomePage();
+    // return LoginPage();
+    return HomePage();
   }
 }

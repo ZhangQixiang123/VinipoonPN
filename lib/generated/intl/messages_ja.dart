@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "str_about": MessageLookupByLibrary.simpleMessage("会社概要"),
         "str_about_us": MessageLookupByLibrary.simpleMessage("会社概要"),
+        "str_action": MessageLookupByLibrary.simpleMessage("アクション"),
         "str_add_server": MessageLookupByLibrary.simpleMessage("サーバーの追加"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN は、オンライン プライバシーを保護し、高速で安定した接続を確保します。当社のサーバーは世界中に配置されており、可能な限り最高の速度とセキュリティを提供します。"),
@@ -44,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_lang": MessageLookupByLibrary.simpleMessage("言語"),
         "str_listening_port":
             MessageLookupByLibrary.simpleMessage("リスニングポートの設定"),
+        "str_location": MessageLookupByLibrary.simpleMessage("場所"),
         "str_log": MessageLookupByLibrary.simpleMessage("ログイン"),
         "str_logout": MessageLookupByLibrary.simpleMessage("ログアウト"),
         "str_logout_fail":
@@ -57,21 +59,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password": MessageLookupByLibrary.simpleMessage("パスワード"),
         "str_password1": MessageLookupByLibrary.simpleMessage("パスワード"),
         "str_password2": MessageLookupByLibrary.simpleMessage("パスワードの確認"),
+        "str_ping_ms": MessageLookupByLibrary.simpleMessage("Ping (ms)"),
         "str_please_disconnect":
             MessageLookupByLibrary.simpleMessage("まず切断してください！"),
         "str_port_empty":
             MessageLookupByLibrary.simpleMessage("ポート番号を入力してください"),
         "str_port_range": MessageLookupByLibrary.simpleMessage(
-            "ポート番号は 1024 から 65535 までの範囲でなければなりません"),
+            "ポート番号は 1024 から 65535 の間でなければなりません"),
         "str_port_valid":
             MessageLookupByLibrary.simpleMessage("有効な番号を入力してください"),
         "str_profile": MessageLookupByLibrary.simpleMessage("プロフィール"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("登録に失敗しました！"),
         "str_save": MessageLookupByLibrary.simpleMessage("保存"),
+        "str_select": MessageLookupByLibrary.simpleMessage("選択"),
         "str_select_lang": MessageLookupByLibrary.simpleMessage("言語を選択"),
         "str_select_server":
             MessageLookupByLibrary.simpleMessage("VPN サーバーの選択"),
+        "str_server": MessageLookupByLibrary.simpleMessage("サーバー"),
         "str_server_configuration": MessageLookupByLibrary.simpleMessage(
             "サーバー構成 (JSON) (現在は v2ray のみ)"),
         "str_server_exists":
@@ -82,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("サインアップ"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("Socks ポート番号"),
+        "str_update_server": MessageLookupByLibrary.simpleMessage("サーバー情報の更新"),
         "str_username": MessageLookupByLibrary.simpleMessage("ユーザー名"),
         "str_yes": MessageLookupByLibrary.simpleMessage("はい")
       };

@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_about": MessageLookupByLibrary.simpleMessage("Acerca de"),
         "str_about_us":
             MessageLookupByLibrary.simpleMessage("Acerca de nosotros"),
+        "str_action": MessageLookupByLibrary.simpleMessage("Acción"),
         "str_add_server":
             MessageLookupByLibrary.simpleMessage("Agregar servidor"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
@@ -47,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_lang": MessageLookupByLibrary.simpleMessage("Idioma"),
         "str_listening_port": MessageLookupByLibrary.simpleMessage(
             "Establecer puerto de escucha"),
+        "str_location": MessageLookupByLibrary.simpleMessage("Ubicación"),
         "str_log": MessageLookupByLibrary.simpleMessage("Registro"),
         "str_logout": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
         "str_logout_fail":
@@ -61,8 +63,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password1": MessageLookupByLibrary.simpleMessage("Contraseña"),
         "str_password2":
             MessageLookupByLibrary.simpleMessage("Confirmar contraseña"),
+        "str_ping_ms": MessageLookupByLibrary.simpleMessage("Ping (ms)"),
         "str_please_disconnect": MessageLookupByLibrary.simpleMessage(
-            "¡Por favor desconéctese primero!"),
+            "¡Por favor, desconéctate primero!"),
         "str_port_empty":
             MessageLookupByLibrary.simpleMessage("Ingrese un número de puerto"),
         "str_port_range": MessageLookupByLibrary.simpleMessage(
@@ -73,10 +76,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("¡Error en el registro!"),
         "str_save": MessageLookupByLibrary.simpleMessage("Guardar"),
+        "str_select": MessageLookupByLibrary.simpleMessage("Seleccionar"),
         "str_select_lang":
             MessageLookupByLibrary.simpleMessage("Seleccionar idioma"),
         "str_select_server":
             MessageLookupByLibrary.simpleMessage("Seleccione un servidor VPN"),
+        "str_server": MessageLookupByLibrary.simpleMessage("Servidor"),
         "str_server_configuration": MessageLookupByLibrary.simpleMessage(
             "Configuración del servidor (JSON) (v2ray solo ahora)"),
         "str_server_exists": MessageLookupByLibrary.simpleMessage(
@@ -88,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("Registrarse"),
         "str_socks_port_number": MessageLookupByLibrary.simpleMessage(
             "Número de puerto de calcetines"),
+        "str_update_server": MessageLookupByLibrary.simpleMessage(
+            "Actualizar información del servidor"),
         "str_username":
             MessageLookupByLibrary.simpleMessage("Nombre de usuario"),
         "str_yes": MessageLookupByLibrary.simpleMessage("Sí")

@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "str_about": MessageLookupByLibrary.simpleMessage("정보"),
         "str_about_us": MessageLookupByLibrary.simpleMessage("회사 소개"),
+        "str_action": MessageLookupByLibrary.simpleMessage("작업"),
         "str_add_server": MessageLookupByLibrary.simpleMessage("서버 추가"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN은 귀하의 온라인 개인 정보를 보호하고 빠르고 안정적인 연결을 보장하도록 설계된 안전하고 안정적인 VPN 서비스입니다. 당사 서버는 전 세계에 위치하여 최고의 속도와 보안을 제공합니다."),
@@ -42,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("HTTP 포트 번호"),
         "str_lang": MessageLookupByLibrary.simpleMessage("언어"),
         "str_listening_port": MessageLookupByLibrary.simpleMessage("수신 포트 설정"),
+        "str_location": MessageLookupByLibrary.simpleMessage("위치"),
         "str_log": MessageLookupByLibrary.simpleMessage("로그"),
         "str_logout": MessageLookupByLibrary.simpleMessage("로그아웃"),
         "str_logout_fail": MessageLookupByLibrary.simpleMessage("로그아웃 실패!"),
@@ -53,18 +55,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password": MessageLookupByLibrary.simpleMessage("비밀번호"),
         "str_password1": MessageLookupByLibrary.simpleMessage("비밀번호"),
         "str_password2": MessageLookupByLibrary.simpleMessage("비밀번호 확인"),
+        "str_ping_ms": MessageLookupByLibrary.simpleMessage("핑(ms)"),
         "str_please_disconnect":
             MessageLookupByLibrary.simpleMessage("먼저 연결을 끊으세요!"),
         "str_port_empty": MessageLookupByLibrary.simpleMessage("포트 번호를 입력하세요"),
         "str_port_range": MessageLookupByLibrary.simpleMessage(
-            "포트 번호는 1024에서 65535 사이여야 합니다."),
+            "포트 번호는 1024에서 65535 사이여야 합니다"),
         "str_port_valid": MessageLookupByLibrary.simpleMessage("유효한 숫자를 입력하세요"),
         "str_profile": MessageLookupByLibrary.simpleMessage("프로필"),
         "str_registration_fail":
             MessageLookupByLibrary.simpleMessage("등록에 실패했습니다!"),
         "str_save": MessageLookupByLibrary.simpleMessage("저장"),
+        "str_select": MessageLookupByLibrary.simpleMessage("선택"),
         "str_select_lang": MessageLookupByLibrary.simpleMessage("언어 선택"),
         "str_select_server": MessageLookupByLibrary.simpleMessage("VPN 서버 선택"),
+        "str_server": MessageLookupByLibrary.simpleMessage("서버"),
         "str_server_configuration":
             MessageLookupByLibrary.simpleMessage("서버 구성(JSON)(현재 v2ray만 해당)"),
         "str_server_exists":
@@ -75,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("가입"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("양말 포트 번호"),
+        "str_update_server": MessageLookupByLibrary.simpleMessage("서버 정보 업데이트"),
         "str_username": MessageLookupByLibrary.simpleMessage("사용자 이름"),
         "str_yes": MessageLookupByLibrary.simpleMessage("예")
       };

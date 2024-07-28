@@ -47,7 +47,7 @@
     
     "str_port_valid": "有効な番号を入力してください",
     
-    "str_port_range": "ポート番号は 1024 から 65535 までの範囲でなければなりません",
+    "str_port_range": "ポート番号は 1024 から 65535 の間でなければなりません",
     
     "str_socks_port_number": "Socks ポート番号",
     
@@ -57,5 +57,17 @@
     
     "str_yes": "はい",
     
-    "str_no": "いいえ"
+    "str_no": "いいえ",
+    
+    "str_select": "選択",
+    
+    "str_update_server": "サーバー情報の更新",
+    
+    "str_server": "サーバー",
+    
+    "str_location": "場所",
+    
+    "str_ping_ms": "Ping (ms)",
+    
+    "str_action": "アクション"
     }

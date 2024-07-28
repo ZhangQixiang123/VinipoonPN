@@ -31,7 +31,7 @@
     "str_server_configuration": "伺服器設定（JSON）（現在僅限 v2ray）",
     "str_save": "儲存",
     "str_fill_blank": "請填入所有欄位",
-    "str_please_disconnect": "請先斷開連線！",
+    "str_please_disconnect": "請先斷線！",
    
     "str_select_lang": "選擇語言",
    
@@ -51,5 +51,11 @@
    
     "str_close_window": "您確定要關閉應用程式嗎？",
     "str_yes": "是",
-    "str_no": "否"
+    "str_no": "否",
+    "str_select": "選擇",
+    "str_update_server": "更新伺服器資訊",
+    "str_server": "伺服器",
+    "str_location": "位置",
+    "str_ping_ms": "Ping（毫秒）",
+    "str_action": "動作"
    }

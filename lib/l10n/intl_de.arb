@@ -51,5 +51,11 @@
     
     "str_close_window": "Möchten Sie die App wirklich schließen?",
     "str_yes": "Ja",
-    "str_no": "Nein"
+    "str_no": "Nein",
+    "str_select": "Auswählen",
+    "str_update_server": "Serverinformationen aktualisieren",
+    "str_server": "Server",
+    "str_location": "Standort",
+    "str_ping_ms": "Ping (ms)",
+    "str_action": "Aktion"
     }

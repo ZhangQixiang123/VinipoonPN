@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:vinipoo_p_n/global.dart';
 
 class VPNConnectionModel extends ChangeNotifier {
   Process? _v2rayProcess;
@@ -114,7 +115,7 @@ class VPNConnectionModel extends ChangeNotifier {
     print("OK");
     stopPingUpdates();
     try {
-      final response = await http.get(Uri.parse('http://127.0.0.1:8000/vpnconfig/api/all/'));
+      final response = await http.get(Uri.parse('$server/vpnconfig/api/all/'));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body) as List<dynamic>;
         final servers = <String, Map<String, String>>{};

@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "str_about": MessageLookupByLibrary.simpleMessage("关于"),
         "str_about_us": MessageLookupByLibrary.simpleMessage("关于我们"),
+        "str_action": MessageLookupByLibrary.simpleMessage("操作"),
         "str_add_server": MessageLookupByLibrary.simpleMessage("添加服务器"),
         "str_app_about": MessageLookupByLibrary.simpleMessage(
             "VinipooPN 是一种安全可靠的 VPN 服务，旨在保护您的在线隐私并确保快速稳定的连接。我们的服务器遍布全球，为您提供最佳的速度和安全性。"),
@@ -41,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("HTTP 端口号"),
         "str_lang": MessageLookupByLibrary.simpleMessage("语言"),
         "str_listening_port": MessageLookupByLibrary.simpleMessage("设置监听端口"),
+        "str_location": MessageLookupByLibrary.simpleMessage("位置"),
         "str_log": MessageLookupByLibrary.simpleMessage("日志"),
         "str_logout": MessageLookupByLibrary.simpleMessage("注销"),
         "str_logout_fail": MessageLookupByLibrary.simpleMessage("注销失败！"),
@@ -51,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_password": MessageLookupByLibrary.simpleMessage("密码"),
         "str_password1": MessageLookupByLibrary.simpleMessage("密码"),
         "str_password2": MessageLookupByLibrary.simpleMessage("确认密码"),
+        "str_ping_ms": MessageLookupByLibrary.simpleMessage("Ping (ms)"),
         "str_please_disconnect":
             MessageLookupByLibrary.simpleMessage("请先断开连接！"),
         "str_port_empty": MessageLookupByLibrary.simpleMessage("请输入端口号"),
@@ -60,8 +63,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_profile": MessageLookupByLibrary.simpleMessage("个人资料"),
         "str_registration_fail": MessageLookupByLibrary.simpleMessage("注册失败！"),
         "str_save": MessageLookupByLibrary.simpleMessage("保存"),
+        "str_select": MessageLookupByLibrary.simpleMessage("选择"),
         "str_select_lang": MessageLookupByLibrary.simpleMessage("选择语言"),
         "str_select_server": MessageLookupByLibrary.simpleMessage("选择 VPN 服务器"),
+        "str_server": MessageLookupByLibrary.simpleMessage("服务器"),
         "str_server_configuration":
             MessageLookupByLibrary.simpleMessage("服务器配置（JSON）（目前仅限 v2ray）"),
         "str_server_exists": MessageLookupByLibrary.simpleMessage("服务器名称已存在！"),
@@ -71,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "str_sign_up": MessageLookupByLibrary.simpleMessage("注册"),
         "str_socks_port_number":
             MessageLookupByLibrary.simpleMessage("Socks 端口号"),
+        "str_update_server": MessageLookupByLibrary.simpleMessage("更新服务器信息"),
         "str_username": MessageLookupByLibrary.simpleMessage("用户名"),
         "str_yes": MessageLookupByLibrary.simpleMessage("是")
       };

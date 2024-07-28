@@ -31,7 +31,7 @@
     "str_server_configuration": "Configuración del servidor (JSON) (v2ray solo ahora)",
     "str_save": "Guardar",
     "str_fill_blank": "Por favor, complete todos los campos",
-    "str_please_disconnect": "¡Por favor desconéctese primero!",
+    "str_please_disconnect": "¡Por favor, desconéctate primero!",
    
     "str_select_lang": "Seleccionar idioma",
    
@@ -51,5 +51,11 @@
    
     "str_close_window": "¿Estás seguro de que quieres cerrar la aplicación?",
     "str_yes": "Sí",
-    "str_no": "No"
+    "str_no": "No",
+    "str_select": "Seleccionar",
+    "str_update_server": "Actualizar información del servidor",
+    "str_server": "Servidor",
+    "str_location": "Ubicación",
+    "str_ping_ms": "Ping (ms)",
+    "str_action": "Acción"
    }

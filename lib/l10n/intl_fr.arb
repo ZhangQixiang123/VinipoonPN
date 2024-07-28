@@ -42,7 +42,7 @@
     "str_no_username_found": "Aucun nom d'utilisateur trouvé",
     "str_app_about": "VinipooPN est un service VPN sécurisé et fiable conçu pour protéger votre confidentialité en ligne et garantir une connexion rapide et stable. Nos serveurs sont situés dans le monde entier, vous offrant les meilleures vitesses et sécurité possibles.",
    
-    "str_port_empty": "Veuillez entrer un numéro de port",
+    "str_port_empty": "Veuillez saisir un numéro de port",
     "str_port_valid": "Veuillez entrer un numéro valide",
     "str_port_range": "Le numéro de port doit être compris entre 1024 et 65535",
    
@@ -51,5 +51,11 @@
    
     "str_close_window": "Etes-vous sûr de vouloir fermer l'application ?",
     "str_yes": "Oui",
-    "str_no": "Non"
+    "str_no": "Non",
+    "str_select": "Sélectionner",
+    "str_update_server": "Mettre à jour les informations sur le serveur",
+    "str_server": "Serveur",
+    "str_location": "Emplacement",
+    "str_ping_ms": "Ping (ms)",
+    "str_action": "Action"
    }
