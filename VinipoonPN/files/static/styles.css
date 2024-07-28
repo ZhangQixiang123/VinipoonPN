@@ -94,7 +94,7 @@ input[type="file"]:focus {
 
 /* Uploaded files list container */
 .file-list-container {
-    max-height: 400px; /* Adjust height to fit new container size */
+    max-height: 300px;
     overflow-y: auto;
     margin-top: 20px;
     border: 1px solid #ddd;

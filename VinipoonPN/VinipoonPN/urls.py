@@ -29,7 +29,7 @@ urlpatterns = [
         include('rest_auth.registration.urls')),
     path("files/v1/", include("files.urls")),
     path("vpnconfig/", include("vpnconfig.urls")),
-    path("", redirect_to_upload),
+    path("", redirect_to_upload, name='home'),
 ]
 
 from django.conf import settings
