@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download VinipooPN</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Download VinipooPN</h1>
+        
+        <div class="form-section">
+            <h2>Upload New Version</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_file">File:</label>
+                    <input type="file" name="file" required id="id_file">
+                </div>
+                <button type="submit" class="btn">Upload</button>
+            </form>
+        </div>
+
+        <div class="file-list-section">
+            <h2>Releases</h2>
+            <div class="file-list-container">
+                <ul class="file-list">
+                    {% for file in files %}
+                        <li><a href="{% url 'download_file' file.id %}">{{ file.file.name }}</a></li>
+                    {% empty %}
+                        <li>No files uploaded yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
