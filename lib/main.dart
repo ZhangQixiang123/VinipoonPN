@@ -11,14 +11,13 @@ import 'package:vinipoo_p_n/pages/SettingsPage.dart';
 import 'package:vinipoo_p_n/pages/SignUpPage.dart';
 import 'package:vinipoo_p_n/pages/VPNHomePage.dart';
 import 'generated/l10n.dart';
-// import 'pages/LoginPage.dart';
 
 void main() {
   var locale = Locale.fromSubtags(languageCode: 'en');
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => VPNConnectionModel())
+        ChangeNotifierProvider(create: (_) => VPNConnectionModel()),
       ],
       child: VinipooPNApp(locale),
     ),
@@ -28,18 +27,13 @@ void main() {
 class VinipooPNApp extends StatelessWidget {
   final Locale locale;
 
-  const VinipooPNApp(this.locale, {super.key});
+  const VinipooPNApp(this.locale, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'VinipooPN',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.purple,
-      //   visualDensity: VisualDensity.adaptivePlatformDensity,
-      // ),
-      home: LoginPage(),
-      // home: HomePage(),
+      home: MyApp(locale: locale),
       routes: {
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignupPage(),
@@ -48,7 +42,7 @@ class VinipooPNApp extends StatelessWidget {
         '/home': (context) => HomePage(),
         '/about': (context) => AboutPage(),
         '/profile': (context) => ProfilePage(),
-        '/VPNhome': (context) => VPNHomePage()
+        '/VPNhome': (context) => VPNHomePage(),
       },
       localizationsDelegates: const [
         AppLocalizationDelegate(),
@@ -56,8 +50,40 @@ class VinipooPNApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const AppLocalizationDelegate().supportedLocales,
-      locale: this.locale,
+      supportedLocales: AppLocalizationDelegate().supportedLocales,
+      locale: locale,
     );
+  }
+}
+
+class MyApp extends StatefulWidget {
+  final Locale locale;
+
+  const MyApp({required this.locale, Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  late S lang;
+  _updateLang() async {
+    AppLocalizationDelegate delegate = const AppLocalizationDelegate();
+    Locale myLocale = Localizations.localeOf(context);
+    lang = await delegate.load(myLocale);
+    setState(() {});
+  }
+  
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _updateLang();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return LoginPage();
+    // return HomePage();
   }
 }
